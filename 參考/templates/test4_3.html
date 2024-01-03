@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <title>home_subscribe</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style type="text/css">
+        img {
+            object-fit: contain;
+            width: 500px;
+            height: 350px;
+        }
+    </style>
+    
+</head>
+<body>
+    {% if res[0] == '0'%}
+    <script>
+        alert("login again");
+        window.location.href = "/login";
+    </script>
+    {%endif%}
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="li1">會員列表</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" id="li2">修改個人資料</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" id="li3">訂閱</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" id="li4">檔案總管</a>
+                    </li>
+                </ul>
+                <ul class="nav justify-content-end">
+                    <li class="nav-item">
+                        <a class="nav-link active" id = "hi">hi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/login">登出</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <form method="POST" id="myform3" action='/home/sub/{{acc2}}'>
+        <div class="d-grid gap-2 col-6 mx-auto">
+            <input type="submit" value="訂閱" id="subscribe" name="sub">
+        </div> 
+        <script> // 看這裡面就好
+            document.getElementById('myform3').addEventListener('submit', function (e) {
+                e.preventDefault(); // 阻止表單提交
+                var formData = new FormData(this);
+    
+                fetch('/home/sub/{{acc2}}', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.text())
+                .then(data => {
+                    var sub = document.getElementById("subscribe");
+                    var pic = document.getElementById("carouselExampleIndicators");
+                    var responseData = JSON.parse(data);
+                    if (responseData.res == "0"){
+                        alert("login again");
+                        window.location.href = "/login";
+                    }
+                    else if (responseData.res == "1"){
+                        sub.value = "訂閱";
+                        pic.style.display = "none";
+                    }
+                    else if (responseData.res == "2"){
+                        sub.value = "取消訂閱";
+                        pic.style.display = "block";
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+            });
+        </script> 
+    </form>
+    
+
+    <div id="carouselExampleIndicators" class="carousel carousel-dark slide" style="display:block;">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="{{url_for('static', filename='image1.jpg')}}" class="d-block w-100">
+          </div>
+          <div class="carousel-item">
+            <img src="{{url_for('static', filename='image2.jpg')}}" class="d-block w-100">
+          </div>
+          <div class="carousel-item">
+            <img src="{{url_for('static', filename='image3.gif')}}" class="d-block w-100">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <script>
+        var sub = document.getElementById("subscribe");
+        var pic = document.getElementById("carouselExampleIndicators");
+        if("{{res[1]}}" == "T"){
+            sub.value = "取消訂閱";
+            pic.style.display = "block";
+        }
+        else{
+            pic.style.display = "none";
+        }
+    </script>
+
+    <script>
+        var url = location.href;
+        var accountB = "";
+        var hi = document.getElementById("hi");
+        accountB = url.split('/');
+        
+        if (accountB[1] == "home"){
+            accountB = ""
+        }
+        else{
+            accountB = accountB[accountB.length-1]
+        }
+        hi.innerHTML = "hi "+accountB;
+        
+
+        var li1 = document.getElementById("li1");
+        li1.href = "/home/members/"+accountB;
+        var li2 = document.getElementById("li2");
+        li2.href = "/home/update/"+accountB;
+        var li3 = document.getElementById("li3");
+        li3.href = "/home/sub/"+accountB;
+        var li4 = document.getElementById("li4");
+        li4.href = "/home/file/"+accountB;
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    
+</body>
+</html>

@@ -1,0 +1,63 @@
+<html>
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+        <title>log in</title>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    </head>
+    <body>
+        <div class="container text-center">log in</div>
+        <form id = "form1" method="POST" action='/login'>
+            <div class="row justify-content-around">
+                <div class="col-11">
+                    <label>帳號: </label>
+                    <input type="text" class="form-control" placeholder="account" id="acc" name="acc">
+                </div>
+                <div class="col-11">
+                    <label>密碼: </label>
+                    <input type="text" class="form-control" placeholder="password" id="pas" name="pas">
+                </div>
+            </div>
+            <div class="container text-center">
+                <div class="col-11">
+                    <input type="submit" value="登入" id = "login" name="submit">
+                    <a href="signup">註冊</a>
+                </div>
+            </div>
+
+            <script>
+                document.getElementById('form1').addEventListener('submit', function (e) {
+                    e.preventDefault(); // 阻止表單提交
+                    var formData = new FormData(this);
+
+                    fetch('/login', {
+                        method: 'POST',
+                        body: formData
+                    })
+                    .then(response => response.text())
+                    .then(data => {
+                        var account = document.getElementById("acc");
+                        var pass = document.getElementById("pas");
+                        var responseData = JSON.parse(data);
+                        if (responseData.res == "0"){
+                            alert("account not exist");
+                            pass.value = "";
+                            account.value = "";
+                        }
+                        else if (responseData.res == "-1"){
+                            alert("password wrong");
+                            pass.value = "";
+                        }
+                        else if (responseData.res == "1"){
+                            window.location.href = "/home/"+responseData.acc;
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
+                });
+            </script>
+        </form>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+        <!-- <script src = "js/test2.js"></script> -->
+    </body>
+</html>

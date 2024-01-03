@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>sign up</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    </head>
+    
+    <body>
+        <div class="container text-center">sign up</div>
+        <form id = "form2" method="POST" action='/signup'>
+            <div class="row justify-content-around">
+                <div class="col-11">
+                    <label>帳號： </label>
+                    <input type="text" class="form-control" placeholder="account" id="acc2" name="acc2">
+                </div>
+                <div class="col-11">
+                    <label>密碼： </label>
+                    <input type="text" class="form-control" placeholder="password" id="pas2" name="pas2">
+                </div>
+                <div class="col-11">
+                    <label>電子信箱： </label>
+                    <input type="text" class="form-control" placeholder="email" id="mai" name="mai">
+                </div>
+                <div class="col-11">
+                    <label>性別: </label>
+                    <input type="radio" id="male" name="gender" value="male">
+                    <label>男</label>
+                    <input type="radio" id="female" name="gender" value="female">
+                    <label>女</label>
+                    <input type="radio" id="other" name="gender" value="other">
+                    <label>其他</label>
+                </div>
+                <div class="col-11">
+                    <label>喜好顏色: </label>
+                    <input type="color" class="form-control" id = "col" name="col">
+                </div>
+                
+            </div>
+            <div class="container text-center">
+                <div class="col-11">
+                    <input type="submit" value="註冊" name="submit2">
+                    <a href="login">登入</a>
+                </div>
+            </div>
+            <script>
+                document.getElementById('form2').addEventListener('submit', function (e) {
+                    e.preventDefault(); // 阻止表單提交
+                    var formData = new FormData(this);
+        
+                    fetch('/signup', {
+                        method: 'POST',
+                        body: formData
+                    })
+                    .then(response => response.text())
+                    .then(data => {
+                        var account = document.getElementById("acc2");
+                        console.log(data)
+                        var responseData = JSON.parse(data);
+                        if (responseData.res == "0"){
+                            alert("account exist");
+                            account.value = "";
+                        }
+                        else if (responseData.res == "-1"){
+                            alert("input imcomplete");
+                        }
+                        else if (responseData.res == "1"){
+                            window.location.href = "/home/"+responseData.acc;
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
+                });
+            </script>
+        </form>
+        
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+        <!-- <script src = "js/test3.js"></script> -->
+    </body>
+</html>
