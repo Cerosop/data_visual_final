@@ -10,4 +10,4 @@ return jsonify(data)
 
 你們的html寫在外層的templates裡
 
-# 記得要時常pull，務必記得，push也是，不然會車禍
+### 記得要時常pull，push也是，不然會車禍，車禍就把你剛剛改的地方先複製然後刪掉，先pull下來再改
