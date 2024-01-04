@@ -39,7 +39,7 @@ def login():
 
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
-    con = lite.connect('h0 dl3/mydb.db')
+    con = lite.connect('參考/mydb.db')
     acc = ''
     if request.method == 'POST':
         acc = request.values['acc2']
