@@ -5,7 +5,8 @@ app = Flask(__name__)
 
 @app.route('/')
 def redir():
-    return redirect('/page1')
+    return redirect('/main')
+
 
 @app.route('/main', methods=['GET', 'POST'])
 def page1():
@@ -19,9 +20,7 @@ def page1():
             cur.execute(f"select {x}, count(*) as count from data group by {x}")
             con.commit()
             res = cur.fetchall()
-            print(res)
-            res = dict(res)
-            
+            res = sorted(res, key=lambda x: x[1], reverse=True)
             print(res)
             data = {'res': '-1', 'data': res}
             return jsonify(data)
