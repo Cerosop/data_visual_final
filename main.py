@@ -19,9 +19,11 @@ def page1():
             cur.execute(f"select {x}, count(*) as count from data group by {x}")
             con.commit()
             res = cur.fetchall()
-            res = dict(res)
             print(res)
-            data = {'res': '-1'}
+            res = dict(res)
+            
+            print(res)
+            data = {'res': '-1', 'data': res}
             return jsonify(data)
     else:    
         return render_template('main.html')

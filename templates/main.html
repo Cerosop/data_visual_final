@@ -19,7 +19,7 @@
 
     <form method="POST" id="myform3" action='/main'>
         <div class="d-grid gap-2 col-6 mx-auto">
-            <input type="submit" value="訂閱" id="subscribe" name="sub">
+            <input type="submit" value="資料" id="subscribe" name="sub">
         </div> 
         <script>
             document.getElementById('myform3').addEventListener('submit', function (e) {
@@ -36,6 +36,7 @@
                 .then(data => {
                     var responseData = JSON.parse(data);
                     if (responseData.res == "-1"){
+                        console.log(responseData.data)
                         alert("login again");
                     }
                 })
