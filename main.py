@@ -7,7 +7,7 @@ app = Flask(__name__)
 def redir():
     return redirect('/page1')
 
-@app.route('/page1', methods=['GET', 'POST'])
+@app.route('/main', methods=['GET', 'POST'])
 def page1():
     con = lite.connect('mydb.db')
     if request.method == 'POST':
@@ -24,7 +24,7 @@ def page1():
             data = {'res': '-1'}
             return jsonify(data)
     else:    
-        return render_template('page1.html')
+        return render_template('main.html')
 
 
 if __name__ == '__main__':
