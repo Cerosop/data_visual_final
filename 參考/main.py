@@ -13,7 +13,7 @@ def redir():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    con = lite.connect('期中/mydb.db')
+    con = lite.connect('參考/mydb.db')
     acc = ''
     if request.method == 'POST':
         acc = request.values['acc']
@@ -39,7 +39,7 @@ def login():
 
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
-    con = lite.connect('期中/mydb.db')
+    con = lite.connect('h0 dl3/mydb.db')
     acc = ''
     if request.method == 'POST':
         acc = request.values['acc2']
@@ -77,7 +77,7 @@ def home(acc = None):
 @app.route('/home/members/', methods=['GET', 'POST'])
 @app.route('/home/members/<acc>', methods=['GET', 'POST'])
 def members(acc = None):
-    con = lite.connect('期中/mydb.db')
+    con = lite.connect('參考/mydb.db')
     
     with con:
         cur=con.cursor()
@@ -100,7 +100,7 @@ def members(acc = None):
 @app.route('/home/sub/', methods=['GET', 'POST'])
 @app.route('/home/sub/<acc>', methods=['GET', 'POST'])
 def sub(acc = None):
-    con = lite.connect('期中/mydb.db')
+    con = lite.connect('參考/mydb.db')
     if request.method == 'POST':
         
         with con:
