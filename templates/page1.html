@@ -6,9 +6,20 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<style>
-			table {
+			/* 添加动画效果到表格 */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+table {
     width: 100%;
     border-collapse: collapse;
+    /* 初始化表格透明度和动画 */
+    opacity: 0;
+    animation-name: fadeIn;
+    animation-duration: 2s;
+    animation-fill-mode: forwards; /* 保持动画结束时的状态 */
 }
 
 th, td {
@@ -36,11 +47,7 @@ th {
 			<div id="main">
 
 				<header class="major container medium">
-					<h2>We conduct experiments that
-					<br />
-					may or may not seriously
-					<br />
-					break the universe</h2>
+					<h2>我們首先透過表格進行比對</h2>
 					<!--
 					<p>Tellus erat mauris ipsum fermentum<br />
 					etiam vivamus nunc nibh morbi.</p>
@@ -61,10 +68,22 @@ th {
 								<td>資料2</td>
 								<td>資料3</td>
 							</tr>
-							<!-- 更多行數據 -->
+							<!-- 添加更多行數據 -->
+							<tr>
+								<td>資料4</td>
+								<td>資料5</td>
+								<td>資料6</td>
+							</tr>
+							<tr>
+								<td>資料7</td>
+								<td>資料8</td>
+								<td>資料9</td>
+							</tr>
+							<!-- 可以继续添加更多行，根据需要 -->
 						</tbody>
 					</table>
 				</div>
+				
 				
 				
 				<div class="box container">
@@ -89,6 +108,12 @@ th {
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script>
+				document.addEventListener('DOMContentLoaded', (event) => {
+					document.querySelector('table').style.opacity = 1;
+				});
+				</script>
+				
 
 	</body>
 </html>
