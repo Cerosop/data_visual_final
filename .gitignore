@@ -3,3 +3,4 @@ mydb.db
 參考/mydb.db
 .vscode
 __pycache__/
+*.pdf
