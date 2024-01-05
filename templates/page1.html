@@ -5,33 +5,268 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<style>
+			/* 添加动画效果到表格 */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    /* 初始化表格透明度和动画 */
+    opacity: 0;
+    animation-name: fadeIn;
+    animation-duration: 2s;
+    animation-fill-mode: forwards; /* 保持动画结束时的状态 */
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+		</style>
 	</head>
 	<body class="is-preload">
 
 		<!-- Header -->
 			<div id="header">
 				<span class="logo icon fa-paper-plane"></span>
-				<h1>Hi. This is Directive.</h1>
-				<p>A responsive HTML5 + CSS3 site template designed by <a href="http://html5up.net">HTML5 UP</a>
-				<br />
-				and released for free under the <a href="http://html5up.net/license">Creative Commons license</a>.</p>
+				<h1>表格與跑條</h1>
+				
 			</div>
 
 		<!-- Main -->
 			<div id="main">
 
 				<header class="major container medium">
-					<h2>We conduct experiments that
-					<br />
-					may or may not seriously
-					<br />
-					break the universe</h2>
+					<h2>我們首先透過表格進行比對</h2>
 					<!--
 					<p>Tellus erat mauris ipsum fermentum<br />
 					etiam vivamus nunc nibh morbi.</p>
 					-->
 				</header>
+				<div class="box container">
+					<table>
+						<thead>
+							<tr>
+								<th>年份</th>
+								<th>姓名</th>
+								<th>資產</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>2011</td>
+								<td>資料2</td>
+								<td>資料3</td>
+							</tr>
+							<tr>
+								<td>2011</td>
+								<td>資料2</td>
+								<td>資料3</td>
+							</tr>
+							<tr>
+								<td>2011</td>
+								<td>資料2</td>
+								<td>資料3</td>
+							</tr>
+							<!-- 添加更多行數據 -->
+							<tr>
+								<td>2012</td>
+								<td>資料5</td>
+								<td>資料6</td>
+							</tr>
+							<tr>
+								<td>2012</td>
+								<td>資料5</td>
+								<td>資料6</td>
+							</tr>
+							<tr>
+								<td>2012</td>
+								<td>資料5</td>
+								<td>資料6</td>
+							</tr>
+							<tr>
+								<td>2013</td>
+								<td>資料8</td>
+								<td>資料9</td>
+							</tr>
+							<tr>
+								<td>2013</td>
+								<td>資料8</td>
+								<td>資料9</td>
+							</tr>
+							<tr>
+								<td>2013</td>
+								<td>資料8</td>
+								<td>資料9</td>
+							</tr>
+							<tr>
+								<td>2014</td>
+								<td>資料8</td>
+								<td>資料9</td>
+							</tr>
+							<tr>
+								<td>2014</td>
+								<td>資料8</td>
+								<td>資料9</td>
+							</tr>
+							<tr>
+								<td>2014</td>
+								<td>資料8</td>
+								<td>資料9</td>
+							</tr>
+							<tr>
+								<td>2015</td>
+								<td>資料8</td>
+								<td>資料9</td>
+							</tr>
+							<tr>
+								<td>2015</td>
+								<td>資料8</td>
+								<td>資料9</td>
+							</tr>
+							<tr>
+								<td>2015</td>
+								<td>資料8</td>
+								<td>資料9</td>
+							</tr>
+							<tr>
+								<td>2016</td>
+								<td>資料8</td>
+								<td>資料9</td>
+							</tr>
+							<tr>
+								<td>2016</td>
+								<td>資料8</td>
+								<td>資料9</td>
+							</tr>
+							<tr>
+								<td>2016</td>
+								<td>資料8</td>
+								<td>資料9</td>
+							</tr>
+							<tr>
+								<td>2017</td>
+								<td>資料8</td>
+								<td>資料9</td>
+							</tr>
+							<tr>
+								<td>2017</td>
+								<td>資料8</td>
+								<td>資料9</td>
+							</tr>
+							<tr>
+								<td>2017</td>
+								<td>資料8</td>
+								<td>資料9</td>
+							</tr>
+							<tr>
+								<td>2018</td>
+								<td>資料8</td>
+								<td>資料9</td>
+							</tr>
+							<tr>
+								<td>2018</td>
+								<td>資料8</td>
+								<td>資料9</td>
+							</tr>
+							<tr>
+								<td>2018</td>
+								<td>資料8</td>
+								<td>資料9</td>
+							</tr>
+							<tr>
+								<td>2019</td>
+								<td>資料8</td>
+								<td>資料9</td>
+							</tr>
+							<tr>
+								<td>2019</td>
+								<td>資料8</td>
+								<td>資料9</td>
+							</tr>
+							<tr>
+								<td>2019</td>
+								<td>資料8</td>
+								<td>資料9</td>
+							</tr>
+							<tr>
+								<td>2020</td>
+								<td>資料8</td>
+								<td>資料9</td>
+							</tr>
+							<tr>
+								<td>2020</td>
+								<td>資料8</td>
+								<td>資料9</td>
+							</tr>
+							<tr>
+								<td>2020</td>
+								<td>資料8</td>
+								<td>資料9</td>
+							</tr>
+							<tr>
+								<td>2021</td>
+								<td>資料8</td>
+								<td>資料9</td>
+							</tr>
+							<tr>
+								<td>2021</td>
+								<td>資料8</td>
+								<td>資料9</td>
+							</tr>
+							<tr>
+								<td>2021</td>
+								<td>資料8</td>
+								<td>資料9</td>
+							</tr>
+							<tr>
+								<td>2022</td>
+								<td>資料8</td>
+								<td>資料9</td>
+							</tr>
+							<tr>
+								<td>2022</td>
+								<td>資料8</td>
+								<td>資料9</td>
+							</tr>
+							<tr>
+								<td>2022</td>
+								<td>資料8</td>
+								<td>資料9</td>
+							</tr>
+							<tr>
+								<td>2023</td>
+								<td>資料8</td>
+								<td>資料9</td>
+							</tr>
+							<tr>
+								<td>2023</td>
+								<td>資料8</td>
+								<td>資料9</td>
+							</tr>
+							<tr>
+								<td>2023</td>
+								<td>資料8</td>
+								<td>資料9</td>
+							</tr>
 
+							<!-- 可以继续添加更多行，根据需要 -->
+						</tbody>
+					</table>
+					<p>上述是我們的表格</p>
+				</div>
+				
+				
 				
 				<div class="box container">
 					<header>
@@ -47,126 +282,7 @@
 						leo suscipit ut. Praesent <sub>id turpis vitae</sub> turpis pretium ultricies. Vestibulum sit
 						amet risus elit.</p>
 					</section>
-					<section>
-						<header>
-							<h3>Blockquote</h3>
-						</header>
-						<blockquote>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget.
-						tempus euismod. Vestibulum ante ipsum primis in faucibus.</blockquote>
-					</section>
-					<section>
-						<header>
-							<h3>Divider</h3>
-						</header>
-						<p>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra
-						ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel. Praesent nec orci
-						facilisis leo magna. Cras sit amet urna eros, id egestas urna. Quisque aliquam
-						tempus euismod. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
-						posuere cubilia.</p>
-						<hr />
-						<p>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra
-						ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel. Praesent nec orci
-						facilisis leo magna. Cras sit amet urna eros, id egestas urna. Quisque aliquam
-						tempus euismod. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
-						posuere cubilia.</p>
-					</section>
-					<section>
-						<header>
-							<h3>Unordered List</h3>
-						</header>
-						<ul class="default">
-							<li>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</li>
-							<li>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</li>
-							<li>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</li>
-							<li>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</li>
-						</ul>
-					</section>
-					<section>
-						<header>
-							<h3>Ordered List</h3>
-						</header>
-						<ol class="default">
-							<li>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</li>
-							<li>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</li>
-							<li>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</li>
-							<li>Donec consectetur vestibulum dolor et pulvinar. Etiam vel felis enim, at viverra ligula. Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</li>
-						</ol>
-					</section>
-					<section>
-						<header>
-							<h3>Table</h3>
-						</header>
-						<div class="table-wrapper">
-							<table class="default">
-								<thead>
-									<tr>
-										<th>ID</th>
-										<th>Name</th>
-										<th>Description</th>
-										<th>Price</th>
-									</tr>
-								</thead>
-								<tbody>
-									<tr>
-										<td>45815</td>
-										<td>Something</td>
-										<td>Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</td>
-										<td>29.99</td>
-									</tr>
-									<tr>
-										<td>24524</td>
-										<td>Nothing</td>
-										<td>Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</td>
-										<td>19.99</td>
-									</tr>
-									<tr>
-										<td>45815</td>
-										<td>Something</td>
-										<td>Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</td>
-										<td>29.99</td>
-									</tr>
-									<tr>
-										<td>24524</td>
-										<td>Nothing</td>
-										<td>Ut porttitor sagittis lorem, quis eleifend nisi ornare vel.</td>
-										<td>19.99</td>
-									</tr>
-								</tbody>
-								<tfoot>
-									<tr>
-										<td colspan="3"></td>
-										<td>100.00</td>
-									</tr>
-								</tfoot>
-							</table>
-						</div>
-					</section>
 					
-				</div>
-
-				<footer class="major container medium">
-					<h3>Get shady with science</h3>
-					<p>Vitae natoque dictum etiam semper magnis enim feugiat amet curabitur tempor orci penatibus. Tellus erat mauris ipsum fermentum etiam vivamus.</p>
-					<ul class="actions special">
-						<li><a href="#" class="button">Join our crew</a></li>
-					</ul>
-				</footer>
-
-			</div>
-
-		<!-- Footer -->
-			<div id="footer">
-				<div class="container medium">
-
-					<header class="major last">
-						<h2>Questions or comments?</h2>
-					</header>
-
-					<p>Vitae natoque dictum etiam semper magnis enim feugiat amet curabitur tempor
-					orci penatibus. Tellus erat mauris ipsum fermentum etiam vivamus.</p>
-
-				</div>
-			</div>
 
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
@@ -174,6 +290,12 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script>
+				document.addEventListener('DOMContentLoaded', (event) => {
+					document.querySelector('table').style.opacity = 1;
+				});
+				</script>
+				
 
 	</body>
 </html>
