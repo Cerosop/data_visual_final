@@ -1,4 +1,3 @@
-import json
 from flask import Flask, jsonify, request, render_template, redirect
 import sqlite3 as lite
 app = Flask(__name__)
