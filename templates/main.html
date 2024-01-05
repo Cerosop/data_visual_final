@@ -19,7 +19,7 @@
             document.getElementById('myform3').addEventListener('submit', function (e) {
                 e.preventDefault(); // 阻止表單提交
                 var formData = new FormData(this);
-                formData.append("cate", "age, people, 2011, 2011");
+                formData.append("cate", "money, people, 2011, 2011");
     
                 fetch('/main', {
                     method: 'POST',
@@ -39,8 +39,6 @@
             });
         </script> 
     </form>
-    
-
     
     <script>
         var sub = document.getElementById("subscribe");
