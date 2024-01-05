@@ -6,28 +6,31 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<style>
-/* Adding fade-in animation to tables */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    opacity: 0; /* Start with table invisible */
-    transition: opacity 2s; /* Smooth transition for the opacity */
-}
-
-th, td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
-}
-
-th {
-    background-color: #f2f2f2;
-}
+			/* Adding fade-in animation to tables */
+			@keyframes fadeIn {
+				from { opacity: 0; }
+				to { opacity: 1; }
+			}
+			
+			table {
+				animation: fadeIn 2s; /* Apply the animation to the table */
+				width: 100%;
+				border-collapse: collapse;
+				transition: opacity 2s; /* Smooth transition for the opacity */
+			}
+			
+			th, td {
+				border: 1px solid #b69c1b;
+				padding: 12px;
+				text-align: left;
+			}
+			
+			th {
+				background-color: #b69c1b;
+				color: white; /* Set text color to white for the first row (header) */
+			}
+			</style>
+			
 
 
 		</style>
@@ -290,12 +293,13 @@ th {
 				<div class="box container">
 					<header>
 						<h2>跑條</h2>
+						
 					</header>
+					<p>我們會用跑條進行動態比較，觀察富豪們的存在與否。</p>
 					<section>
 						<header>
-							<p>我們會用跑條進行動態比較，觀察富豪們的存在與否。</p>
+							跑條與表格各自有優劣點，我們可以透過希望視覺化的模式來進行選擇。
 						</header>
-						
 					</section>
 					
 
