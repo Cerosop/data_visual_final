@@ -25,213 +25,28 @@
 			<div id="main">
 				<div class="box container">
 					<table>
-						<thead>
+						<tr>
+							<td>id</td>
+							<td>name</td>
+							<td>year</td>
+							<td>age</td>
+							<td>country</td>
+							<td>continent</td>
+							<td>work</td>
+							<td>money</td>
+						</tr>
+						{% for a in res %}
 							<tr>
-								<th>年份</th>
-								<th>姓名</th>
-								<th>資產</th>
+								<td>{{a[0]}}</td>
+								<td>{{a[1]}}</td>
+								<td>{{a[2]}}</td>
+								<td>{{a[3]}}</td>
+								<td>{{a[4]}}</td>
+								<td>{{a[5]}}</td>
+								<td>{{a[6]}}</td>
+								<td>{{a[7]}}</td>
 							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>2011</td>
-								<td>Carlos Slim Helu</td>
-								<td>74</td>
-							</tr>
-							<tr>
-								<td> </td>
-								<td>Bill Gates</td>
-								<td>56</td>
-							</tr>
-							<tr>
-								<td> </td>
-								<td>Warren Buffett</td>
-								<td>50</td>
-							</tr>
-							<!-- 添加更多行數據 -->
-							<tr>
-								<td>2012</td>
-								<td>Carlos Slim Helu</td>
-								<td>69</td>
-							</tr>
-							<tr>
-								<td> </td>
-								<td>Bill Gates</td>
-								<td>61</td>
-							</tr>
-							<tr>
-								<td> </td>
-								<td>Warren Buffett</td>
-								<td>44</td>
-							</tr>
-							<tr>
-								<td>2013</td>
-								<td>Carlos Slim Helu</td>
-								<td>69</td>
-							</tr>
-							<tr>
-								<td> </td>
-								<td>Bill Gates</td>
-								<td>61</td>
-							</tr>
-							<tr>
-								<td> </td>
-								<td>Warren Buffett</td>
-								<td>44</td>
-							</tr>
-							<tr>
-								<td>2014</td>
-								<td>Bill Gates</td>
-								<td>76</td>
-							</tr>
-							<tr>
-								<td> </td>
-								<td>資料8</td>
-								<td>72</td>
-							</tr>
-							<tr>
-								<td> </td>
-								<td>資料8</td>
-								<td>64</td>
-							</tr>
-							<tr>
-								<td>2015</td>
-								<td>資料8</td>
-								<td>資料9</td>
-							</tr>
-							<tr>
-								<td> </td>
-								<td>資料8</td>
-								<td>資料9</td>
-							</tr>
-							<tr>
-								<td> </td>
-								<td>資料8</td>
-								<td>資料9</td>
-							</tr>
-							<tr>
-								<td>2016</td>
-								<td>資料8</td>
-								<td>資料9</td>
-							</tr>
-							<tr>
-								<td> </td>
-								<td>資料8</td>
-								<td>資料9</td>
-							</tr>
-							<tr>
-								<td> </td>
-								<td>資料8</td>
-								<td>資料9</td>
-							</tr>
-							<tr>
-								<td>2017</td>
-								<td>資料8</td>
-								<td>資料9</td>
-							</tr>
-							<tr>
-								<td> </td>
-								<td>資料8</td>
-								<td>資料9</td>
-							</tr>
-							<tr>
-								<td> </td>
-								<td>資料8</td>
-								<td>資料9</td>
-							</tr>
-							<tr>
-								<td>2018</td>
-								<td>資料8</td>
-								<td>資料9</td>
-							</tr>
-							<tr>
-								<td> </td>
-								<td>資料8</td>
-								<td>資料9</td>
-							</tr>
-							<tr>
-								<td> </td>
-								<td>資料8</td>
-								<td>資料9</td>
-							</tr>
-							<tr>
-								<td>2019</td>
-								<td>資料8</td>
-								<td>資料9</td>
-							</tr>
-							<tr>
-								<td> </td>
-								<td>資料8</td>
-								<td>資料9</td>
-							</tr>
-							<tr>
-								<td> </td>
-								<td>資料8</td>
-								<td>資料9</td>
-							</tr>
-							<tr>
-								<td>2020</td>
-								<td>資料8</td>
-								<td>資料9</td>
-							</tr>
-							<tr>
-								<td> </td>
-								<td>資料8</td>
-								<td>資料9</td>
-							</tr>
-							<tr>
-								<td> </td>
-								<td>資料8</td>
-								<td>資料9</td>
-							</tr>
-							<tr>
-								<td>2021</td>
-								<td>資料8</td>
-								<td>資料9</td>
-							</tr>
-							<tr>
-								<td> </td>
-								<td>資料8</td>
-								<td>資料9</td>
-							</tr>
-							<tr>
-								<td> </td>
-								<td>資料8</td>
-								<td>資料9</td>
-							</tr>
-							<tr>
-								<td>2022</td>
-								<td>資料8</td>
-								<td>資料9</td>
-							</tr>
-							<tr>
-								<td> </td>
-								<td>資料8</td>
-								<td>資料9</td>
-							</tr>
-							<tr>
-								<td> </td>
-								<td>資料8</td>
-								<td>資料9</td>
-							</tr>
-							<tr>
-								<td>2023</td>
-								<td>資料8</td>
-								<td>資料9</td>
-							</tr>
-							<tr>
-								<td> </td>
-								<td>資料8</td>
-								<td>資料9</td>
-							</tr>
-							<tr>
-								<td> </td>
-								<td>資料8</td>
-								<td>資料9</td>
-							</tr>
-
-							<!-- 可以继续添加更多行，根据需要 -->
-						</tbody>
+						{% endfor %}
 					</table>
 					<p>上述是我們的表格，我們取前三名進行比對，可以看出來超級富豪們的影響力與資產。</p>
 				</div>
