@@ -1,14 +1,25 @@
-table {
-    width: 100%;
-    border-collapse: collapse;
-}
 
-th, td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
-}
+			/* Adding fade-in animation to tables */
+			@keyframes fadeIn {
+				from { opacity: 0; }
+				to { opacity: 1; }
+			}
+			
+			table {
+				animation: fadeIn 2s; /* Apply the animation to the table */
+				width: 100%;
+				border-collapse: collapse;
+				transition: opacity 2s; /* Smooth transition for the opacity */
+			}
+			
+			th, td {
+				border: 1px solid #b69c1b;
+				padding: 12px;
+				text-align: left;
+			}
+			
+			th {
+				background-color: #b69c1b;
+				color: white; /* Set text color to white for the first row (header) */
+			}
 
-th {
-    background-color: #f2f2f2;
-}
