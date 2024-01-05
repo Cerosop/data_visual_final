@@ -8,6 +8,42 @@ def redir():
     return redirect('/main')
 
 
+def preuse(cate, data_list):
+    if cate[0] == 'work': # work要拆開
+        d = {}
+        for a in data_list:
+            l = a[0].split(", ")
+            for s in l:
+                if d.get(s):
+                    d[s] += a[1]
+                else:
+                    d[s] = a[1]
+        
+        data_list = []
+        for k in d:
+            data_list.append((k, d[k]))
+    else: # age, money要用range 前者表示range a * b ~ (a + 1) * b - 1
+        b = 0
+        if cate[0] == 'age':
+            b = 5
+        if cate[0] == 'money':
+            b = 5 
+            
+        res1 = [0 for i in range(30)]
+        i = 0
+        for a in data_list:
+            while i * b <= a[0]:
+                i += 1
+            res1[i] += a[1]
+            
+        data_list = []
+        for i, a in enumerate(res1):
+            if a:
+                data_list.append((i - 1, a))
+                
+    return data_list
+
+
 @app.route('/main', methods=['GET', 'POST'])
 def page1():
     con = lite.connect('mydb.db')
@@ -17,44 +53,13 @@ def page1():
         with con:
             cur=con.cursor()
             
-            res = []
-            
             if cate[1] == 'people' or cate[1] == 'money ave':
                 cur.execute(f"select {cate[0]}, count(*) as count from data where year = \'{cate[2]}\' group by {cate[0]}")
                 con.commit()
                 people = cur.fetchall()
                 people = sorted(people, key=lambda x: x[0], reverse=False)
                 
-                if cate[0] == 'work':
-                    d = {}
-                    for a in people:
-                        l = a[0].split(", ")
-                        for s in l:
-                            if d.get(s):
-                                d[s] += a[1]
-                            else:
-                                d[s] = a[1]
-                    
-                    people = []
-                    for k in d:
-                        people.append((k, d[k]))
-                else:
-                    b = 0
-                    if cate[0] == 'age':
-                        b = 5
-                    if cate[0] == 'money':
-                        b = 5 
-                    res1 = [0 for i in range(30)]
-                    i = 0
-                    for a in people:
-                        while i * b <= a[0]:
-                            i += 1
-                        res1[i] += a[1]
-                    people = []
-                    for i, a in enumerate(res1):
-                        if a:
-                            people.append((i - 1, a))
-            
+                people = preuse(cate, people)
             
             if cate[1] == 'money' or cate[1] == 'money ave':
                 cur.execute(f"select {cate[0]}, sum(money) as sum from data where year = \'{cate[2]}\' group by {cate[0]}")
@@ -62,37 +67,9 @@ def page1():
                 money = cur.fetchall()
                 money = sorted(money, key=lambda x: x[0], reverse=False)
                 
-                if cate[0] == 'work':
-                    d = {}
-                    for a in money:
-                        l = a[0].split(", ")
-                        for s in l:
-                            if d.get(s):
-                                d[s] += a[1]
-                            else:
-                                d[s] = a[1]
-                    
-                    money = []
-                    for k in d:
-                        money.append((k, d[k]))
-                else:
-                    b = 0
-                    if cate[0] == 'age':
-                        b = 5
-                    if cate[0] == 'money':
-                        b = 5
-                    res1 = [0 for i in range(30)]
-                    i = 0
-                    for a in money:
-                        while i * b <= a[0]:
-                            i += 1
-                        res1[i] += a[1]
-                    money = []
-                    for i, a in enumerate(res1):
-                        if a:
-                            money.append((i - 1, a))
-                        
-                        
+                money = preuse(cate, money)
+            
+            res = []  
             if cate[1] == 'money':
                 res = money
             if cate[1] == 'people':
