@@ -6,7 +6,7 @@
 			}
 			
 			table {
-				animation: fadeIn 2s; /* Apply the animation to the table */
+				animation: fadeIn 5s; /* Apply the animation to the table */
 				width: 100%;
 				border-collapse: collapse;
 				transition: opacity 2s; /* Smooth transition for the opacity */
