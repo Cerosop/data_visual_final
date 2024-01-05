@@ -43,7 +43,7 @@ def preuse(cate, data_list):
     return data_list
 
 
-@app.route('/main', methods=['GET', 'POST'])
+@app.route('/graph', methods=['GET', 'POST'])
 def page1():
     con = lite.connect('mydb.db')
     if request.method == 'POST':
@@ -81,7 +81,23 @@ def page1():
             data = {'res': '-1', 'data': res}
             return jsonify(data)
     else:    
-        return render_template('main.html')
+        return render_template('graph.html')
+    
+    
+@app.route('/main', methods=['GET', 'POST'])
+def page2():
+    con = lite.connect('mydb.db')
+    with con:
+        cur=con.cursor()
+        cur.execute(f"select * from data")
+        con.commit()
+        data = cur.fetchall()
+        
+        first_id = data[0][0] - 1
+        res = [(d[0] - first_id, d[1], d[2], d[3], d[4], d[5], d[6], d[7]) for d in data]
+        print(res)
+        
+    return render_template('main.html', res = res)
 
 
 if __name__ == '__main__':
