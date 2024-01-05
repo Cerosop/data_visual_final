@@ -18,8 +18,7 @@
             document.getElementById('myform3').addEventListener('submit', function (e) {
                 e.preventDefault(); // 阻止表單提交
                 var formData = new FormData(this);
-                formData.append("x", "work");
-                formData.append("y", "work1");
+                formData.append("cate", "age, people, 2011, 2011");
     
                 fetch('/main', {
                     method: 'POST',

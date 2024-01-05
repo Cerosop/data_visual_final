@@ -10,12 +10,22 @@ conn.commit()
 df = pd.read_csv("forbes_billionaires_list.csv")
 
 for i, d in df.iterrows():
-    source = str(d['source'])
     name = str(d['name'])
-    source = source.replace("\'", '`')
     name = name.replace('\'', '`')
     
-    cur.execute(f'insert into data (name, year, age, country, continent, work, money) values(\'{name}\', \'{d["year"]}\', \'{d["age"]}\', \'{d["citizenship"]}\', \'{d["continents"]}\', \'{source}\', \'{d["net_worth"]}\')')
+    source = str(d['source'])
+    source = source.replace("\'", '`')
+    
+    year = int(d['year'])
+    
+    age = -1
+    if pd.notna(d['age']):
+        age = int(d['age'])
+        
+    money = int(d['net_worth'])
+    
+    
+    cur.execute(f'insert into data (name, year, age, country, continent, work, money) values(\'{name}\', {year}, {age}, \'{d["citizenship"]}\', \'{d["continents"]}\', \'{source}\', {money})')
     conn.commit()
     
 conn.close()
