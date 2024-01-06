@@ -1,6 +1,6 @@
 
 /* Adding fade-in animation to tables */
-@keyframes fadeIn {
+/* @keyframes fadeIn {
 	from {
 		opacity: 0;
 	}
@@ -8,7 +8,8 @@
 	to {
 		opacity: 1;
 	}
-}
+} 
+*/
 
 table.default3 {
 	animation: fadeIn 5s;
