@@ -27,8 +27,8 @@
 			</header>
 
 			<!-- 選單-->
-			<label for="pets">選擇年分：</label>
-			<select id="pets">
+			<label for="year1">選擇年分：</label>
+			<select id="year1">
 				<!-- selected 預選 disabled 不可選 -->
 				<option value="2011">2011</option>
 				<option value="2012">2012</option>
@@ -46,12 +46,28 @@
 			</select>
 			<script>
 				function getSelectedValue() {
-					var dropdown = document.getElementById("pets");
+					var dropdown = document.getElementById("year1");
 					var selectedValue = dropdown.options[dropdown.selectedIndex].value;
 					console.log(selectedValue); // 在控制台輸出所選擇的值
 				}
 				// 在下拉式選單的 "change" 事件上調用函數
-				document.getElementById("pets").addEventListener("change", getSelectedValue);
+				document.getElementById("year1").addEventListener("change", getSelectedValue);
+			</script>
+			<!-- 選單-->
+			<label for="sort">選擇排序方式：</label>
+			<select id="sort">
+				<!-- selected 預選 disabled 不可選 -->
+				<option value="North America">年紀</option>
+				<option value="all" selected>資產</option>
+			</select>
+			<script>
+				function getSelectedValue() {
+					var dropdown = document.getElementById("sort");
+					var selectedValue = dropdown.options[dropdown.selectedIndex].value;
+					console.log(selectedValue); // 在控制台輸出所選擇的值
+				}
+				// 在下拉式選單的 "change" 事件上調用函數
+				document.getElementById("sort").addEventListener("change", getSelectedValue);
 			</script>
 
 			&nbsp
@@ -128,6 +144,31 @@
 					跑條與表格各自有優劣點，我們可以透過希望視覺化的模式來進行選擇。
 				</header>
 			</section>
+
+			<!-- 選單-->
+			<label for="area">選擇地區：</label>
+			<select id="area">
+				<!-- selected 預選 disabled 不可選 -->
+				<option value="Oceania">大洋洲</option>
+				<option value="Africa">非洲</option>
+				<option value="Asia">亞洲</option>
+				<option value="Europe">歐洲</option>
+				<option value="South America">南美洲</option>
+				<option value="North America">北美洲</option>
+				<option value="all" selected>全</option>
+			</select>
+			<script>
+				function getSelectedValue() {
+					var dropdown = document.getElementById("area");
+					var selectedValue = dropdown.options[dropdown.selectedIndex].value;
+					console.log(selectedValue); // 在控制台輸出所選擇的值
+				}
+				// 在下拉式選單的 "change" 事件上調用函數
+				document.getElementById("area").addEventListener("change", getSelectedValue);
+			</script>
+
+			&nbsp
+
 			<div id="bar-chart-race">
 				<script type="module">
 					import define from "./bar-chart-race/index.js";
