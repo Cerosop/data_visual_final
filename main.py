@@ -96,7 +96,7 @@ def preuse(cate, data_list):
         if cate == 'money':
             b = 5 
             
-        res1 = [0 for i in range(30)]
+        res1 = [0 for i in range(int(150/b))]
         i = 0
         for a in data_list:
             while i * b <= a[0]:
