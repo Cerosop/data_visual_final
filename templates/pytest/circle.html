@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <title>circle</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style type="text/css">
+        #table {
+            border-collapse: collapse;
+        }
+        #table td {
+            border: 1px solid black;
+            padding: 5px;
+        }
+        table {
+            width: 100%;
+        }
+        table td {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <table id="table">
+        <tr>
+            <td>cate</td>
+            <td>unit</td>
+            <td>year</td>
+            <td>name</td>
+            <td>data</td>
+        </tr>
+        {% for k1 in res %}
+            {% for k2 in res[k1] %}
+                {% for y in res[k1][k2] %}
+                    {% for a in res[k1][k2][y] %}
+                        <tr>
+                            <td>{{k1}}</td>
+                            <td>{{k2}}</td>
+                            <td>{{y}}</td>
+                            <td>{{a[0]}}</td>
+                            <td>{{a[1]}}</td>
+                        </tr>
+                {% endfor %}
+                {% endfor %}
+            {% endfor %}
+        {% endfor %}
+    </table>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+</body>
+</html>
