@@ -53,7 +53,7 @@ function _duration() {
 
 function _n() {
   return (
-    20
+    15
   )
 }
 
@@ -323,7 +323,7 @@ export default function define(runtime, observer) {
   const main = runtime.module();
   function toString() { return this.url; }
   const fileAttachments = new Map([
-    ["category-brands.csv", { url: new URL("./files/data.csv", import.meta.url), mimeType: "text/csv", toString }]
+    ["category-brands.csv", { url: new URL("./files/Africa_c.csv", import.meta.url), mimeType: "text/csv", toString }]
   ]);
   main.builtin("FileAttachment", runtime.fileAttachments(name => fileAttachments.get(name)));
   main.variable().define("data", ["FileAttachment"], _data);

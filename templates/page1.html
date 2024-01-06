@@ -28,8 +28,8 @@
 			</header>
 
 			<!-- 選單-->
-			<label for="pets">選擇年分：</label>
-			<select id="pets">
+			<label for="year1">選擇年分：</label>
+			<select id="year1">
 				<!-- selected 預選 disabled 不可選 -->
 				<option value="2011">2011</option>
 				<option value="2012">2012</option>
@@ -47,12 +47,12 @@
 			</select>
 			<script>
 				function getSelectedValue() {
-					var dropdown = document.getElementById("pets");
+					var dropdown = document.getElementById("year1");
 					var selectedValue = dropdown.options[dropdown.selectedIndex].value;
 					console.log(selectedValue); // 在控制台輸出所選擇的值
 				}
 				// 在下拉式選單的 "change" 事件上調用函數
-				document.getElementById("pets").addEventListener("change", getSelectedValue);
+				document.getElementById("year1").addEventListener("change", getSelectedValue);
 			</script>
 
 			&nbsp
@@ -129,17 +129,35 @@
 					跑條與表格各自有優劣點，我們可以透過希望視覺化的模式來進行選擇。
 				</header>
 			</section>
-			<!-- <div class="bar-chart-race"  style="width: 100%; height: 100%;">
-				<script type="module">
 
-					import define from "./bar-chart-race/index.js";
-					import { Runtime, Library, Inspector } from "./bar-chart-race/runtime.js";
+			<!-- 選單-->
+			<label for="year2">選擇年分：</label>
+			<select id="year2">
+				<!-- selected 預選 disabled 不可選 -->
+				<option value="2011">2011</option>
+				<option value="2012">2012</option>
+				<option value="2013">2013</option>
+				<option value="2014">2014</option>
+				<option value="2015">2015</option>
+				<option value="2016">2016</option>
+				<option value="2017">2017</option>
+				<option value="2018">2018</option>
+				<option value="2019">2019</option>
+				<option value="2020">2020</option>
+				<option value="2021">2021</option>
+				<option value="2022" selected>2022</option>
+			</select>
+			<script>
+				function getSelectedValue() {
+					var dropdown = document.getElementById("year2");
+					var selectedValue = dropdown.options[dropdown.selectedIndex].value;
+					console.log(selectedValue); // 在控制台輸出所選擇的值
+				}
+				// 在下拉式選單的 "change" 事件上調用函數
+				document.getElementById("year2").addEventListener("change", getSelectedValue);
+			</script>
 
-					const runtime = new Runtime();
-					const main = runtime.module(define, Inspector.into(document.body));
-
-				</script>
-			</div> -->
+			&nbsp
 
 			<div id="bar-chart-race">
 				<script type="module" style="width: auto; height: auto;">
