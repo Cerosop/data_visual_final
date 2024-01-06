@@ -63,6 +63,7 @@ table.default2 td {
 	letter-spacing: 0.125em;
 	line-height: 1.75em;
 	padding: 0.5em 1em 0.5em 1em;
+	vertical-align: middle;
 	text-align: left;
 }
 
@@ -74,6 +75,7 @@ table.default2 th {
 	line-height: 1.75em;
 	padding: 0.5em 1em 0.5em 1em;
 	text-align: left;
+	vertical-align: middle;
 	text-transform: uppercase;
 }
 
