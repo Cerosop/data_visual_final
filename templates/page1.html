@@ -57,8 +57,8 @@
 			<label for="sort">選擇排序方式：</label>
 			<select id="sort">
 				<!-- selected 預選 disabled 不可選 -->
-				<option value="North America">年紀</option>
-				<option value="all" selected>資產</option>
+				<option value="age">年紀</option>
+				<option value="money1" selected>資產</option>
 			</select>
 			<script>
 				function getSelectedValue() {
@@ -138,12 +138,14 @@
 			</header>
 			<section>
 				<header>
-					我們會用跑條進行動態比較，觀察富豪們的存在與否。
+					我們會用跑條進行動態比較，觀察歷年富豪們的變化。
 				</header>
 				<header>
 					跑條與表格各自有優劣點，我們可以透過希望視覺化的模式來進行選擇。
 				</header>
 			</section>
+
+			&nbsp
 
 			<!-- 選單-->
 			<label for="area">選擇地區：</label>
@@ -157,14 +159,41 @@
 				<option value="North America">北美洲</option>
 				<option value="all" selected>全</option>
 			</select>
+
+			<label for="sort2">選擇排序方式：</label>
+			<select id="sort2">
+				<!-- selected 預選 disabled 不可選 -->
+				<option value="num" disabled>國家富豪人數</option>
+				<option value="money2" selected>資產</option>
+			</select>
+
 			<script>
-				function getSelectedValue() {
-					var dropdown = document.getElementById("area");
-					var selectedValue = dropdown.options[dropdown.selectedIndex].value;
-					console.log(selectedValue); // 在控制台輸出所選擇的值
+				function handleDropdownChange() {
+					var areaDropdown = document.getElementById("area");
+					var sortDropdown = document.getElementById("sort2");
+
+					// 處理選擇地區的變化
+					var selectedAreaValue = areaDropdown.options[areaDropdown.selectedIndex].value;
+					console.log("Selected Area: " + selectedAreaValue);
+
+					if (selectedAreaValue === "all") {
+						sortDropdown.querySelector('option[value="num"]').disabled = true;
+						sortDropdown.value = "money2";
+					} else {
+						sortDropdown.querySelector('option[value="num"]').disabled = false;
+					}
+
+					// 處理排序方式的變化
+					var selectedSortValue = sortDropdown.options[sortDropdown.selectedIndex].value;
+					console.log("Selected Sort Method: " + selectedSortValue);
+
+					// 在這裡可以執行其他相關的操作或返回
 				}
-				// 在下拉式選單的 "change" 事件上調用函數
-				document.getElementById("area").addEventListener("change", getSelectedValue);
+
+				// 在兩個下拉式選單的 "change" 事件上調用函數
+				document.getElementById("area").addEventListener("change", handleDropdownChange);
+				document.getElementById("sort2").addEventListener("change", handleDropdownChange);
+
 			</script>
 
 			&nbsp
