@@ -111,7 +111,7 @@
 			</div>
 
 			&nbsp
-<!-- 
+			<!-- 
 			<div class="box container">
 				<table class="default3">
 					<thead>
@@ -141,7 +141,7 @@
 				</table>
 				<p>上述是我們的表格，我們取年紀進行比對，可以看出來富豪們的年紀並不一定與資產相關聯，我們此處只比較2011，因為年份差距在此幾乎沒有影響。</p>
 			</div>
- -->		
+ -->
 		</div>
 
 
@@ -169,16 +169,31 @@
 		<script src="assets/js/util.js"></script>
 		<script src="assets/js/main.js"></script>
 		<script>
-			// Detect when the table is in the viewport
-			window.addEventListener('scroll', function () {
-				var tables = document.querySelectorAll('table');
-				tables.forEach(function (table) {
-					var position = table.getBoundingClientRect();
+			// 檢測所有元素是否進入視窗範圍
+			function checkVisibility() {
+				var elements = document.querySelectorAll('*');
+				elements.forEach(function (element) {
+					var position = element.getBoundingClientRect();
 
-					// checking for partial visibility
+					// 檢查是否部分可見
 					if (position.top < window.innerHeight && position.bottom >= 0) {
-						table.style.opacity = 1; // Make table fully visible
+						element.style.opacity = 1; // 使元素完全可見
+						element.classList.remove('fade-in'); // 移除淡入動畫效果
 					}
+				});
+			}
+
+			// 在滾動事件後觸發檢測可見性
+			window.addEventListener('scroll', function () {
+				checkVisibility();
+			});
+
+			// 在動畫結束時觸發檢測可見性
+			document.addEventListener('DOMContentLoaded', function () {
+				var elements = document.querySelectorAll('*');
+				elements.forEach(function (element) {
+					element.classList.add('fade-in'); // 加入淡入動畫效果
+					element.addEventListener('animationend', checkVisibility);
 				});
 			});
 		</script>

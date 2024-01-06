@@ -1,5 +1,3 @@
-
-/* Adding fade-in animation to tables */
 @keyframes fadeIn {
 	from {
 		opacity: 0;
@@ -8,7 +6,17 @@
 	to {
 		opacity: 1;
 	}
-} 
+}
+
+/* 預先設定所有元素的 opacity 為 0 */
+* {
+	opacity: 0;
+}
+
+/* 加入 fade-in 類的元素應用淡入動畫效果 */
+.fade-in {
+	animation: fadeIn 1s ease-in-out;
+}
 
 
 table.default3 {
@@ -20,7 +28,8 @@ table.default3 {
 	/* Smooth transition for the opacity */
 }
 
-table.default3 th, table.default3 td {
+table.default3 th,
+table.default3 td {
 	border: 1px solid #b69c1b;
 	padding: 12px;
 	text-align: left;
@@ -30,7 +39,7 @@ table.default3 th {
 	background-color: #b69c1b;
 	color: white;
 	/* Set text color to white for the first row (header) */
-} 
+}
 
 /* table */
 .table-container {
