@@ -6,8 +6,6 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="stylesheet" href="assets/css/main.css" />
-	<script src="https://kit.fontawesome.com/f99638e59c.js" crossorigin="anonymous"></script>
-	<link rel="shortcut icon" href="images/favicon.ico" />
 	<link rel="stylesheet" href="style.css" />
 </head>
 
@@ -74,7 +72,8 @@
 					habitant <strong>strong</strong> tristique <b>bold</b> et netus <i>italic</i> malesuada
 					<em>emphasized</em> ac turpis egestas. Morbi
 					leo suscipit ut. Praesent <sub>id turpis vitae</sub> turpis pretium ultricies. Vestibulum sit
-					amet risus elit.</p>
+					amet risus elit.
+				</p>
 			</section>
 			<section>
 				<header>
@@ -276,6 +275,35 @@
 	<script src="assets/js/breakpoints.min.js"></script>
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
+	<script>
+		// 檢測所有元素是否進入視窗範圍
+		function checkVisibility() {
+			var elements = document.querySelectorAll('*');
+			elements.forEach(function (element) {
+				var position = element.getBoundingClientRect();
+
+				// 檢查是否部分可見
+				if (position.top < window.innerHeight && position.bottom >= 0) {
+					element.style.opacity = 1; // 使元素完全可見
+					element.classList.remove('fade-in'); // 移除淡入動畫效果
+				}
+			});
+		}
+
+		// 在滾動事件後觸發檢測可見性
+		window.addEventListener('scroll', function () {
+			checkVisibility();
+		});
+
+		// 在動畫結束時觸發檢測可見性
+		document.addEventListener('DOMContentLoaded', function () {
+			var elements = document.querySelectorAll('*');
+			elements.forEach(function (element) {
+				element.classList.add('fade-in'); // 加入淡入動畫效果
+				element.addEventListener('animationend', checkVisibility);
+			});
+		});
+	</script>
 
 </body>
 

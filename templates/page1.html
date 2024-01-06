@@ -159,6 +159,14 @@
 					跑條與表格各自有優劣點，我們可以透過希望視覺化的模式來進行選擇。
 				</header>
 			</section>
+			<div id="bar-chart-race">
+				<script type="module">
+					import define from "./bar-chart-race/index.js";
+					import { Runtime, Library, Inspector } from "./bar-chart-race/runtime.js";
+					const runtime = new Runtime();
+					const main = runtime.module(define, Inspector.into(document.getElementById('bar-chart-race')));
+				</script>
+			</div>
 		</div>
 
 		<ul class="actions special">
