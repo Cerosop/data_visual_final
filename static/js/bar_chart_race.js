@@ -6,7 +6,6 @@ function _1(md) {
 }
 
 var file1 = "./files/work_c.csv";
-
 function _data(FileAttachment) {
   return (
     FileAttachment(file1).csv({ typed: true })

@@ -36,7 +36,7 @@ with con:
             dict[0]['category'].append(d[2])
             dict[0]['value'].append(d[1])
         
-        cur.execute(f"select work, count(*) as count from data where year = {y}")
+        cur.execute(f"select work from data where year = {y}")
         con.commit()
         data = cur.fetchall()
         d = {}
@@ -44,17 +44,16 @@ with con:
             l = a[0].split(", ")
             for s in l:
                 if d.get(s):
-                    d[s] += a[1]
+                    d[s] += 1
                 else:
-                    d[s] = a[1]
-        data = []
+                    d[s] = 1
         for k in d:
             dict[1]['date'].append(str(y) + "-01-01")
             dict[1]['name'].append(k)
             dict[1]['category'].append(k)
             dict[1]['value'].append(d[k])
             
-        cur.execute(f"select work, sum(money) as count from data where year = {y}")
+        cur.execute(f"select work, money from data where year = {y}")
         con.commit()
         data = cur.fetchall()
         d = {}
@@ -202,51 +201,51 @@ with con:
 df = pd.DataFrame(dict[0])
 with open('templates/bar-chart-race/files/name.csv', 'w', newline='') as file:
     df.to_csv(file, index=False)
-df = pd.DataFrame(dict[0])
-with open('templates/bar-chart-race/files/work_c.csv', 'w', newline='') as file:
+df = pd.DataFrame(dict[1])
+with open('templates/bar-chart-race/files/work_c.csv', 'w', newline='', encoding='utf-8') as file:
     df.to_csv(file, index=False)
-df = pd.DataFrame(dict[0])
-with open('templates/bar-chart-race/files/work_m.csv', 'w', newline='') as file:
+df = pd.DataFrame(dict[2])
+with open('templates/bar-chart-race/files/work_m.csv', 'w', newline='', encoding='utf-8') as file:
     df.to_csv(file, index=False)
-df = pd.DataFrame(dict[0])
+df = pd.DataFrame(dict[3])
 with open('templates/bar-chart-race/files/continent_c.csv', 'w', newline='') as file:
     df.to_csv(file, index=False)
-df = pd.DataFrame(dict[0])
+df = pd.DataFrame(dict[4])
 with open('templates/bar-chart-race/files/continent_m.csv', 'w', newline='') as file:
     df.to_csv(file, index=False)
-df = pd.DataFrame(dict[0])
+df = pd.DataFrame(dict[5])
 with open('templates/bar-chart-race/files/Asia_c.csv', 'w', newline='') as file:
     df.to_csv(file, index=False)
-df = pd.DataFrame(dict[0])
+df = pd.DataFrame(dict[6])
 with open('templates/bar-chart-race/files/Asia_m.csv', 'w', newline='') as file:
     df.to_csv(file, index=False)
-df = pd.DataFrame(dict[0])
+df = pd.DataFrame(dict[7])
 with open('templates/bar-chart-race/files/North America_c.csv', 'w', newline='') as file:
     df.to_csv(file, index=False)
-df = pd.DataFrame(dict[0])
+df = pd.DataFrame(dict[8])
 with open('templates/bar-chart-race/files/North America_m.csv', 'w', newline='') as file:
     df.to_csv(file, index=False)
-df = pd.DataFrame(dict[0])
+df = pd.DataFrame(dict[9])
 with open('templates/bar-chart-race/files/South America_c.csv', 'w', newline='') as file:
     df.to_csv(file, index=False)
-df = pd.DataFrame(dict[0])
+df = pd.DataFrame(dict[10])
 with open('templates/bar-chart-race/files/South America_m.csv', 'w', newline='') as file:
     df.to_csv(file, index=False)
-df = pd.DataFrame(dict[0])
+df = pd.DataFrame(dict[11])
 with open('templates/bar-chart-race/files/Europe_c.csv', 'w', newline='') as file:
     df.to_csv(file, index=False)
-df = pd.DataFrame(dict[0])
+df = pd.DataFrame(dict[12])
 with open('templates/bar-chart-race/files/Europe_m.csv', 'w', newline='') as file:
     df.to_csv(file, index=False)
-df = pd.DataFrame(dict[0])
+df = pd.DataFrame(dict[13])
 with open('templates/bar-chart-race/files/Oceania_c.csv', 'w', newline='') as file:
     df.to_csv(file, index=False)
-df = pd.DataFrame(dict[0])
+df = pd.DataFrame(dict[14])
 with open('templates/bar-chart-race/files/Oceania_m.csv', 'w', newline='') as file:
     df.to_csv(file, index=False)
-df = pd.DataFrame(dict[0])
+df = pd.DataFrame(dict[15])
 with open('templates/bar-chart-race/files/Africa_c.csv', 'w', newline='') as file:
     df.to_csv(file, index=False)
-df = pd.DataFrame(dict[0])
+df = pd.DataFrame(dict[16])
 with open('templates/bar-chart-race/files/Africa_m.csv', 'w', newline='') as file:
     df.to_csv(file, index=False)
