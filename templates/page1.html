@@ -148,6 +148,14 @@
 			&nbsp
 
 			<!-- 選單-->
+			<label for="element">選擇排序項目：</label>
+			<select id="element">
+				<!-- selected 預選 disabled 不可選 -->
+				<option value="people" selected>富豪</option>
+				<option value="country">國家</option>
+				<option value="work">工作</option>
+			</select>
+
 			<label for="area">選擇地區：</label>
 			<select id="area">
 				<!-- selected 預選 disabled 不可選 -->
@@ -160,7 +168,7 @@
 				<option value="all" selected>全</option>
 			</select>
 
-			<label for="sort2">選擇排序方式：</label>
+			<label for="sort2">選擇比較項目：</label>
 			<select id="sort2">
 				<!-- selected 預選 disabled 不可選 -->
 				<option value="num" disabled>國家富豪人數</option>
@@ -169,30 +177,53 @@
 
 			<script>
 				function handleDropdownChange() {
+					var elementDropdown = document.getElementById("element");
 					var areaDropdown = document.getElementById("area");
 					var sortDropdown = document.getElementById("sort2");
+
+					// 處理排序項目的變化
+					var selectedElementValue = elementDropdown.options[elementDropdown.selectedIndex].value;
+					console.log("Selected Element: " + selectedElementValue);
 
 					// 處理選擇地區的變化
 					var selectedAreaValue = areaDropdown.options[areaDropdown.selectedIndex].value;
 					console.log("Selected Area: " + selectedAreaValue);
 
-					if (selectedAreaValue === "all") {
+					if (selectedElementValue === "people" && selectedAreaValue === "all") {
 						sortDropdown.querySelector('option[value="num"]').disabled = true;
 						sortDropdown.value = "money2";
 					} else {
 						sortDropdown.querySelector('option[value="num"]').disabled = false;
 					}
 
-					// 處理排序方式的變化
+					if (selectedElementValue === "country" || selectedElementValue === "work") {
+						areaDropdown.querySelector('option[value="Oceania"]').disabled = true;
+						areaDropdown.querySelector('option[value="Africa"]').disabled = true;
+						areaDropdown.querySelector('option[value="Asia"]').disabled = true;
+						areaDropdown.querySelector('option[value="Europe"]').disabled = true;
+						areaDropdown.querySelector('option[value="South America"]').disabled = true;
+						areaDropdown.querySelector('option[value="North America"]').disabled = true;
+						areaDropdown.value = "all";
+					} else {
+						areaDropdown.querySelector('option[value="Oceania"]').disabled = false;
+						areaDropdown.querySelector('option[value="Africa"]').disabled = false;
+						areaDropdown.querySelector('option[value="Asia"]').disabled = false;
+						areaDropdown.querySelector('option[value="Europe"]').disabled = false;
+						areaDropdown.querySelector('option[value="South America"]').disabled = false;
+						areaDropdown.querySelector('option[value="North America"]').disabled = false;
+					}
+
+					// 處理排序項目的變化
 					var selectedSortValue = sortDropdown.options[sortDropdown.selectedIndex].value;
 					console.log("Selected Sort Method: " + selectedSortValue);
 
 					// 在這裡可以執行其他相關的操作或返回
 				}
 
-				// 在兩個下拉式選單的 "change" 事件上調用函數
+				// 在三個下拉式選單的 "change" 事件上調用函數
 				document.getElementById("area").addEventListener("change", handleDropdownChange);
 				document.getElementById("sort2").addEventListener("change", handleDropdownChange);
+				document.getElementById("element").addEventListener("change", handleDropdownChange);
 
 			</script>
 
