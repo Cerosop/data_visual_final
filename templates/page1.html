@@ -54,6 +54,22 @@
 				// 在下拉式選單的 "change" 事件上調用函數
 				document.getElementById("year1").addEventListener("change", getSelectedValue);
 			</script>
+			<!-- 選單-->
+			<label for="sort">選擇排序方式：</label>
+			<select id="sort">
+				<!-- selected 預選 disabled 不可選 -->
+				<option value="North America">年紀</option>
+				<option value="all" selected>資產</option>
+			</select>
+			<script>
+				function getSelectedValue() {
+					var dropdown = document.getElementById("sort");
+					var selectedValue = dropdown.options[dropdown.selectedIndex].value;
+					console.log(selectedValue); // 在控制台輸出所選擇的值
+				}
+				// 在下拉式選單的 "change" 事件上調用函數
+				document.getElementById("sort").addEventListener("change", getSelectedValue);
+			</script>
 
 			&nbsp
 
@@ -131,8 +147,8 @@
 			</section>
 
 			<!-- 選單-->
-			<label for="year2">選擇地區：</label>
-			<select id="year2">
+			<label for="area">選擇地區：</label>
+			<select id="area">
 				<!-- selected 預選 disabled 不可選 -->
 				<option value="Oceania">大洋洲</option>
 				<option value="Africa">非洲</option>
@@ -144,12 +160,12 @@
 			</select>
 			<script>
 				function getSelectedValue() {
-					var dropdown = document.getElementById("year2");
+					var dropdown = document.getElementById("area");
 					var selectedValue = dropdown.options[dropdown.selectedIndex].value;
 					console.log(selectedValue); // 在控制台輸出所選擇的值
 				}
 				// 在下拉式選單的 "change" 事件上調用函數
-				document.getElementById("year2").addEventListener("change", getSelectedValue);
+				document.getElementById("area").addEventListener("change", getSelectedValue);
 			</script>
 
 			&nbsp
