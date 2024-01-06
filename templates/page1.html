@@ -23,7 +23,7 @@
 
 		<div class="box container">
 			<header>
-				<h2>A lot of generic stuff</h2>
+				<h2>歷年世界富豪排名</h2>
 			</header>
 
 			<!-- 選單-->
@@ -56,7 +56,7 @@
 
 			&nbsp
 
-			<div class="table-container" style="height: 300px">
+			<div class="table-container" style="height: 500px">
 				<table class="default2" id="myTable">
 					<thead>
 						<tr>
@@ -114,33 +114,6 @@
 
 			<div class="box container">
 				<table class="default3">
-					<tr>
-						<td>id</td>
-						<td>name</td>
-						<td>year</td>
-						<td>age</td>
-						<td>country</td>
-						<td>continent</td>
-						<td>work</td>
-						<td>money</td>
-					</tr>
-					{% for a in res %}
-					<tr>
-						<td>{{a[0]}}</td>
-						<td>{{a[1]}}</td>
-						<td>{{a[2]}}</td>
-						<td>{{a[3]}}</td>
-						<td>{{a[4]}}</td>
-						<td>{{a[5]}}</td>
-						<td>{{a[6]}}</td>
-						<td>{{a[7]}}</td>
-					</tr>
-					{% endfor %}
-				</table>
-				<p>上述是我們的表格，我們取前三名進行比對，可以看出來超級富豪們的影響力與資產。</p>
-			</div>
-			<div class="box container">
-				<table class="default3">
 					<thead>
 						<tr>
 							<th>年份</th>
@@ -168,41 +141,43 @@
 				</table>
 				<p>上述是我們的表格，我們取年紀進行比對，可以看出來富豪們的年紀並不一定與資產相關聯，我們此處只比較2011，因為年份差距在此幾乎沒有影響。</p>
 			</div>
+		</div>
 
 
-			<div class="box container">
+		<div class="box container">
+			<header>
+				<h2>跑條</h2>
+
+			</header>
+			<p>我們會用跑條進行動態比較，觀察富豪們的存在與否。</p>
+			<section>
 				<header>
-					<h2>跑條</h2>
-
+					跑條與表格各自有優劣點，我們可以透過希望視覺化的模式來進行選擇。
 				</header>
-				<p>我們會用跑條進行動態比較，觀察富豪們的存在與否。</p>
-				<section>
-					<header>
-						跑條與表格各自有優劣點，我們可以透過希望視覺化的模式來進行選擇。
-					</header>
-				</section>
+			</section>
+		</div>
 
 
-				<!-- Scripts -->
-				<script src="assets/js/jquery.min.js"></script>
-				<script src="assets/js/browser.min.js"></script>
-				<script src="assets/js/breakpoints.min.js"></script>
-				<script src="assets/js/util.js"></script>
-				<script src="assets/js/main.js"></script>
-				<script>
-					// Detect when the table is in the viewport
-					window.addEventListener('scroll', function () {
-						var tables = document.querySelectorAll('table');
-						tables.forEach(function (table) {
-							var position = table.getBoundingClientRect();
+		<!-- Scripts -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+		<script>
+			// Detect when the table is in the viewport
+			window.addEventListener('scroll', function () {
+				var tables = document.querySelectorAll('table');
+				tables.forEach(function (table) {
+					var position = table.getBoundingClientRect();
 
-							// checking for partial visibility
-							if (position.top < window.innerHeight && position.bottom >= 0) {
-								table.style.opacity = 1; // Make table fully visible
-							}
-						});
-					});
-				</script>
+					// checking for partial visibility
+					if (position.top < window.innerHeight && position.bottom >= 0) {
+						table.style.opacity = 1; // Make table fully visible
+					}
+				});
+			});
+		</script>
 
 
 
