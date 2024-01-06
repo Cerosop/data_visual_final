@@ -29,54 +29,7 @@ def page1():
     
 @app.route('/run', methods=['GET', 'POST'])
 def page2():
-    con = lite.connect('mydb.db')
-    limit = 20
-    res = {}
-    
-    if request.method == 'POST':
-        cate = request.values['cate'].split(", ")
-        print(cate)
-        
-        with con:
-            cur=con.cursor()
-            
-            for y in range(2011, 2023):
-                if cate[0] == 'name':
-                    cur.execute(f"select name, money from data where year = {y} limit {limit}")
-                    con.commit()
-                elif cate[2] == 'no' or cate[2] == 'all':
-                    if cate[1] == 'people':
-                        cur.execute(f"select {cate[0]}, count(*) as count from data where year = {y} group by {cate[0]}")
-                        con.commit()
-                    elif cate[1] == 'money':
-                        cur.execute(f"select {cate[0]}, sum(money) as count from data where year = {y} group by {cate[0]}")
-                        con.commit()
-                else:
-                    if cate[1] == 'people':
-                        cur.execute(f"select country, count(*) as count from data where year = {y} and continent = \'{cate[2]}\' group by country")
-                        con.commit()
-                    elif cate[1] == 'money':
-                        cur.execute(f"select country, sum(money) as count from data where year = {y} and continent = \'{cate[2]}\' group by country")
-                        con.commit()
-                    
-                data = cur.fetchall()
-                data = sorted(data, key=lambda x: x[1], reverse=True)
-                res[y] = data[:limit]
-                                  
-            print(res) 
-            data = {'res': '-1', 'data': res}
-            return jsonify(data)
-            
-    with con:
-        cur=con.cursor()
-        for y in range(2011, 2023):
-            cur.execute(f"select name, money from data where year = {y} limit {limit}")
-            con.commit()
-            data = cur.fetchall()
-            res[y] = data
-            
-    print(res)
-    return render_template('pytest/run.html', res = res)
+    return render_template('pytest/run.html')
 
 
 def preuse(cate, data_list):
