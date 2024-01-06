@@ -1,15 +1,6 @@
-function _1(md) {
-  return (
-    md`<div style="color: grey; font: 13px/25.5px var(--sans-serif); text-transform: uppercase;"><h1 style="display: none;">Bar Chart Race</h1></div>
-# Bar Chart Race`
-  )
-}
-
-var file1 = "./files/work_c.csv";
-
 function _data(FileAttachment) {
   return (
-    FileAttachment(file1).csv({ typed: true })
+    FileAttachment("category-brands.csv").csv({ typed: true })
   )
 }
 
@@ -62,7 +53,7 @@ function _duration() {
 
 function _n() {
   return (
-    20
+    15
   )
 }
 
@@ -302,6 +293,7 @@ function _barSize() {
   )
 }
 
+
 function _marginTop() {
   return (
     16
@@ -326,14 +318,14 @@ function _marginLeft() {
   )
 }
 
+
 export default function define(runtime, observer) {
   const main = runtime.module();
   function toString() { return this.url; }
   const fileAttachments = new Map([
-    [file1, { url: new URL(file1, import.meta.url), mimeType: "text/csv", toString }]
+    ["category-brands.csv", { url: new URL("./files/Africa_c.csv", import.meta.url), mimeType: "text/csv", toString }]
   ]);
   main.builtin("FileAttachment", runtime.fileAttachments(name => fileAttachments.get(name)));
-  //main.variable(observer()).define(["md"], _1);
   main.variable().define("data", ["FileAttachment"], _data);
   main.variable(observer("viewof replay")).define("viewof replay", ["html"], _replay);
   main.variable().define("replay", ["Generators", "viewof replay"], (G, _) => G.input(_));
