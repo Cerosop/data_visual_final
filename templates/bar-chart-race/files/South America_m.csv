@@ -1,0 +1,241 @@
+date,name,category,value
+2011-01-01,Carlos Slim Helu & family,North America,74
+2011-01-01,Bill Gates,North America,56
+2011-01-01,Warren Buffett,North America,50
+2011-01-01,Bernard Arnault,Europe,41
+2011-01-01,Larry Ellison,North America,39
+2011-01-01,Lakshmi Mittal,Asia,31
+2011-01-01,Amancio Ortega,Europe,31
+2011-01-01,Eike Batista,South America,30
+2011-01-01,Mukesh Ambani,Asia,27
+2011-01-01,Christy Walton & family,North America,26
+2011-01-01,Li Ka-shing,Asia,26
+2011-01-01,Karl Albrecht,Europe,25
+2011-01-01,Stefan Persson,Europe,24
+2011-01-01,Vladimir Lisin,Asia,24
+2011-01-01,Liliane Bettencourt,Europe,23
+2011-01-01,Sheldon Adelson,North America,23
+2011-01-01,David Thomson & family,North America,23
+2011-01-01,Charles Koch,North America,22
+2011-01-01,David Koch,North America,22
+2011-01-01,Jim Walton,North America,21
+2012-01-01,Carlos Slim Helu & family,North America,69
+2012-01-01,Bill Gates,North America,61
+2012-01-01,Warren Buffett,North America,44
+2012-01-01,Bernard Arnault,Europe,41
+2012-01-01,Amancio Ortega,Europe,37
+2012-01-01,Larry Ellison,North America,36
+2012-01-01,Eike Batista,South America,30
+2012-01-01,Stefan Persson,Europe,26
+2012-01-01,Li Ka-shing,Asia,25
+2012-01-01,Karl Albrecht,Europe,25
+2012-01-01,Christy Walton & family,North America,25
+2012-01-01,Charles Koch,North America,25
+2012-01-01,David Koch,North America,25
+2012-01-01,Sheldon Adelson,North America,24
+2012-01-01,Liliane Bettencourt,Europe,24
+2012-01-01,Jim Walton,North America,23
+2012-01-01,Alice Walton,North America,23
+2012-01-01,S. Robson Walton,North America,23
+2012-01-01,Mukesh Ambani,Asia,22
+2012-01-01,Michael Bloomberg,North America,22
+2013-01-01,Carlos Slim Helu & family,North America,69
+2013-01-01,Bill Gates,North America,61
+2013-01-01,Warren Buffett,North America,44
+2013-01-01,Bernard Arnault,Europe,41
+2013-01-01,Amancio Ortega,Europe,37
+2013-01-01,Larry Ellison,North America,36
+2013-01-01,Eike Batista,South America,30
+2013-01-01,Stefan Persson,Europe,26
+2013-01-01,Li Ka-shing,Asia,25
+2013-01-01,Karl Albrecht,Europe,25
+2013-01-01,Christy Walton & family,North America,25
+2013-01-01,Charles Koch,North America,25
+2013-01-01,David Koch,North America,25
+2013-01-01,Sheldon Adelson,North America,24
+2013-01-01,Liliane Bettencourt,Europe,24
+2013-01-01,Jim Walton,North America,23
+2013-01-01,Alice Walton,North America,23
+2013-01-01,S. Robson Walton,North America,23
+2013-01-01,Mukesh Ambani,Asia,22
+2013-01-01,Michael Bloomberg,North America,22
+2014-01-01,Bill Gates,North America,76
+2014-01-01,Carlos Slim Helu,North America,72
+2014-01-01,Amancio Ortega,Europe,64
+2014-01-01,Warren Buffett,North America,58
+2014-01-01,Larry Ellison,North America,48
+2014-01-01,Charles Koch,North America,40
+2014-01-01,David Koch,North America,40
+2014-01-01,Sheldon Adelson,North America,38
+2014-01-01,Christy Walton,North America,36
+2014-01-01,Jim Walton,North America,34
+2014-01-01,Stefan Persson,Europe,34
+2014-01-01,Alice Walton,North America,34
+2014-01-01,S. Robson Walton,North America,34
+2014-01-01,Bernard Arnault,Europe,33
+2014-01-01,Mark Zuckerberg,North America,28
+2014-01-01,Aliko Dangote,Africa,25
+2014-01-01,Carl Icahn,North America,24
+2014-01-01,George Soros,North America,23
+2014-01-01,David Thomson,North America,22
+2014-01-01,Lui Che Woo,Asia,22
+2015-01-01,Bill Gates,North America,79
+2015-01-01,Carlos Slim Helu,North America,77
+2015-01-01,Warren Buffett,North America,72
+2015-01-01,Amancio Ortega,Europe,64
+2015-01-01,Larry Ellison,North America,54
+2015-01-01,Charles Koch,North America,42
+2015-01-01,David Koch,North America,42
+2015-01-01,Christy Walton,North America,41
+2015-01-01,Jim Walton,North America,40
+2015-01-01,Liliane Bettencourt,Europe,40
+2015-01-01,Alice Walton,North America,39
+2015-01-01,S. Robson Walton,North America,39
+2015-01-01,Bernard Arnault,Europe,37
+2015-01-01,Michael Bloomberg,North America,35
+2015-01-01,Jeff Bezos,North America,34
+2015-01-01,Mark Zuckerberg,North America,33
+2015-01-01,Li Ka-shing,Asia,33
+2015-01-01,Sheldon Adelson,North America,31
+2015-01-01,Larry Page,North America,29
+2015-01-01,Sergey Brin,North America,29
+2016-01-01,Bill Gates,North America,75
+2016-01-01,Amancio Ortega,Europe,67
+2016-01-01,Warren Buffett,North America,60
+2016-01-01,Carlos Slim Helu,North America,50
+2016-01-01,Jeff Bezos,North America,45
+2016-01-01,Mark Zuckerberg,North America,44
+2016-01-01,Larry Ellison,North America,43
+2016-01-01,Michael Bloomberg,North America,40
+2016-01-01,Charles Koch,North America,39
+2016-01-01,David Koch,North America,39
+2016-01-01,Liliane Bettencourt,Europe,36
+2016-01-01,Larry Page,North America,35
+2016-01-01,Sergey Brin,North America,34
+2016-01-01,Bernard Arnault,Europe,34
+2016-01-01,Jim Walton,North America,33
+2016-01-01,Alice Walton,North America,32
+2016-01-01,S. Robson Walton,North America,31
+2016-01-01,Wang Jianlin,Asia,28
+2016-01-01,Jorge Paulo Lemann,South America,27
+2016-01-01,Li Ka-shing,Asia,27
+2017-01-01,Bill Gates,North America,86
+2017-01-01,Warren Buffett,North America,75
+2017-01-01,Jeff Bezos,North America,72
+2017-01-01,Amancio Ortega,Europe,71
+2017-01-01,Mark Zuckerberg,North America,56
+2017-01-01,Carlos Slim Helu,North America,54
+2017-01-01,Larry Ellison,North America,52
+2017-01-01,Charles Koch,North America,48
+2017-01-01,David Koch,North America,48
+2017-01-01,Michael Bloomberg,North America,47
+2017-01-01,Bernard Arnault,Europe,41
+2017-01-01,Larry Page,North America,40
+2017-01-01,Sergey Brin,North America,39
+2017-01-01,Liliane Bettencourt,Europe,39
+2017-01-01,S. Robson Walton,North America,34
+2017-01-01,Jim Walton,North America,34
+2017-01-01,Alice Walton,North America,33
+2017-01-01,Wang Jianlin,Asia,31
+2017-01-01,Li Ka-shing,Asia,31
+2017-01-01,Sheldon Adelson,North America,30
+2018-01-01,Jeff Bezos,North America,112
+2018-01-01,Bill Gates,North America,90
+2018-01-01,Warren Buffett,North America,84
+2018-01-01,Bernard Arnault,Europe,72
+2018-01-01,Mark Zuckerberg,North America,71
+2018-01-01,Amancio Ortega,Europe,70
+2018-01-01,Carlos Slim Helu,North America,67
+2018-01-01,Charles Koch,North America,60
+2018-01-01,David Koch,North America,60
+2018-01-01,Larry Ellison,North America,58
+2018-01-01,Michael Bloomberg,North America,50
+2018-01-01,Larry Page,North America,48
+2018-01-01,Sergey Brin,North America,47
+2018-01-01,Jim Walton,North America,46
+2018-01-01,S. Robson Walton,North America,46
+2018-01-01,Alice Walton,North America,46
+2018-01-01,Ma Huateng,Asia,45
+2018-01-01,Francoise Bettencourt Meyers,Europe,42
+2018-01-01,Mukesh Ambani,Asia,40
+2018-01-01,Jack Ma,Asia,39
+2019-01-01,Jeff Bezos,North America,112
+2019-01-01,Bill Gates,North America,90
+2019-01-01,Warren Buffett,North America,84
+2019-01-01,Bernard Arnault,Europe,72
+2019-01-01,Mark Zuckerberg,North America,71
+2019-01-01,Amancio Ortega,Europe,70
+2019-01-01,Carlos Slim Helu,North America,67
+2019-01-01,Charles Koch,North America,60
+2019-01-01,David Koch,North America,60
+2019-01-01,Larry Ellison,North America,58
+2019-01-01,Michael Bloomberg,North America,50
+2019-01-01,Larry Page,North America,48
+2019-01-01,Sergey Brin,North America,47
+2019-01-01,Jim Walton,North America,46
+2019-01-01,S. Robson Walton,North America,46
+2019-01-01,Alice Walton,North America,46
+2019-01-01,Ma Huateng,Asia,45
+2019-01-01,Francoise Bettencourt Meyers,Europe,42
+2019-01-01,Mukesh Ambani,Asia,40
+2019-01-01,Jack Ma,Asia,39
+2020-01-01,Jeff Bezos,North America,148
+2020-01-01,Bill Gates,North America,108
+2020-01-01,Bernard Arnault & family,Europe,103
+2020-01-01,Mark Zuckerberg,North America,85
+2020-01-01,Warren Buffett,North America,73
+2020-01-01,Larry Ellison,North America,67
+2020-01-01,Amancio Ortega,Europe,67
+2020-01-01,Steve Ballmer,North America,65
+2020-01-01,Larry Page,North America,64
+2020-01-01,Sergey Brin,North America,63
+2020-01-01,Michael Bloomberg,North America,60
+2020-01-01,Francoise Bettencourt Meyers & family,Europe,57
+2020-01-01,Mukesh Ambani,Asia,56
+2020-01-01,Jim Walton,North America,55
+2020-01-01,Alice Walton,North America,54
+2020-01-01,Carlos Slim Helu & family,North America,54
+2020-01-01,Rob Walton,North America,54
+2020-01-01,MacKenzie Bezos,North America,48
+2020-01-01,Ma Huateng,Asia,48
+2020-01-01,Charles Koch,North America,47
+2021-01-01,Jeff Bezos,North America,177
+2021-01-01,Elon Musk,North America,151
+2021-01-01,Bernard Arnault & family,Europe,150
+2021-01-01,Bill Gates,North America,124
+2021-01-01,Mark Zuckerberg,North America,97
+2021-01-01,Warren Buffett,North America,96
+2021-01-01,Larry Ellison,North America,93
+2021-01-01,Larry Page,North America,91
+2021-01-01,Sergey Brin,North America,89
+2021-01-01,Mukesh Ambani,Asia,84
+2021-01-01,Amancio Ortega,Europe,77
+2021-01-01,Francoise Bettencourt Meyers & family,Europe,73
+2021-01-01,Zhong Shanshan,Asia,68
+2021-01-01,Steve Ballmer,North America,68
+2021-01-01,Ma Huateng,Asia,65
+2021-01-01,Carlos Slim Helu & family,North America,62
+2021-01-01,Alice Walton,North America,61
+2021-01-01,Jim Walton,North America,60
+2021-01-01,Rob Walton,North America,59
+2021-01-01,Michael Bloomberg,North America,59
+2022-01-01,Elon Musk,North America,219
+2022-01-01,Jeff Bezos,North America,171
+2022-01-01,Bernard Arnault & family,Europe,158
+2022-01-01,Bill Gates,North America,129
+2022-01-01,Warren Buffett,North America,118
+2022-01-01,Larry Page,North America,111
+2022-01-01,Sergey Brin,North America,107
+2022-01-01,Larry Ellison,North America,106
+2022-01-01,Steve Ballmer,North America,91
+2022-01-01,Mukesh Ambani,Asia,90
+2022-01-01,Gautam Adani & family,Asia,90
+2022-01-01,Michael Bloomberg,North America,82
+2022-01-01,Carlos Slim Helu & family,North America,81
+2022-01-01,Francoise Bettencourt Meyers & family,Europe,74
+2022-01-01,Mark Zuckerberg,North America,67
+2022-01-01,Jim Walton,North America,66
+2022-01-01,Zhong Shanshan,Asia,65
+2022-01-01,Alice Walton,North America,65
+2022-01-01,Rob Walton,North America,65
+2022-01-01,Changpeng Zhao,North America,65

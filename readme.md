@@ -3,7 +3,6 @@
 #### 看資料格式的方法:
 執行maini.py <br>
 http://127.0.0.1:5000/main 在main.html第22行有2個東西，分別是age or money和年份，按下按鈕後console有資料，放了那個年份的人由年齡或資產排序<br>
-http://127.0.0.1:5000/run 放了每一年按照資產排的人名。然後在run.html第34行有3個東西，分別代表x, y, 條件，按下按鈕後console有資料(x可以是name, work, country, continent，y可以是people, money，條件就洲的名稱或all或no)<br>
 http://127.0.0.1:5000/graph 在graph.html第22行有3個東西，分別代表x, y, 年，按下按鈕後console有資料(x可以是age, money, work, country, continent，y可以是people, money, money ave)<br>
 http://127.0.0.1:5000/circle 給圓餅圖用的，看了就知道<br>
 http://127.0.0.1:5000/map 放了2022年前100有錢的人的名字和國家<br>
