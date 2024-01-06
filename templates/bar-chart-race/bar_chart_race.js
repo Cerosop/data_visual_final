@@ -1,6 +1,7 @@
+var file1 = "./files/name.csv"
 function _data(FileAttachment) {
   return (
-    FileAttachment("category-brands.csv").csv({ typed: true })
+    FileAttachment(file1).csv({ typed: true })
   )
 }
 
@@ -323,7 +324,7 @@ export default function define(runtime, observer) {
   const main = runtime.module();
   function toString() { return this.url; }
   const fileAttachments = new Map([
-    ["category-brands.csv", { url: new URL("./files/Africa_c.csv", import.meta.url), mimeType: "text/csv", toString }]
+    [file1, { url: new URL(file1, import.meta.url), mimeType: "text/csv", toString }]
   ]);
   main.builtin("FileAttachment", runtime.fileAttachments(name => fileAttachments.get(name)));
   main.variable().define("data", ["FileAttachment"], _data);
