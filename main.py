@@ -10,17 +10,21 @@ def redir():
 @app.route('/main', methods=['GET', 'POST'])
 def page1():
     con = lite.connect('mydb.db')
-    with con:
-        cur=con.cursor()
-        cur.execute(f"select * from data")
-        con.commit()
-        data = cur.fetchall()
-        
-        first_id = data[0][0] - 1
-        res = [(d[0] - first_id, d[1], d[2], d[3], d[4], d[5], d[6], d[7]) for d in data]
-        print(res)
-        
-    return render_template('pytest/main.html', res = res)
+    if request.method == 'POST':
+        cate = request.values['cate'].split(", ")
+        print(cate)
+        with con:
+            cur=con.cursor()
+            cur.execute(f"select * from data where year = \'{cate[1]}\' order by \'{cate[0]}\' asc")
+            con.commit()
+            res = cur.fetchall()
+            res = [(i + 1, d[1], d[3], d[4], d[5], d[6], d[7]) for i, d in enumerate(res)]
+            
+            print(res)  
+            data = {'res': '-1', 'data': res}
+            return jsonify(data)
+    else:    
+        return render_template('pytest/main.html')
     
     
 @app.route('/run', methods=['GET', 'POST'])
@@ -240,27 +244,6 @@ def page5():
     
     print(data)
     return render_template('pytest/map.html', res = data)
-
-
-@app.route('/byage', methods=['GET', 'POST'])
-def page7():
-    con = lite.connect('mydb.db')
-    if request.method == 'POST':
-        cate = request.values['cate'].split(", ")
-        print(cate)
-        with con:
-            cur=con.cursor()
-            cur.execute(f"select * from data where year = \'{cate[0]}\' order by age asc")
-            con.commit()
-            res = cur.fetchall()
-            first_id = res[0][0] - 1
-            res = [(i, d[1], d[3], d[4], d[5], d[6], d[7]) for i, d in enumerate(res)]
-            
-            print(res)  
-            data = {'res': '-1', 'data': res}
-            return jsonify(data)
-    else:    
-        return render_template('pytest/byage.html')
     
     
 if __name__ == '__main__':
