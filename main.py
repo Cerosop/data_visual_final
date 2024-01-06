@@ -228,18 +228,18 @@ def page4():
 
 
 @app.route('/map', methods=['GET', 'POST'])
-def page4():
+def page5():
     con = lite.connect('mydb.db')
     limit = 100
     with con:
         cur=con.cursor()
         y = 2022
-        cur.execute(f"select name country from data where year = {y} limit {limit}")
+        cur.execute(f"select name, country from data where year = {y} limit {limit}")
         con.commit()
         data = cur.fetchall()
     
     print(data)
-    return render_template('pytest/circle.html', res = data)
+    return render_template('pytest/map.html', res = data)
     
     
 if __name__ == '__main__':
