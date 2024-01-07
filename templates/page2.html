@@ -58,10 +58,10 @@
                 </div>
             </div>
             <script>
-                function handleSelectionChange() {
-                    var yearDropdown = document.getElementById("year1");
-                    var topicDropdown = document.getElementById("topic");
+                var yearDropdown = document.getElementById("year1");
+                var topicDropdown = document.getElementById("topic");
 
+                function handleSelectionChange() {
                     var selectedYear = yearDropdown.options[yearDropdown.selectedIndex].value;
                     var selectedTopic = topicDropdown.options[topicDropdown.selectedIndex].value;
 
@@ -124,31 +124,45 @@
                     </select>
                 </div>
                 <div class="col-12">
-                    <label for="topic">選擇主題：</label>
-                    <select id="topic">
+                    <label for="topic1">選擇主題：</label>
+                    <select id="topic1">
                         <option value="age">年紀</option>
                         <option value="money1" selected>資產</option>
                     </select>
                 </div>
-
+                <div class="col-12">
+                    <label for="topic2">選擇主題：</label>
+                    <select id="topic2">
+                        <option value="age">年紀</option>
+                        <option value="money1" selected>資產</option>
+                    </select>
+                </div>
             </div>
-
             <script>
-                function handleSelectionChange() {
-                    var yearDropdown = document.getElementById("year1");
-                    var topicDropdown = document.getElementById("topic");
-
-                    var selectedYear = yearDropdown.options[yearDropdown.selectedIndex].value;
-                    var selectedTopic = topicDropdown.options[topicDropdown.selectedIndex].value;
-
-                    console.log("Selected Year: " + selectedYear);
-                    console.log("Selected topic Method: " + selectedTopic);
-
+                var startYearDropdown = document.getElementById("startYear");
+                var endYearDropdown = document.getElementById("endYear");
+                var topic1Dropdown = document.getElementById("topic1");
+                var topic2Dropdown = document.getElementById("topic2");
+            
+                function handleSelectionChange2() {
+                    var selectedStartYear = startYearDropdown.options[startYearDropdown.selectedIndex].value;
+                    var selectedEndYear = endYearDropdown.options[endYearDropdown.selectedIndex].value;
+                    var selectedTopic1 = topic1Dropdown.options[topic1Dropdown.selectedIndex].value;
+                    var selectedTopic2 = topic2Dropdown.options[topic2Dropdown.selectedIndex].value;
+            
+                    console.log("Selected Start Year: " + selectedStartYear);
+                    console.log("Selected End Year: " + selectedEndYear);
+                    console.log("Selected Topic 1: " + selectedTopic1);
+                    console.log("Selected Topic 2: " + selectedTopic2);
+            
                     // 在這裡可以執行其他相關的操作，或者將值傳遞給其他 JavaScript 檔案
                 }
-                document.getElementById("year1").addEventListener("change", handleSelectionChange);
-                document.getElementById("topic").addEventListener("change", handleSelectionChange);
-            </script>
+            
+                document.getElementById("startYear").addEventListener("change", handleSelectionChange2);
+                document.getElementById("endYear").addEventListener("change", handleSelectionChange2);
+                document.getElementById("topic1").addEventListener("change", handleSelectionChange2);
+                document.getElementById("topic2").addEventListener("change", handleSelectionChange2);
+            </script>            
         </div>
 
 
