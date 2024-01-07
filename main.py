@@ -9,7 +9,7 @@ def redir():
 
 @app.route('/main', methods=['GET', 'POST'])
 def page1():
-    con = lite.connect('mydb.db')
+    con = lite.connect('./mydb.db')
     if request.method == 'POST':
         cate = request.values['cate'].split(", ")
         print(cate)
