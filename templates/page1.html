@@ -27,38 +27,44 @@
 			</header>
 
 			<!-- 選單-->
-			<label for="year1">選擇年分：</label>
-			<select id="year1">
-				<option value="2011">2011</option>
-				<option value="2012">2012</option>
-				<option value="2013">2013</option>
-				<option value="2014">2014</option>
-				<option value="2015">2015</option>
-				<option value="2016">2016</option>
-				<option value="2017">2017</option>
-				<option value="2018">2018</option>
-				<option value="2019">2019</option>
-				<option value="2020">2020</option>
-				<option value="2021">2021</option>
-				<option value="2022">2022</option>
-				<option value="2023" selected>2023</option>
-			</select>
-			<label for="sort">選擇排序方式：</label>
-			<select id="sort">
-				<option value="age">年紀</option>
-				<option value="money1" selected>資產</option>
-			</select>
+			<div class="row">
+				<div class="col-12">
+					<label for="year1">選擇年分：</label>
+					<select id="year1">
+						<option value="2011">2011</option>
+						<option value="2012">2012</option>
+						<option value="2013">2013</option>
+						<option value="2014">2014</option>
+						<option value="2015">2015</option>
+						<option value="2016">2016</option>
+						<option value="2017">2017</option>
+						<option value="2018">2018</option>
+						<option value="2019">2019</option>
+						<option value="2020">2020</option>
+						<option value="2021">2021</option>
+						<option value="2022">2022</option>
+						<option value="2023" selected>2023</option>
+					</select>
+				</div>
+				<div class="col-12">
+					<label for="sort">選擇排序方式：</label>
+					<select id="sort">
+						<option value="age">年紀</option>
+						<option value="money1" selected>資產</option>
+					</select>
+				</div>
+			</div>
 			<script>
 				function handleSelectionChange() {
 					var yearDropdown = document.getElementById("year1");
 					var sortDropdown = document.getElementById("sort");
-			
+
 					var selectedYear = yearDropdown.options[yearDropdown.selectedIndex].value;
 					var selectedSort = sortDropdown.options[sortDropdown.selectedIndex].value;
-			
+
 					console.log("Selected Year: " + selectedYear);
 					console.log("Selected Sort Method: " + selectedSort);
-			
+
 					// 在這裡可以執行其他相關的操作，或者將值傳遞給其他 JavaScript 檔案
 				}
 				document.getElementById("year1").addEventListener("change", handleSelectionChange);
@@ -143,33 +149,38 @@
 			&nbsp
 
 			<!-- 選單-->
-			<label for="element">選擇排序項目：</label>
-			<select id="element">
-				<!-- selected 預選 disabled 不可選 -->
-				<option value="people" selected>富豪</option>
-				<option value="country">國家</option>
-				<option value="work">工作</option>
-			</select>
-
-			<label for="area">選擇地區：</label>
-			<select id="area">
-				<!-- selected 預選 disabled 不可選 -->
-				<option value="Oceania">大洋洲</option>
-				<option value="Africa">非洲</option>
-				<option value="Asia">亞洲</option>
-				<option value="Europe">歐洲</option>
-				<option value="South America">南美洲</option>
-				<option value="North America">北美洲</option>
-				<option value="all" selected>全</option>
-			</select>
-
-			<label for="sort2">選擇比較項目：</label>
-			<select id="sort2">
-				<!-- selected 預選 disabled 不可選 -->
-				<option value="num" disabled>國家富豪人數</option>
-				<option value="money2" selected>資產</option>
-			</select>
-
+			<div class="row">
+				<div class="col-12">
+					<label for="element">選擇排序項目：</label>
+					<select id="element">
+						<!-- selected 預選 disabled 不可選 -->
+						<option value="people" selected>富豪</option>
+						<option value="country">國家</option>
+						<option value="work">工作</option>
+					</select>
+				</div>
+				<div class="col-12">
+					<label for="area">選擇地區：</label>
+					<select id="area">
+						<!-- selected 預選 disabled 不可選 -->
+						<option value="Oceania">大洋洲</option>
+						<option value="Africa">非洲</option>
+						<option value="Asia">亞洲</option>
+						<option value="Europe">歐洲</option>
+						<option value="South America">南美洲</option>
+						<option value="North America">北美洲</option>
+						<option value="all" selected>全</option>
+					</select>
+				</div>
+				<div class="col-12">
+					<label for="sort2">選擇比較項目：</label>
+					<select id="sort2">
+						<!-- selected 預選 disabled 不可選 -->
+						<option value="num" disabled>國家富豪人數</option>
+						<option value="money2" selected>資產</option>
+					</select>
+				</div>
+			</div>
 			<script>
 				function handleDropdownChange() {
 					var elementDropdown = document.getElementById("element");
