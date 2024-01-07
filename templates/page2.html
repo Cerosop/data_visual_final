@@ -113,6 +113,8 @@
                             var number = parseInt(continent_people_2011[i]['name']);
                             if(number == -1){
                                 trace1.labels[i] = "nan";
+                            }else if(number == 20){
+                                trace1.labels[i] = 5*number +"~";
                             }else{
                                 trace1.labels[i] = 5*number +"~"+ (5*number+4);
                             }
