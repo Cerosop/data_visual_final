@@ -6,24 +6,6 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="assets/css/main.css" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <title>circle</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <style type="text/css">
-        #table {
-            border-collapse: collapse;
-        }
-        #table td {
-            border: 1px solid black;
-            padding: 5px;
-        }
-        table {
-            width: 100%;
-        }
-        table td {
-            text-align: center;
-        }
-    </style>
 </head>
 
 <body class="is-preload">
@@ -32,63 +14,44 @@
     <div id="header">
         <span class="logo icon fa-paper-plane"></span>
         <h1>各式圖表</h1>
+
     </div>
 
     <div id="main">
+
         <div class="box container">
             <header>
                 <h2>圓餅圖</h2>
             </header>
-                    <header>
-                    </header>
+            <section>
+                <header>
+                    <p>我們會用圓餅圖進行比較。</p>
+                </header>
 
-                    <body>
-                        <table id="table">
-                            <tr>
-                                <td>cate</td>
-                                <td>unit</td>
-                                <td>year</td>
-                                <td>name</td>
-                                <td>data</td>
-                            </tr>
-                            {% for k1 in res %}
-                                {% for k2 in res[k1] %}
-                                    {% for y in res[k1][k2] %}
-                                        {% for a in res[k1][k2][y] %}
-                                            <tr>
-                                                <td>{{k1}}</td>
-                                                <td>{{k2}}</td>
-                                                <td>{{y}}</td>
-                                                <td>{{a[0]}}</td>
-                                                <td>{{a[1]}}</td>
-                                            </tr>
-                                    {% endfor %}
-                                    {% endfor %}
-                                {% endfor %}
-                            {% endfor %}
-                        </table>
-                    <header><p>我們會用圓餅圖進行比較，之所以使用圓餅圖是因為它可以觀察比例分布。</p></header>
+            </section>
+        </div>
 
-                </section>
-                <div class="box container">
-                    <header>
-                        <h2>折線圖</h2>
-                    </header>
-                    <section>
-                        <header>
-                            <header><p>我們會用折線圖進行比較，之所以使用折線圖是因為它可以觀察隨時間趨勢變化的數據。</p></header>
-                        </header>
-                    </section>
-                    <div class="box container">
-                        <header>
-                            <h2>長條圖</h2>
-                        </header>
-                        <section>
-                            <header>
-                                <header><p>我們會用長條圖進行比較，之所以選用長條圖是因為其特點為強調比較這一觀念。</p></header>
-                            </header>
-                        </section>
-                
+        <div class="box container">
+            <header>
+                <h2>折線圖</h2>
+            </header>
+            <section>
+                <header>
+                    <p>我們會用圓餅圖進行比較。</p>
+                </header>
+            </section>
+        </div>
+
+
+        <div class="box container">
+            <header>
+                <h2>長條圖</h2>
+            </header>
+            <section>
+                <header>
+                    <p>我們會用圓餅圖進行比較。</p>
+                </header>
+
             </section>
         </div>
 
@@ -96,7 +59,6 @@
             <li><a href="index.html" class="button">返回</a></li>
         </ul>
     </div>
- 
 
     <!-- Scripts -->
     <script src="assets/js/jquery.min.js"></script>
@@ -104,8 +66,6 @@
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-
 
 </body>
 
