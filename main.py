@@ -119,7 +119,7 @@ def page3():
         return render_template('pytest/graph.html')
     
     
-@app.route('/circle', methods=['GET', 'POST'])
+@app.route('/page2', methods=['GET', 'POST'])
 def page4():
     con = lite.connect('mydb.db')
     limit = 20
@@ -191,7 +191,7 @@ def page4():
             res['age']['money'][y] = data
      
     print(res)
-    return render_template('pie_chart/piechartindex.html', res = json.dumps(res))
+    return render_template('page2.html', res = json.dumps(res))
 
 
 @app.route('/map', methods=['GET', 'POST'])
