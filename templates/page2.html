@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>各式圖表</title>
+    <title>圓餅圖</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" />
@@ -15,7 +15,7 @@
     <!-- Header -->
     <div id="header">
         <span class="logo icon fa-paper-plane"></span>
-        <h1>各式圖表</h1>
+        <h1>圓餅圖</h1>
 
     </div>
 
@@ -55,7 +55,7 @@
                     <label for="topic1">選擇主題：</label>
                     <select id="topic1">
                         <option value="age">年紀</option>
-                        <option value="work">總資產</option>
+                        <option value="work">工作</option>
                         <option value="continent" selected>洲</option>
                     </select>
                 </div>
@@ -103,7 +103,7 @@
 
                     let trace1 = {};
                     trace1.type = "pie";
-                    trace1.title = "機器學習概論";  // 待改
+                    trace1.title = selectedYear + "年各" + topic1Dropdown.options[topic1Dropdown.selectedIndex].text + topic2Dropdown.options[topic2Dropdown.selectedIndex].text;
                     trace1.labels = [];
                     trace1.values = [];
                     trace1.hole = 0.5;
@@ -130,7 +130,7 @@
             <style>
                 #myGraph {
                     width: 100%;
-                    height: 700px;
+                    height: 100%;
                 }
             </style>
 
@@ -162,7 +162,7 @@
 
                     let trace1 = {};
                     trace1.type = "pie";
-                    trace1.title = "機器學習概論";  // 待改
+                    trace1.title = "2022年各州富豪人數";  // 待改
                     trace1.labels = [];
                     trace1.values = [];
                     trace1.hole = 0.5;
