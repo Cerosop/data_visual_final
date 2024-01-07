@@ -109,16 +109,16 @@
                     trace1.hole = 0.5;
 
                     for (let i = 0; i < continent_people_2011.length; i++) {
-                        if(selectedTopic1 == "age"){
+                        if (selectedTopic1 == "age") {
                             var number = parseInt(continent_people_2011[i]['name']);
-                            if(number == -1){
+                            if (number == -1) {
                                 trace1.labels[i] = "nan";
-                            }else if(number == 20){
-                                trace1.labels[i] = 5*number +"~";
-                            }else{
-                                trace1.labels[i] = 5*number +"~"+ (5*number+4);
+                            } else if (number == 20) {
+                                trace1.labels[i] = 5 * number + "~";
+                            } else {
+                                trace1.labels[i] = 5 * number + "~" + (5 * number + 4);
                             }
-                        }else{
+                        } else {
                             trace1.labels[i] = continent_people_2011[i]['name'];
                         }
                         trace1.values[i] = continent_people_2011[i]['count'];
@@ -145,54 +145,53 @@
                 }
             </style>
 
-            <body>
-                <div id="res2" style="display: none;">{{res}}</div>
-                <div id="myGraph"></div>
-                <script>
+            <div id="res2" style="display: none;">{{res}}</div>
+            <div id="myGraph"></div>
+            <script>
 
-                    let res = JSON.parse(document.getElementById('res2').innerHTML);
-                    let continent_people_2011 = [];
-                    for (var k1 in res) {
-                        for (var k2 in res[k1]) {
-                            for (var y in res[k1][k2]) {
-                                for (var i = 0; i < res[k1][k2][y].length; i++) {
-                                    if (k1 == "continent" && k2 == "people" && y == 2022) {
-                                        let newEvaluation = {
-                                            "name": res[k1][k2][y][i][0],
-                                            "count": res[k1][k2][y][i][1]
-                                        };
-                                        continent_people_2011.push(newEvaluation);
-                                    }
+                let res = JSON.parse(document.getElementById('res2').innerHTML);
+                let continent_people_2011 = [];
+                for (var k1 in res) {
+                    for (var k2 in res[k1]) {
+                        for (var y in res[k1][k2]) {
+                            for (var i = 0; i < res[k1][k2][y].length; i++) {
+                                if (k1 == "continent" && k2 == "people" && y == 2022) {
+                                    let newEvaluation = {
+                                        "name": res[k1][k2][y][i][0],
+                                        "count": res[k1][k2][y][i][1]
+                                    };
+                                    continent_people_2011.push(newEvaluation);
                                 }
                             }
                         }
                     }
-                    console.log(continent_people_2011)
+                }
+                console.log(continent_people_2011)
 
-                    let myGraph = document.getElementById('myGraph');
+                let myGraph = document.getElementById('myGraph');
 
-                    let trace1 = {};
-                    trace1.type = "pie";
-                    trace1.title = "2022年各州富豪人數";  // 待改
-                    trace1.labels = [];
-                    trace1.values = [];
-                    trace1.hole = 0.5;
+                let trace1 = {};
+                trace1.type = "pie";
+                trace1.title = "2022年各州富豪人數";  // 待改
+                trace1.labels = [];
+                trace1.values = [];
+                trace1.hole = 0.5;
 
-                    for (let i = 0; i < continent_people_2011.length; i++) {
-                        trace1.labels[i] = continent_people_2011[i]['name'];
-                        trace1.values[i] = continent_people_2011[i]['count'];
+                for (let i = 0; i < continent_people_2011.length; i++) {
+                    trace1.labels[i] = continent_people_2011[i]['name'];
+                    trace1.values[i] = continent_people_2011[i]['count'];
+                }
+
+                let data = [];
+                data.push(trace1);
+
+                let layout = {
+                    margin: {
+                        t: 50,
                     }
-
-                    let data = [];
-                    data.push(trace1);
-
-                    let layout = {
-                        margin: {
-                            t: 50,
-                        }
-                    };
-                    Plotly.newPlot(myGraph, data, layout);
-                </script>
+                };
+                Plotly.newPlot(myGraph, data, layout);
+            </script>
 
         </div>
 
