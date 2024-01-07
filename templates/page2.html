@@ -5,8 +5,9 @@
     <title>各式圖表</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" />
+	<link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}" />
+    <script src="https://cdn.plot.ly/plotly-2.24.1.min.js"></script>
 </head>
 
 <body class="is-preload">
@@ -87,10 +88,71 @@
                 document.getElementById("topic1").addEventListener("change", handleSelectionChange);
                 document.getElementById("topic2").addEventListener("change", handleSelectionChange);
             </script>
+            <style>
+                #myGraph {
+                    width: 800px;
+                    height: 600px;
+                    border: 1px solid gray;
+                }
+            </style>
+
+            <body>
+                <div id="res2" style="display: none;">{{res}}</div>
+                <div id="myGraph"></div>
+                <script>
+
+                    let res = JSON.parse(document.getElementById('res2').innerHTML);
+                    let continent_people_2011 = [];
+                    console.log((res));
+                    console.log((res['continent']));
+                    console.log((res['continent']['people']));
+                    console.log((res['continent']['people'][2011]));
+
+                    for (var k1 in res) {
+                        for (var k2 in res[k1]) {
+                            for (var y in res[k1][k2]) {
+                                for (var i = 0; i < res[k1][k2][y].length; i++) {
+                                    if (k1 == "continent" && k2 == "people" && y == 2011) {
+                                        let newEvaluation = {
+                                            "name": res[k1][k2][y][i][0],
+                                            "count": res[k1][k2][y][i][1]
+                                        };
+                                        continent_people_2011.push(newEvaluation);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    console.log(continent_people_2011);
+
+                    let myGraph = document.getElementById('myGraph');
+
+                    let trace1 = {};
+                    trace1.type = "pie";
+                    trace1.title = "機器學習概論";
+                    trace1.labels = [];
+                    trace1.values = [];
+                    trace1.hole = 0.5;
+
+                    for (let i = 0; i < continent_people_2011.length; i++) {
+                        trace1.labels[i] = continent_people_2011[i]['name'];
+                        trace1.values[i] = continent_people_2011[i]['count'];
+                    }
+
+                    let data = [];
+                    data.push(trace1);
+
+                    let layout = {
+                        margin: {
+                            t: 50,
+                        },
+                        title: 'Pie Chart'
+                    };
+                    console.log(myGraph)
+                    Plotly.newPlot(myGraph, data, layout);
+                </script>
 
         </div>
-
-
 
         <ul class="actions special">
             <li><a href="index.html" class="button">返回</a></li>
@@ -98,12 +160,11 @@
     </div>
 
     <!-- Scripts -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script>
-    <script src="https://cdn.plot.ly/plotly-2.24.1.min.js"></script>
+    <link rel="stylesheet" href="{{url_for('static', filename='js/jquery.min.js')}}" />
+	<link rel="stylesheet" href="{{url_for('static', filename='js/browser.min.js')}}" />
+	<link rel="stylesheet" href="{{url_for('static', filename='js/breakpoints.min.js')}}" />
+	<link rel="stylesheet" href="{{url_for('static', filename='js/util.js')}}" />
+	<link rel="stylesheet" href="{{url_for('static', filename='js/main.js')}}" />
 
 </body>
 
