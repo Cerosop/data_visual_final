@@ -1,0 +1,259 @@
+date,name,category,value
+2011-01-01,China,China,193
+2011-01-01,Hong Kong,Hong Kong,143
+2011-01-01,India,India,231
+2011-01-01,Indonesia,Indonesia,30
+2011-01-01,Israel,Israel,43
+2011-01-01,Japan,Japan,63
+2011-01-01,Kazakhstan,Kazakhstan,10
+2011-01-01,Kuwait,Kuwait,12
+2011-01-01,Lebanon,Lebanon,10
+2011-01-01,Malaysia,Malaysia,40
+2011-01-01,Philippines,Philippines,10
+2011-01-01,Russia,Russia,388
+2011-01-01,Saudi Arabia,Saudi Arabia,51
+2011-01-01,Singapore,Singapore,9
+2011-01-01,South Korea,South Korea,38
+2011-01-01,Taiwan,Taiwan,52
+2011-01-01,Thailand,Thailand,15
+2011-01-01,Turkey,Turkey,54
+2011-01-01,United Arab Emirates,United Arab Emirates,5
+2012-01-01,China,China,174
+2012-01-01,Hong Kong,Hong Kong,145
+2012-01-01,India,India,176
+2012-01-01,Indonesia,Indonesia,36
+2012-01-01,Israel,Israel,34
+2012-01-01,Japan,Japan,65
+2012-01-01,Kazakhstan,Kazakhstan,6
+2012-01-01,Kuwait,Kuwait,5
+2012-01-01,Lebanon,Lebanon,11
+2012-01-01,Malaysia,Malaysia,42
+2012-01-01,Philippines,Philippines,16
+2012-01-01,Russia,Russia,339
+2012-01-01,Saudi Arabia,Saudi Arabia,48
+2012-01-01,Singapore,Singapore,9
+2012-01-01,South Korea,South Korea,39
+2012-01-01,Taiwan,Taiwan,51
+2012-01-01,Thailand,Thailand,19
+2012-01-01,Turkey,Turkey,46
+2012-01-01,United Arab Emirates,United Arab Emirates,6
+2013-01-01,China,China,174
+2013-01-01,Hong Kong,Hong Kong,145
+2013-01-01,India,India,176
+2013-01-01,Indonesia,Indonesia,36
+2013-01-01,Israel,Israel,34
+2013-01-01,Japan,Japan,65
+2013-01-01,Kazakhstan,Kazakhstan,6
+2013-01-01,Kuwait,Kuwait,5
+2013-01-01,Lebanon,Lebanon,11
+2013-01-01,Malaysia,Malaysia,42
+2013-01-01,Philippines,Philippines,16
+2013-01-01,Russia,Russia,339
+2013-01-01,Saudi Arabia,Saudi Arabia,48
+2013-01-01,Singapore,Singapore,9
+2013-01-01,South Korea,South Korea,39
+2013-01-01,Taiwan,Taiwan,51
+2013-01-01,Thailand,Thailand,19
+2013-01-01,Turkey,Turkey,46
+2013-01-01,United Arab Emirates,United Arab Emirates,6
+2014-01-01,China,China,121
+2014-01-01,Hong Kong,Hong Kong,59
+2014-01-01,India,India,69
+2014-01-01,Indonesia,Indonesia,17
+2014-01-01,Israel,Israel,26
+2014-01-01,Japan,Japan,65
+2014-01-01,Kazakhstan,Kazakhstan,4
+2014-01-01,Kuwait,Kuwait,2
+2014-01-01,Lebanon,Lebanon,8
+2014-01-01,Malaysia,Malaysia,19
+2014-01-01,Philippines,Philippines,14
+2014-01-01,Russia,Russia,204
+2014-01-01,Saudi Arabia,Saudi Arabia,27
+2014-01-01,Singapore,Singapore,9
+2014-01-01,South Korea,South Korea,30
+2014-01-01,Taiwan,Taiwan,38
+2014-01-01,Thailand,Thailand,17
+2014-01-01,Turkey,Turkey,12
+2014-01-01,United Arab Emirates,United Arab Emirates,6
+2014-01-01,Vietnam,Vietnam,1
+2015-01-01,China,China,484
+2015-01-01,Hong Kong,Hong Kong,222
+2015-01-01,India,India,262
+2015-01-01,Indonesia,Indonesia,47
+2015-01-01,Israel,Israel,48
+2015-01-01,Japan,Japan,88
+2015-01-01,Kazakhstan,Kazakhstan,9
+2015-01-01,Kuwait,Kuwait,5
+2015-01-01,Lebanon,Lebanon,12
+2015-01-01,Malaysia,Malaysia,44
+2015-01-01,Nepal,Nepal,1
+2015-01-01,Oman,Oman,2
+2015-01-01,Philippines,Philippines,46
+2015-01-01,Russia,Russia,307
+2015-01-01,Saudi Arabia,Saudi Arabia,47
+2015-01-01,Singapore,Singapore,47
+2015-01-01,South Korea,South Korea,67
+2015-01-01,Taiwan,Taiwan,72
+2015-01-01,Thailand,Thailand,46
+2015-01-01,Turkey,Turkey,43
+2015-01-01,United Arab Emirates,United Arab Emirates,18
+2015-01-01,Vietnam,Vietnam,1
+2016-01-01,China,China,504
+2016-01-01,Hong Kong,Hong Kong,215
+2016-01-01,India,India,221
+2016-01-01,Indonesia,Indonesia,43
+2016-01-01,Israel,Israel,42
+2016-01-01,Japan,Japan,77
+2016-01-01,Kazakhstan,Kazakhstan,8
+2016-01-01,Lebanon,Lebanon,10
+2016-01-01,Malaysia,Malaysia,36
+2016-01-01,Nepal,Nepal,1
+2016-01-01,Oman,Oman,1
+2016-01-01,Philippines,Philippines,38
+2016-01-01,Qatar,Qatar,2
+2016-01-01,Russia,Russia,255
+2016-01-01,Saudi Arabia,Saudi Arabia,32
+2016-01-01,Singapore,Singapore,39
+2016-01-01,South Korea,South Korea,64
+2016-01-01,Taiwan,Taiwan,46
+2016-01-01,Thailand,Thailand,38
+2016-01-01,Turkey,Turkey,38
+2016-01-01,United Arab Emirates,United Arab Emirates,17
+2016-01-01,Vietnam,Vietnam,1
+2017-01-01,China,China,697
+2017-01-01,Hong Kong,Hong Kong,246
+2017-01-01,India,India,284
+2017-01-01,Indonesia,Indonesia,44
+2017-01-01,Israel,Israel,47
+2017-01-01,Japan,Japan,103
+2017-01-01,Kazakhstan,Kazakhstan,9
+2017-01-01,Kuwait,Kuwait,4
+2017-01-01,Lebanon,Lebanon,7
+2017-01-01,Macao,Macao,1
+2017-01-01,Malaysia,Malaysia,41
+2017-01-01,Nepal,Nepal,1
+2017-01-01,Oman,Oman,6
+2017-01-01,Philippines,Philippines,40
+2017-01-01,Qatar,Qatar,3
+2017-01-01,Russia,Russia,356
+2017-01-01,Saudi Arabia,Saudi Arabia,38
+2017-01-01,Singapore,Singapore,51
+2017-01-01,South Korea,South Korea,78
+2017-01-01,Taiwan,Taiwan,66
+2017-01-01,Thailand,Thailand,55
+2017-01-01,Turkey,Turkey,39
+2017-01-01,United Arab Emirates,United Arab Emirates,25
+2017-01-01,Vietnam,Vietnam,3
+2018-01-01,China,China,983
+2018-01-01,Hong Kong,Hong Kong,310
+2018-01-01,India,India,394
+2018-01-01,Indonesia,Indonesia,65
+2018-01-01,Israel,Israel,49
+2018-01-01,Japan,Japan,125
+2018-01-01,Kazakhstan,Kazakhstan,13
+2018-01-01,Kuwait,Kuwait,4
+2018-01-01,Lebanon,Lebanon,10
+2018-01-01,Macao,Macao,1
+2018-01-01,Malaysia,Malaysia,56
+2018-01-01,Nepal,Nepal,1
+2018-01-01,Oman,Oman,4
+2018-01-01,Philippines,Philippines,50
+2018-01-01,Qatar,Qatar,2
+2018-01-01,Russia,Russia,372
+2018-01-01,Singapore,Singapore,55
+2018-01-01,South Korea,South Korea,108
+2018-01-01,Taiwan,Taiwan,68
+2018-01-01,Thailand,Thailand,84
+2018-01-01,Turkey,Turkey,50
+2018-01-01,United Arab Emirates,United Arab Emirates,20
+2018-01-01,Vietnam,Vietnam,9
+2019-01-01,China,China,983
+2019-01-01,Hong Kong,Hong Kong,310
+2019-01-01,India,India,394
+2019-01-01,Indonesia,Indonesia,65
+2019-01-01,Israel,Israel,49
+2019-01-01,Japan,Japan,125
+2019-01-01,Kazakhstan,Kazakhstan,13
+2019-01-01,Kuwait,Kuwait,4
+2019-01-01,Lebanon,Lebanon,10
+2019-01-01,Macao,Macao,1
+2019-01-01,Malaysia,Malaysia,56
+2019-01-01,Nepal,Nepal,1
+2019-01-01,Oman,Oman,4
+2019-01-01,Philippines,Philippines,50
+2019-01-01,Qatar,Qatar,2
+2019-01-01,Russia,Russia,372
+2019-01-01,Singapore,Singapore,55
+2019-01-01,South Korea,South Korea,108
+2019-01-01,Taiwan,Taiwan,68
+2019-01-01,Thailand,Thailand,84
+2019-01-01,Turkey,Turkey,50
+2019-01-01,United Arab Emirates,United Arab Emirates,20
+2019-01-01,Vietnam,Vietnam,9
+2020-01-01,China,China,1224
+2020-01-01,Hong Kong,Hong Kong,304
+2020-01-01,India,India,337
+2020-01-01,Indonesia,Indonesia,59
+2020-01-01,Israel,Israel,51
+2020-01-01,Japan,Japan,147
+2020-01-01,Kazakhstan,Kazakhstan,10
+2020-01-01,Kuwait,Kuwait,1
+2020-01-01,Lebanon,Lebanon,9
+2020-01-01,Macao,Macao,2
+2020-01-01,Malaysia,Malaysia,50
+2020-01-01,Nepal,Nepal,1
+2020-01-01,Oman,Oman,2
+2020-01-01,Philippines,Philippines,27
+2020-01-01,Qatar,Qatar,1
+2020-01-01,Russia,Russia,428
+2020-01-01,Singapore,Singapore,97
+2020-01-01,South Korea,South Korea,82
+2020-01-01,Taiwan,Taiwan,70
+2020-01-01,Thailand,Thailand,82
+2020-01-01,Turkey,Turkey,32
+2020-01-01,United Arab Emirates,United Arab Emirates,9
+2020-01-01,Vietnam,Vietnam,12
+2021-01-01,China,China,2272
+2021-01-01,Hong Kong,Hong Kong,417
+2021-01-01,India,India,536
+2021-01-01,Indonesia,Indonesia,77
+2021-01-01,Israel,Israel,64
+2021-01-01,Japan,Japan,208
+2021-01-01,Kazakhstan,Kazakhstan,14
+2021-01-01,Lebanon,Lebanon,9
+2021-01-01,Macao,Macao,3
+2021-01-01,Malaysia,Malaysia,60
+2021-01-01,Nepal,Nepal,1
+2021-01-01,Oman,Oman,2
+2021-01-01,Philippines,Philippines,41
+2021-01-01,Qatar,Qatar,2
+2021-01-01,Russia,Russia,540
+2021-01-01,Singapore,Singapore,147
+2021-01-01,South Korea,South Korea,108
+2021-01-01,Taiwan,Taiwan,97
+2021-01-01,Thailand,Thailand,95
+2021-01-01,Turkey,Turkey,45
+2021-01-01,United Arab Emirates,United Arab Emirates,9
+2021-01-01,Vietnam,Vietnam,14
+2022-01-01,China,China,1742
+2022-01-01,Hong Kong,Hong Kong,357
+2022-01-01,India,India,680
+2022-01-01,Indonesia,Indonesia,104
+2022-01-01,Israel,Israel,102
+2022-01-01,Japan,Japan,141
+2022-01-01,Kazakhstan,Kazakhstan,15
+2022-01-01,Lebanon,Lebanon,11
+2022-01-01,Macao,Macao,1
+2022-01-01,Malaysia,Malaysia,55
+2022-01-01,Nepal,Nepal,1
+2022-01-01,Oman,Oman,2
+2022-01-01,Philippines,Philippines,37
+2022-01-01,Qatar,Qatar,3
+2022-01-01,Russia,Russia,269
+2022-01-01,Singapore,Singapore,96
+2022-01-01,South Korea,South Korea,93
+2022-01-01,Taiwan,Taiwan,129
+2022-01-01,Thailand,Thailand,85
+2022-01-01,Turkey,Turkey,31
+2022-01-01,United Arab Emirates,United Arab Emirates,21
+2022-01-01,Vietnam,Vietnam,18

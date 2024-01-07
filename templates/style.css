@@ -1,25 +1,77 @@
 
-			/* Adding fade-in animation to tables */
-			@keyframes fadeIn {
-				from { opacity: 0; }
-				to { opacity: 1; }
-			}
-			
-			table {
-				animation: fadeIn 5s; /* Apply the animation to the table */
-				width: 100%;
-				border-collapse: collapse;
-				transition: opacity 2s; /* Smooth transition for the opacity */
-			}
-			
-			th, td {
-				border: 1px solid #b69c1b;
-				padding: 12px;
-				text-align: left;
-			}
-			
-			th {
-				background-color: #b69c1b;
-				color: white; /* Set text color to white for the first row (header) */
-			}
+table.default3 {
+	animation: fadeIn 5s;
+	/* Apply the animation to the table */
+	width: 100%;
+	border-collapse: collapse;
+	transition: opacity 2s;
+	/* Smooth transition for the opacity */
+}
 
+table.default3 th,
+table.default3 td {
+	border: 1px solid #b69c1b;
+	padding: 12px;
+	text-align: left;
+}
+
+table.default3 th {
+	background-color: #b69c1b;
+	color: white;
+	/* Set text color to white for the first row (header) */
+}
+
+/* table */
+.table-container {
+	overflow-x: auto;
+	overflow-y: auto;
+	-webkit-overflow-scrolling: touch;
+}
+
+.table-container table {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+table.default2 tbody tr {
+	border-bottom: solid 1px rgba(224, 224, 224, 0.75);
+}
+
+table.default2 tbody tr:nth-child(2n - 1) {
+	background: rgba(224, 224, 224, 0.4);
+}
+
+table.default2 tbody tr:hover {
+	background-color: #d4edda;
+}
+
+table.default2 td {
+	color: #5b5b5b;
+	font-size: 1em;
+	font-weight: 500;
+	letter-spacing: 0.125em;
+	line-height: 1.75em;
+	padding: 0.5em 1em 0.5em 1em;
+	vertical-align: middle;
+	text-align: left;
+}
+
+table.default2 th {
+	color: #5b5b5b;
+	font-size: 1em;
+	font-weight: 800;
+	letter-spacing: 0.125em;
+	line-height: 1.75em;
+	padding: 0.5em 1em 0.5em 1em;
+	text-align: left;
+	vertical-align: middle;
+	text-transform: uppercase;
+}
+
+table.default2 thead {
+	border-bottom: solid 1px rgba(224, 224, 224, 0.75);
+}
+
+.hidden-row {
+	display: none;
+}

@@ -25,10 +25,15 @@
 <body>
     <table id="table">
         <tr>
-            <td>year</td>
             <td>name</td>
-            <td>money</td>
+            <td>country</td>
         </tr>
+        {% for a in res %}
+            <tr>
+                <td>{{a[0]}}</td>
+                <td>{{a[1]}}</td>
+            </tr>
+        {% endfor %}
     </table>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
