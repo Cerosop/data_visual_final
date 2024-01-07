@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <div id="res" style="visibility: hidden;">{{res}}</div>
+    <script src="https://cdn.plot.ly/plotly-2.24.1.min.js"></script>
+</head>
+<script>
+
+    let res = JSON.parse(document.getElementById('res').innerHTML);
+    let continent_people_2011 = [];
+
+    for (var k1 in res) {
+        for (var k2 in res[k1]) {
+            for (var y in res[k1][k2]) {
+                for (a in res[k1][k2][y]) {
+                    if (k1 == "continent" && k2 == "people" && y == 2011) {
+                        let newEvaluation = {
+                            "name": res[k1][k2][y][a][0],
+                            "count": res[k1][k2][y][a][1]
+                        };
+                        continent_people_2011.push(newEvaluation);
+                    }
+
+                }
+            }
+        }
+    }
+
+    let myGraph = document.getElementById('myGraph');
+
+    let trace1 = {};
+    trace1.type = "pie";
+    trace1.title = "機器學習概論";
+    trace1.labels = [];
+    trace1.values = [];
+    trace1.hole = 0.5
+    trace1.domain = {
+        row: 0,
+        column: 0
+    };
+
+    for (let i = 0; i < continent_people_2011.length; i++) {
+        trace1.labels[i] = continent_people_2011[i]['name'];
+        trace1.values[i] = continent_people_2011[i]['count'];
+    }
+
+    let data = [];
+    data.push(trace1);
+
+    let layout = {
+        margin: {
+            t: 50,
+        },
+        title: 'Pie Chart'
+    };
+    console.log(myGraph)
+    Plotly.newPlot(myGraph, data, layout);
+</script>
+<style>
+    #myGraph {
+        width: 800px;
+        height: 600px;
+        border: 1px solid gray;
+    }
+</style>
+
+<body>
+    <div id="myGraph"></div>
+</body>
+
+</html>

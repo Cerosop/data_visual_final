@@ -1,3 +1,4 @@
+import json
 from flask import Flask, jsonify, request, render_template, redirect
 import sqlite3 as lite
 app = Flask(__name__)
@@ -9,7 +10,7 @@ def redir():
 
 @app.route('/main', methods=['GET', 'POST'])
 def page1():
-    con = lite.connect('./mydb.db')
+    con = lite.connect('data_visual_final/mydb.db')
     if request.method == 'POST':
         cate = request.values['cate'].split(", ")
         print(cate)
@@ -71,7 +72,7 @@ def preuse(cate, data_list):
 
 @app.route('/graph', methods=['GET', 'POST'])
 def page3():
-    con = lite.connect('mydb.db')
+    con = lite.connect('data_visual_final/mydb.db')
     if request.method == 'POST':
         cate = request.values['cate'].split(", ")
         print(cate)
@@ -112,7 +113,7 @@ def page3():
     
 @app.route('/circle', methods=['GET', 'POST'])
 def page4():
-    con = lite.connect('mydb.db')
+    con = lite.connect('data_visual_final/mydb.db')
     limit = 20
     res = {}
     res['continent'] = {}
@@ -182,12 +183,13 @@ def page4():
             res['age']['money'][y] = data
      
     print(res)
-    return render_template('pytest/circle.html', res = res)
+
+    return render_template('pie_chart/index.html', res = json.dumps(res))
 
 
 @app.route('/map', methods=['GET', 'POST'])
 def page5():
-    con = lite.connect('mydb.db')
+    con = lite.connect('data_visual_final/mydb.db')
     limit = 100
     with con:
         cur=con.cursor()
