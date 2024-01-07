@@ -145,11 +145,15 @@
                 var topic2Dropdown = document.getElementById("topic2");
             
                 function handleSelectionChange2() {
-                    var selectedStartYear = startYearDropdown.options[startYearDropdown.selectedIndex].value;
-                    var selectedEndYear = endYearDropdown.options[endYearDropdown.selectedIndex].value;
+                    var selectedStartYear = parseInt(startYearDropdown.options[startYearDropdown.selectedIndex].value);
+                    var selectedEndYear = parseInt(endYearDropdown.options[endYearDropdown.selectedIndex].value);
                     var selectedTopic1 = topic1Dropdown.options[topic1Dropdown.selectedIndex].value;
                     var selectedTopic2 = topic2Dropdown.options[topic2Dropdown.selectedIndex].value;
             
+                    if (selectedStartYear > selectedEndYear) {
+                        endYearDropdown.value = selectedStartYear;
+                    }
+
                     console.log("Selected Start Year: " + selectedStartYear);
                     console.log("Selected End Year: " + selectedEndYear);
                     console.log("Selected Topic 1: " + selectedTopic1);
@@ -162,7 +166,7 @@
                 document.getElementById("endYear").addEventListener("change", handleSelectionChange2);
                 document.getElementById("topic1").addEventListener("change", handleSelectionChange2);
                 document.getElementById("topic2").addEventListener("change", handleSelectionChange2);
-            </script>            
+            </script>                      
         </div>
 
 
