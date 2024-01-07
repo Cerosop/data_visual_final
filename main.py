@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def redir():
-    return redirect('/circle')
+    return redirect('/page4')
 
 
 @app.route('/page1', methods=['GET', 'POST'])
