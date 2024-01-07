@@ -94,8 +94,8 @@
                     console.log("Selected End Year: " + selectedYear_3_1);
                     console.log("Selected Topic 1: " + selectedX);
                     console.log("Selected Topic 2: " + selectedY);
-                    var formData = new FormData(this);
-                    formData.append("cate", selectedX + ", " + selectedY + ", " + selectedYear_3_1);
+                    var formData = {"cate": selectedX + ", " + selectedY + ", " + selectedYear_3_1};
+                    formData = JSON.stringify(formData);
 
                     fetch('/graph', {
                         method: 'POST',
