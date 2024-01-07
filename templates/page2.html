@@ -45,33 +45,45 @@
                         <option value="2019">2019</option>
                         <option value="2020">2020</option>
                         <option value="2021">2021</option>
-                        <option value="2022">2022</option>
-                        <option value="2023" selected>2023</option>
+                        <option value="2022" selected>2022</option>
                     </select>
                 </div>
                 <div class="col-12">
-                    <label for="topic">選擇主題：</label>
-                    <select id="topic">
-                        <option value="age range">年齡分段</option>
-                        <option value="place" selected>地區</option>
+                    <label for="topic1">選擇主題：</label>
+                    <select id="topic1">
+                        <option value="age">年紀</option>
+                        <option value="work">各洲總資產</option>
+                        <option value="continent" selected>洲</option>
+                    </select>
+                </div>
+                <div class="col-12">
+                    <label for="topic2">選擇比較項目：</label>
+                    <select id="topic2">
+                        <option value="money">總資產</option>
+                        <option value="people" selected>富豪人數</option>
                     </select>
                 </div>
             </div>
             <script>
                 var yearDropdown = document.getElementById("year1");
-                var topicDropdown = document.getElementById("topic");
+                var topic1Dropdown = document.getElementById("topic1");
+                var topic2Dropdown = document.getElementById("topic2");
 
                 function handleSelectionChange() {
                     var selectedYear = yearDropdown.options[yearDropdown.selectedIndex].value;
-                    var selectedTopic = topicDropdown.options[topicDropdown.selectedIndex].value;
+                    var selectedTopic1 = topic1Dropdown.options[topic1Dropdown.selectedIndex].value;
+                    var selectedTopic2 = topic2Dropdown.options[topic2Dropdown.selectedIndex].value;
+
 
                     console.log("Selected Year: " + selectedYear);
-                    console.log("Selected topic Method: " + selectedTopic);
+                    console.log("Selected topic Method: " + selectedTopic1);
+                    console.log("Selected topic Method: " + selectedTopic2);
 
                     // 在這裡可以執行其他相關的操作，或者將值傳遞給其他 JavaScript 檔案
                 }
                 document.getElementById("year1").addEventListener("change", handleSelectionChange);
-                document.getElementById("topic").addEventListener("change", handleSelectionChange);
+                document.getElementById("topic1").addEventListener("change", handleSelectionChange);
+                document.getElementById("topic2").addEventListener("change", handleSelectionChange);
             </script>
 
         </div>
@@ -101,8 +113,7 @@
                         <option value="2019">2019</option>
                         <option value="2020">2020</option>
                         <option value="2021">2021</option>
-                        <option value="2022">2022</option>
-                        <option value="2023" selected>2023</option>
+                        <option value="2022" selected>2022</option>
                     </select>
                 </div>
                 <div class="col-6 col-12-mobilep">
@@ -119,8 +130,7 @@
                         <option value="2019">2019</option>
                         <option value="2020">2020</option>
                         <option value="2021">2021</option>
-                        <option value="2022">2022</option>
-                        <option value="2023" selected>2023</option>
+                        <option value="2022" selected>2022</option>
                     </select>
                 </div>
                 <div class="col-12">
@@ -143,13 +153,13 @@
                 var endYearDropdown = document.getElementById("endYear");
                 var topic1Dropdown = document.getElementById("topic1");
                 var topic2Dropdown = document.getElementById("topic2");
-            
+
                 function handleSelectionChange2() {
                     var selectedStartYear = parseInt(startYearDropdown.options[startYearDropdown.selectedIndex].value);
                     var selectedEndYear = parseInt(endYearDropdown.options[endYearDropdown.selectedIndex].value);
                     var selectedTopic1 = topic1Dropdown.options[topic1Dropdown.selectedIndex].value;
                     var selectedTopic2 = topic2Dropdown.options[topic2Dropdown.selectedIndex].value;
-            
+
                     if (selectedStartYear > selectedEndYear) {
                         endYearDropdown.value = selectedStartYear;
                         selectedEndYear = selectedStartYear;
@@ -159,15 +169,15 @@
                     console.log("Selected End Year: " + selectedEndYear);
                     console.log("Selected Topic 1: " + selectedTopic1);
                     console.log("Selected Topic 2: " + selectedTopic2);
-            
+
                     // 在這裡可以執行其他相關的操作，或者將值傳遞給其他 JavaScript 檔案
                 }
-            
+
                 document.getElementById("startYear").addEventListener("change", handleSelectionChange2);
                 document.getElementById("endYear").addEventListener("change", handleSelectionChange2);
                 document.getElementById("topic1").addEventListener("change", handleSelectionChange2);
                 document.getElementById("topic2").addEventListener("change", handleSelectionChange2);
-            </script>                      
+            </script>
         </div>
 
 
@@ -194,6 +204,7 @@
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
+    <script src="https://cdn.plot.ly/plotly-2.24.1.min.js"></script>
 
 </body>
 

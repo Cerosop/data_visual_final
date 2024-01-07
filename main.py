@@ -1,3 +1,4 @@
+import json
 from flask import Flask, jsonify, request, render_template, redirect
 import sqlite3 as lite
 app = Flask(__name__)
@@ -7,11 +8,11 @@ def redir():
     return redirect('/circle')
 
 
-@app.route('/page1', methods=['GET', 'POST'])
+@app.route('/main', methods=['GET', 'POST'])
 def page1():
-    con = lite.connect('mydb.db')
+    con = lite.connect('data_visual_final/mydb.db')
     if request.method == 'POST':
-        cate = request.get_json()['cate'].split(", ")
+        cate = request.values['cate'].split(", ")
         print(cate)
         with con:
             cur=con.cursor()
@@ -21,10 +22,10 @@ def page1():
             res = [(i + 1, d[1], d[3], d[4], d[5], d[6], d[7]) for i, d in enumerate(res)]
             
             print(res)  
-            data = {'data': res}
+            data = {'res': '-1', 'data': res}
             return jsonify(data)
     else:    
-        return render_template('page1.html')
+        return render_template('pytest/main.html')
     
     
 @app.route('/run', methods=['GET', 'POST'])
@@ -71,9 +72,9 @@ def preuse(cate, data_list):
 
 @app.route('/graph', methods=['GET', 'POST'])
 def page3():
-    con = lite.connect('mydb.db')
+    con = lite.connect('data_visual_final/mydb.db')
     if request.method == 'POST':
-        cate = request.get_json()['cate'].split(", ")
+        cate = request.values['cate'].split(", ")
         print(cate)
         with con:
             cur=con.cursor()
@@ -104,7 +105,7 @@ def page3():
                     res.append((a[0], a[1] / people[i][1]))
             
             print(res)  
-            data = {'data': res}
+            data = {'res': '-1', 'data': res}
             return jsonify(data)
     else:    
         return render_template('pytest/graph.html')
@@ -112,7 +113,7 @@ def page3():
     
 @app.route('/circle', methods=['GET', 'POST'])
 def page4():
-    con = lite.connect('mydb.db')
+    con = lite.connect('data_visual_final/mydb.db')
     limit = 20
     res = {}
     res['continent'] = {}
@@ -182,12 +183,13 @@ def page4():
             res['age']['money'][y] = data
      
     print(res)
-    return render_template('pytest/circle.html', res = res)
+
+    return render_template('pie_chart/index.html', res = json.dumps(res))
 
 
 @app.route('/map', methods=['GET', 'POST'])
 def page5():
-    con = lite.connect('mydb.db')
+    con = lite.connect('data_visual_final/mydb.db')
     limit = 100
     with con:
         cur=con.cursor()
