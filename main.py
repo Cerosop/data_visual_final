@@ -191,7 +191,7 @@ def page4():
             res['age']['money'][y] = data
      
     print(res)
-    return render_template('pie_chart/pie_chartindex.html', res = json.dumps(res))
+    return render_template('pie_chart/piechartindex.html', res = json.dumps(res))
 
 
 @app.route('/map', methods=['GET', 'POST'])
