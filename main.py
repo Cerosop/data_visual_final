@@ -7,7 +7,7 @@ def redir():
     return redirect('/circle')
 
 
-@app.route('/main', methods=['GET', 'POST'])
+@app.route('/page1', methods=['GET', 'POST'])
 def page1():
     con = lite.connect('mydb.db')
     if request.method == 'POST':
@@ -24,7 +24,7 @@ def page1():
             data = {'data': res}
             return jsonify(data)
     else:    
-        return render_template('pytest/main.html')
+        return render_template('page1.html')
     
     
 @app.route('/run', methods=['GET', 'POST'])
