@@ -7,7 +7,7 @@
     <div id="res" style="visibility: hidden;">{{res}}</div>
     <script src="https://cdn.plot.ly/plotly-2.24.1.min.js"></script>
 </head>
-<!-- <script>
+<script>
 
     let res = JSON.parse(document.getElementById('res').innerHTML);
     let continent_people_2011 = [];
@@ -36,11 +36,7 @@
     trace1.title = "機器學習概論";
     trace1.labels = [];
     trace1.values = [];
-    trace1.hole = 0.5
-    trace1.domain = {
-        row: 0,
-        column: 0
-    };
+    trace1.hole = 0.5;
 
     for (let i = 0; i < continent_people_2011.length; i++) {
         trace1.labels[i] = continent_people_2011[i]['name'];
@@ -65,7 +61,7 @@
         height: 600px;
         border: 1px solid gray;
     }
-</style> -->
+</style>
 
 <body>
     <div id="myGraph"></div>
