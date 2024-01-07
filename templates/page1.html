@@ -44,15 +44,6 @@
 				<option value="2022">2022</option>
 				<option value="2023" selected>2023</option>
 			</select>
-			<script>
-				function getSelectedValue() {
-					var dropdown = document.getElementById("year1");
-					var selectedValue = dropdown.options[dropdown.selectedIndex].value;
-					console.log(selectedValue); // 在控制台輸出所選擇的值
-				}
-				// 在下拉式選單的 "change" 事件上調用函數
-				document.getElementById("year1").addEventListener("change", getSelectedValue);
-			</script>
 			<!-- 選單-->
 			<label for="sort">選擇排序方式：</label>
 			<select id="sort">
@@ -61,13 +52,22 @@
 				<option value="money1" selected>資產</option>
 			</select>
 			<script>
-				function getSelectedValue() {
-					var dropdown = document.getElementById("sort");
-					var selectedValue = dropdown.options[dropdown.selectedIndex].value;
-					console.log(selectedValue); // 在控制台輸出所選擇的值
+				function handleSelectionChange() {
+					var yearDropdown = document.getElementById("year1");
+					var sortDropdown = document.getElementById("sort");
+			
+					var selectedYear = yearDropdown.options[yearDropdown.selectedIndex].value;
+					var selectedSort = sortDropdown.options[sortDropdown.selectedIndex].value;
+			
+					console.log("Selected Year: " + selectedYear);
+					console.log("Selected Sort Method: " + selectedSort);
+			
+					// 在這裡可以執行其他相關的操作，或者將值傳遞給其他 JavaScript 檔案
 				}
-				// 在下拉式選單的 "change" 事件上調用函數
-				document.getElementById("sort").addEventListener("change", getSelectedValue);
+			
+				// 在兩個下拉式選單的 "change" 事件上調用函數
+				document.getElementById("year1").addEventListener("change", handleSelectionChange);
+				document.getElementById("sort").addEventListener("change", handleSelectionChange);
 			</script>
 
 			&nbsp
