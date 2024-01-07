@@ -49,31 +49,41 @@
                     </select>
                 </div>
                 <div class="col-12">
-                    <label for="topic">選擇主題：</label>
-                    <select id="topic">
-                        <option value="age range">年齡分段</option>
-                        <option value="money num" selected>各工作總資產</option>
-                        <option value="money num" selected>各工作富豪人數</option>
-                        <option value="money num" selected>各洲總資產</option>
-                        <option value="people num" selected>各洲富豪人數</option>
+                    <label for="topic1">選擇主題：</label>
+                    <select id="topic1">
+                        <option value="age">年紀</option>
+                        <option value="work">各洲總資產</option>
+                        <option value="continent" selected>洲</option>
+                    </select>
+                </div>
+                <div class="col-12">
+                    <label for="topic2">選擇比較項目：</label>
+                    <select id="topic2">
+                        <option value="money">總資產</option>
+                        <option value="people" selected>富豪人數</option>
                     </select>
                 </div>
             </div>
             <script>
                 var yearDropdown = document.getElementById("year1");
-                var topicDropdown = document.getElementById("topic");
+                var topic1Dropdown = document.getElementById("topic1");
+                var topic2Dropdown = document.getElementById("topic2");
 
                 function handleSelectionChange() {
                     var selectedYear = yearDropdown.options[yearDropdown.selectedIndex].value;
-                    var selectedTopic = topicDropdown.options[topicDropdown.selectedIndex].value;
+                    var selectedTopic1 = topic1Dropdown.options[topic1Dropdown.selectedIndex].value;
+                    var selectedTopic2 = topic2Dropdown.options[topic2Dropdown.selectedIndex].value;
+
 
                     console.log("Selected Year: " + selectedYear);
-                    console.log("Selected topic Method: " + selectedTopic);
+                    console.log("Selected topic Method: " + selectedTopic1);
+                    console.log("Selected topic Method: " + selectedTopic2);
 
                     // 在這裡可以執行其他相關的操作，或者將值傳遞給其他 JavaScript 檔案
                 }
                 document.getElementById("year1").addEventListener("change", handleSelectionChange);
-                document.getElementById("topic").addEventListener("change", handleSelectionChange);
+                document.getElementById("topic1").addEventListener("change", handleSelectionChange);
+                document.getElementById("topic2").addEventListener("change", handleSelectionChange);
             </script>
 
         </div>
