@@ -34,91 +34,8 @@ def page1():
             
             print(json.dumps(res))  
             return render_template('page1.html', res = json.dumps(res))
-    
-    
-@app.route('/page4', methods=['GET', 'POST'])
-def page4():
-    # return render_template('pytest/run.html')
-    return render_template('page4.html')
-
-
-def preuse(cate, data_list):
-    if cate == 'work': # work要拆開
-        d = {}
-        for a in data_list:
-            l = a[0].split(", ")
-            for s in l:
-                if d.get(s):
-                    d[s] += a[1]
-                else:
-                    d[s] = a[1]
         
-        data_list = []
-        for k in d:
-            data_list.append((k, d[k]))
-    else: # age, money要用range 前者表示range a * b ~ (a + 1) * b - 1
-        b = 0
-        if cate == 'age':
-            b = 5
-        if cate == 'money':
-            b = 5 
-            
-        res1 = [0 for i in range(int(150/b))]
-        i = 0
-        for a in data_list:
-            while i * b <= a[0]:
-                i += 1
-            res1[i] += a[1]
-            
-        data_list = []
-        for i, a in enumerate(res1):
-            if a:
-                data_list.append((i - 1, a))
-                
-    return data_list
-
-
-@app.route('/graph', methods=['GET', 'POST'])
-def page3():
-    con = lite.connect('mydb.db')
-    if request.method == 'POST':
-        cate = request.get_json()['cate'].split(", ")
-        print(cate)
-        with con:
-            cur=con.cursor()
-            
-            if cate[1] == 'people' or cate[1] == 'money ave':
-                cur.execute(f"select {cate[0]}, count(*) as count from data where year = \'{cate[2]}\' group by {cate[0]}")
-                con.commit()
-                people = cur.fetchall()
-                people = sorted(people, key=lambda x: x[0], reverse=False)
-                
-                people = preuse(cate[0], people)
-            
-            if cate[1] == 'money' or cate[1] == 'money ave':
-                cur.execute(f"select {cate[0]}, sum(money) as sum from data where year = \'{cate[2]}\' group by {cate[0]}")
-                con.commit()
-                money = cur.fetchall()
-                money = sorted(money, key=lambda x: x[0], reverse=False)
-                
-                money = preuse(cate[0], money)
-            
-            res = []  
-            if cate[1] == 'money':
-                res = money
-            if cate[1] == 'people':
-                res = people
-            if cate[1] == 'money ave':
-                for i, a in enumerate(money):
-                    res.append((a[0], a[1] / people[i][1]))
-            
-            print(res)  
-            data = {'data': res}
-            return jsonify(data)
-    else:    
-        return render_template('pytest/graph.html')
-    
-    
+        
 @app.route('/page2', methods=['GET', 'POST'])
 def page2():
     con = lite.connect('mydb.db')
@@ -192,6 +109,89 @@ def page2():
      
     print(res)
     return render_template('page2.html', res = json.dumps(res))
+
+
+@app.route('/graph', methods=['GET', 'POST'])
+def page3():
+    con = lite.connect('mydb.db')
+    if request.method == 'POST':
+        cate = request.get_json()['cate'].split(", ")
+        print(cate)
+        with con:
+            cur=con.cursor()
+            
+            if cate[1] == 'people' or cate[1] == 'money ave':
+                cur.execute(f"select {cate[0]}, count(*) as count from data where year = \'{cate[2]}\' group by {cate[0]}")
+                con.commit()
+                people = cur.fetchall()
+                people = sorted(people, key=lambda x: x[0], reverse=False)
+                
+                people = preuse(cate[0], people)
+            
+            if cate[1] == 'money' or cate[1] == 'money ave':
+                cur.execute(f"select {cate[0]}, sum(money) as sum from data where year = \'{cate[2]}\' group by {cate[0]}")
+                con.commit()
+                money = cur.fetchall()
+                money = sorted(money, key=lambda x: x[0], reverse=False)
+                
+                money = preuse(cate[0], money)
+            
+            res = []  
+            if cate[1] == 'money':
+                res = money
+            if cate[1] == 'people':
+                res = people
+            if cate[1] == 'money ave':
+                for i, a in enumerate(money):
+                    res.append((a[0], a[1] / people[i][1]))
+            
+            print(res)  
+            data = {'data': res}
+            return jsonify(data)
+    else:    
+        return render_template('pytest/graph.html')
+
+
+def preuse(cate, data_list):
+    if cate == 'work': # work要拆開
+        d = {}
+        for a in data_list:
+            l = a[0].split(", ")
+            for s in l:
+                if d.get(s):
+                    d[s] += a[1]
+                else:
+                    d[s] = a[1]
+        
+        data_list = []
+        for k in d:
+            data_list.append((k, d[k]))
+    else: # age, money要用range 前者表示range a * b ~ (a + 1) * b - 1
+        b = 0
+        if cate == 'age':
+            b = 5
+        if cate == 'money':
+            b = 5 
+            
+        res1 = [0 for i in range(int(150/b))]
+        i = 0
+        for a in data_list:
+            while i * b <= a[0]:
+                i += 1
+            res1[i] += a[1]
+            
+        data_list = []
+        for i, a in enumerate(res1):
+            if a:
+                data_list.append((i - 1, a))
+                
+    return data_list
+    
+    
+@app.route('/page4', methods=['GET', 'POST'])
+def page4():
+    # return render_template('pytest/run.html')
+    return render_template('page4.html')
 
 
 @app.route('/map', methods=['GET', 'POST'])
