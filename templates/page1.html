@@ -8,6 +8,7 @@
 	
 	<link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" />
 	<link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}" />
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/inspector.css')}}">
 </head>
 
 <body class="is-preload">
@@ -132,6 +133,16 @@
 						</tr>
 					</thead>
 					<tbody>
+						<tr class="hidden-row">
+							<td>单元格1</td>
+							<td>单元格2</td>
+							<td>单元格3</td>
+							<td>单元格4</td>
+							<td>单元格5</td>
+							<td>单元格6</td>
+							<td>单元格7</td>
+						</tr>
+						
 						<script>
 							// 獲取表格元素
 							var table = document.getElementById("Table1");
@@ -263,11 +274,12 @@
 			</script>
 
 			&nbsp
+			
 
 			<div id="bar-chart-race">
 				<script type="module">
-					import define from "./bar-chart-race/index.js";
-					import { Runtime, Library, Inspector } from "./bar-chart-race/runtime.js";
+					import define from "{{url_for('static', filename='js/index.js')}}";
+					import { Runtime, Library, Inspector } from "{{url_for('static', filename='js/runtime.js')}}";
 					const runtime = new Runtime();
 					const main = runtime.module(define, Inspector.into(document.getElementById('bar-chart-race')));
 				</script>
