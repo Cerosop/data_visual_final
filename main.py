@@ -1,3 +1,4 @@
+import json
 from flask import Flask, jsonify, request, render_template, redirect
 import sqlite3 as lite
 app = Flask(__name__)
@@ -15,7 +16,7 @@ def page1():
         print(cate)
         with con:
             cur=con.cursor()
-            cur.execute(f"select * from data where year = \'{cate[1]}\' order by \'{cate[0]}\' asc")
+            cur.execute(f"select * from data where year = \'{cate[1]}\' order by {cate[0]} {cate[2]}")
             con.commit()
             res = cur.fetchall()
             res = [(i + 1, d[1], d[3], d[4], d[5], d[6], d[7]) for i, d in enumerate(res)]
@@ -24,7 +25,15 @@ def page1():
             data = {'data': res}
             return jsonify(data)
     else:    
-        return render_template('page1.html')
+        with con:
+            cur=con.cursor()
+            cur.execute(f"select * from data where year = 2022 order by money desc")
+            con.commit()
+            res = cur.fetchall()
+            res = [(i + 1, d[1], d[3], d[4], d[5], d[6], d[7]) for i, d in enumerate(res)]
+            
+            print(json.dumps(res))  
+            return render_template('page1.html', res = json.dumps(res))
     
     
 @app.route('/run', methods=['GET', 'POST'])

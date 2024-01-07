@@ -5,8 +5,9 @@
 	<title>表格與動態柱狀圖</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-	<link rel="stylesheet" href="assets/css/main.css" />
-	<link rel="stylesheet" href="style.css" />
+	
+	<link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" />
+	<link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}" />
 </head>
 
 <body class="is-preload">
@@ -20,6 +21,8 @@
 
 	<!-- Main -->
 	<div id="main">
+
+		<div id="res" style="display: none;">{{res}}</div>
 
 		<div class="box container">
 			<header>
@@ -52,21 +55,27 @@
 						<option value="money" selected>資產</option>
 					</select>
 				</div>
+				<div class="col-12">
+					<label for="reverse">選擇排序順序：</label>
+					<select id="reverse">
+						<option value="asc">小到大</option>
+						<option value="desc" selected>大到小</option>
+					</select>
+				</div>
 			</div>
 			<script>
 				function handleSelectionChange() {
 					var yearDropdown = document.getElementById("year1");
 					var sortDropdown = document.getElementById("sort");
+					var reverseDropdown = document.getElementById("reverse");
 
 					var selectedYear = yearDropdown.options[yearDropdown.selectedIndex].value;
 					var selectedSort = sortDropdown.options[sortDropdown.selectedIndex].value;
+					var selectedReverse = reverseDropdown.options[reverseDropdown.selectedIndex].value;
 
-					console.log("Selected Year: " + selectedYear);
-					console.log("Selected Sort Method: " + selectedSort);
-
-					var formData = {"cate": "" + selectedSort + ", " + selectedYear};
+					var formData = {"cate": "" + selectedSort + ", " + selectedYear + ", " + selectedReverse};
 					formData = JSON.stringify(formData);
-		
+					
 					fetch('/page1', {
 						method: 'POST',
 						headers: {
@@ -77,7 +86,24 @@
 					.then(response => response.json())
 					.then(data => {
 						console.log(data['data'])
-						alert("看console");
+						var table = document.getElementById("Table1");
+
+						// 資料示例（可以從後端或其他地方獲取）
+						var data = data['data'];
+
+						var tbody = document.querySelector('table tbody');
+						if (tbody) {
+							tbody.innerHTML = '';
+						}
+						// 迴圈動態生成表格內容
+						for (var i = 0; i < data.length; i++) {
+							var row = tbody.insertRow(-1); // 插入新的行
+
+							for (var j = 0; j < data[i].length; j++) {
+								var cell = row.insertCell(j); // 插入新的單元格
+								cell.innerHTML = data[i][j]; // 設定單元格內容
+							}
+						}
 					})
 					.catch(error => {
 						console.error('Error:', error);
@@ -87,6 +113,7 @@
 				}
 				document.getElementById("year1").addEventListener("change", handleSelectionChange);
 				document.getElementById("sort").addEventListener("change", handleSelectionChange);
+				document.getElementById("reverse").addEventListener("change", handleSelectionChange);
 			</script>
 
 			&nbsp
@@ -105,31 +132,15 @@
 						</tr>
 					</thead>
 					<tbody>
-						<tr class="hidden-row">
-							<td>单元格1</td>
-							<td>单元格2</td>
-							<td>单元格3</td>
-							<td>单元格4</td>
-							<td>单元格5</td>
-							<td>单元格6</td>
-							<td>单元格7</td>
-						</tr>
-
 						<script>
 							// 獲取表格元素
 							var table = document.getElementById("Table1");
-
+							var res = JSON.parse(document.getElementById("res").innerHTML);
+							// console.log(res);
 							// 資料示例（可以從後端或其他地方獲取）
-							var data = [
-								["1", "John", "25", "USA", "North America", "Developer", "$1 million"],
-								["2", "Jane", "30", "Canada", "North America", "Designer", "$800,000"],
-								["2", "Jane", "30", "Canada", "North America", "Designer", "$800,000"],
-								["2", "Jane", "30", "Canada", "North America", "Designer", "$800,000"],
-								["2", "Jane", "30", "Canada", "North America", "Designer", "$800,000"],
-								["2", "Jane", "30", "Canada", "North America", "Designer", "$800,000"],
-								// 更多資料行...
-							];
-
+							var data = res;
+							
+							
 							// 迴圈動態生成表格內容
 							for (var i = 0; i < data.length; i++) {
 								var row = table.insertRow(-1); // 插入新的行
@@ -270,11 +281,11 @@
 	</div>
 
 	<!-- Scripts -->
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/browser.min.js"></script>
-	<script src="assets/js/breakpoints.min.js"></script>
-	<script src="assets/js/util.js"></script>
-	<script src="assets/js/main.js"></script>
+	<link rel="stylesheet" href="{{url_for('static', filename='js/jquery.min.js')}}" />
+	<link rel="stylesheet" href="{{url_for('static', filename='js/browser.min.js')}}" />
+	<link rel="stylesheet" href="{{url_for('static', filename='js/breakpoints.min.js')}}" />
+	<link rel="stylesheet" href="{{url_for('static', filename='js/util.js')}}" />
+	<link rel="stylesheet" href="{{url_for('static', filename='js/main.js')}}" />
 
 
 </body>
