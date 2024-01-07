@@ -2,23 +2,45 @@
 <html>
 
 <head>
-    <title>柱狀動態圖</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="stylesheet" href="assets/css/main.css" />
+	<title>表格與動態柱狀圖</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	
+	<link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" />
+	<link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}" />
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/inspector.css')}}">
 </head>
 
 <body class="is-preload">
 
-    <!-- Header -->
-    <div id="header">
-        <span class="logo icon fa-paper-plane"></span>
-        <h1>柱狀動態圖</h1>
+	<!-- Header -->
+	<div id="header">
+		<span class="logo icon fa-paper-plane"></span>
+		<h1>表格與動態柱狀圖</h1>
 
-    </div>
+	</div>
 
-    <div id="main">
+	<!-- Main -->
+	<div id="main">
+
         <div class="box container">
+			<header>
+				<h2>歷年世界富豪變化</h2>
+
+			</header>
+			<section>
+				<header>
+					我們會用跑條進行動態比較，觀察歷年富豪們的變化。
+				</header>
+				<header>
+					跑條與表格各自有優劣點，我們可以透過希望視覺化的模式來進行選擇。
+				</header>
+			</section>
+
+			&nbsp
+		</div>
+
+		<div class="box container">
             <header>
                 <h2>透過動態圖比較資產分布</h2>
             </header>
@@ -28,23 +50,164 @@
                 </header>
 
             </section>
-        </div>
+
+            <!-- 選單-->
+			<div class="row">
+				<div class="col-12">
+					<label for="element">選擇排序項目：</label>
+					<select id="element">
+						<!-- selected 預選 disabled 不可選 -->
+						<option value="name" selected>富豪</option>
+						<option value="continent">地區</option>
+						<option value="work">工作</option>
+					</select>
+				</div>
+				<div class="col-12">
+					<label for="area">選擇地區：</label>
+					<select id="area" disabled>
+						<!-- selected 預選 disabled 不可選 -->
+						<option value="Oceania">大洋洲</option>
+						<option value="Africa">非洲</option>
+						<option value="Asia">亞洲</option>
+						<option value="Europe">歐洲</option>
+						<option value="South America">南美洲</option>
+						<option value="North America">北美洲</option>
+						<option value="all">全</option>
+						<option value="no" selected>無法選擇</option>
+					</select>
+				</div>
+				<div class="col-12">
+					<label for="sort2">選擇比較項目：</label>
+					<select id="sort2" disabled>
+						<!-- selected 預選 disabled 不可選 -->
+						<option value="_c">國家富豪人數</option>
+						<option value="_m" selected>資產</option>
+					</select>
+				</div>
+			</div>
+			
+			<script>
+				function handleDropdownChange() {
+					var elementDropdown = document.getElementById("element");
+					var areaDropdown = document.getElementById("area");
+					var sortDropdown = document.getElementById("sort2");
+					var race_tojs = document.getElementById("race_tojs");
+
+					var selectedElementValue = elementDropdown.value;
+					console.log("Selected Element: " + selectedElementValue);
+
+					var selectedAreaValue = areaDropdown.value;
+					console.log("Selected Area: " + selectedAreaValue);
+
+					var selectedSortValue = sortDropdown.value;
+					console.log("Selected Sort: " + selectedSortValue);
+
+					if (selectedAreaValue == "no" || selectedAreaValue == "all"){
+						window.race_tojs = "" + selectedElementValue + selectedSortValue;
+					}
+					else{
+						window.race_tojs = "" + selectedAreaValue + selectedSortValue;
+					}
+					console.log(window.race_tojs);
+
+					restartScript();
+				}
+
+				function elementChange(){
+					var elementDropdown = document.getElementById("element");
+					var areaDropdown = document.getElementById("area");
+					var sortDropdown = document.getElementById("sort2");
+
+					// 處理排序項目的變化
+					var selectedElementValue = elementDropdown.options[elementDropdown.selectedIndex].value;
+
+					if (selectedElementValue == "name") {
+						sortDropdown.disabled = true;
+						areaDropdown.disabled = true;
+						sortDropdown.value = "_m";
+						areaDropdown.value = "no";
+					} 
+					else if (selectedElementValue == "continent") {
+						sortDropdown.disabled = false;
+						areaDropdown.disabled = false;
+						areaDropdown.value = "all";
+					}
+					else if (selectedElementValue == "work") {
+						sortDropdown.disabled = false;
+						areaDropdown.disabled = true;
+						areaDropdown.value = "no";
+					}
+
+					handleDropdownChange();
+				}
 
 
-        <ul class="actions special">
-            <li><a href="index.html" class="button">返回</a></li>
-        </ul>
-    </div>
+				// 在三個下拉式選單的 "change" 事件上調用函數
+				document.getElementById("area").addEventListener("change", handleDropdownChange);
+				document.getElementById("sort2").addEventListener("change", handleDropdownChange);
+				document.getElementById("element").addEventListener("change", elementChange);
 
-    <!-- Scripts -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-        crossorigin="anonymous"></script>
+
+			</script>
+
+			&nbsp
+			
+			<script>
+				window.race_tojs = "name_m";
+			</script>
+			<div id="bar-chart-race">
+				<script type="module" id = "module_js">
+					import define from "{{url_for('static', filename='js/bar_chart_race.js')}}";
+					import { Runtime, Library, Inspector } from "{{url_for('static', filename='js/runtime.js')}}";
+					var runtime = new Runtime();
+					var main = runtime.module(define, Inspector.into(document.getElementById('bar-chart-race')));
+				
+					// 定义重新开始函数
+					window.restartScript = function() {
+						var barinner2 = document.getElementById("bar-chart-race");
+
+						// 创建一个新的容器
+						var newContainer = document.createElement("div");
+						newContainer.style.display = 'none';
+
+						// 设置新容器的 innerHTML 为新的脚本
+						newContainer.innerHTML = bar_inner.value;
+
+						// 清空之前的内容
+						barinner2.innerHTML = "";
+
+						// 将新容器添加到 bar-chart-race 中
+						barinner2.appendChild(newContainer);
+						runtime = new Runtime();
+
+						// 重新加载 bar_chart_race.js
+						main = runtime.module(define, Inspector.into(document.getElementById('bar-chart-race')));
+					};
+				</script>
+			</div>
+
+            <div id="innercache"></div>
+            <script>
+                var innercache = document.getElementById("innercache");
+                var bar_inner = document.getElementById("bar-chart-race");
+                innercache.value = bar_inner.innerHTML;
+            </script>
+		</div>
+			
+
+		<ul class="actions special">
+			<li><a href="index.html" class="button">返回</a></li>
+		</ul>
+
+	</div>
+
+	<!-- Scripts -->
+	<link rel="stylesheet" href="{{url_for('static', filename='js/jquery.min.js')}}" />
+	<link rel="stylesheet" href="{{url_for('static', filename='js/browser.min.js')}}" />
+	<link rel="stylesheet" href="{{url_for('static', filename='js/breakpoints.min.js')}}" />
+	<link rel="stylesheet" href="{{url_for('static', filename='js/util.js')}}" />
+	<link rel="stylesheet" href="{{url_for('static', filename='js/main.js')}}" />
+
 
 </body>
 

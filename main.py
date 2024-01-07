@@ -39,7 +39,7 @@ def page1():
 @app.route('/run', methods=['GET', 'POST'])
 def page2():
     # return render_template('pytest/run.html')
-    return render_template('index2.html')
+    return render_template('page4.html')
 
 
 def preuse(cate, data_list):
