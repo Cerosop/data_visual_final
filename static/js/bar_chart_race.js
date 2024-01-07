@@ -232,6 +232,8 @@ function _axis(marginTop, d3, x, width, tickFormat, barSize, n, y) {
         g.select(".tick:first-of-type text").remove();
         g.selectAll(".tick:not(:first-of-type) line").attr("stroke", "white");
         g.select(".domain").remove();
+
+        g.selectAll(".tick text").style("font-size", "20px"); // 调整字体大小的值
       };
     }
   )
@@ -302,7 +304,7 @@ function _barSize() {
 
 function _marginTop() {
   return (
-    16
+    30
   )
 }
 
