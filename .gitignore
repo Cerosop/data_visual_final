@@ -4,4 +4,3 @@ mydb.db
 .vscode
 __pycache__/
 *.pdf
-main.py

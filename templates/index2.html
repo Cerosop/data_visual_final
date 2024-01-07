@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Bar Chart Race</title>
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/inspector.css')}}">
+
+<body>
+    <script type="module">
+
+        import define from "{{url_for('static', filename='js/index.js')}}";
+        import { Runtime, Library, Inspector } from "{{url_for('static', filename='js/runtime.js')}}";
+
+        const runtime = new Runtime();
+        const main = runtime.module(define, Inspector.into(document.body));
+
+    </script>
+</body>
