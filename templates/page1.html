@@ -264,6 +264,9 @@
 					console.log("Selected Sort: " + selectedSortValue);
 
 					// 在這裡可以執行其他相關的操作或返回
+					if(elementDropdown.value == "people" && areaDropdown.value == "all" && sortDropdown.value == "money2"){
+
+					}
 				}
 
 				// 在三個下拉式選單的 "change" 事件上調用函數
@@ -271,11 +274,11 @@
 				document.getElementById("sort2").addEventListener("change", handleDropdownChange);
 				document.getElementById("element").addEventListener("change", handleDropdownChange);
 
+
 			</script>
 
 			&nbsp
 			
-
 			<div id="bar-chart-race">
 				<script type="module">
 					import define from "{{url_for('static', filename='js/index.js')}}";
