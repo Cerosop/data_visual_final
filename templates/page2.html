@@ -6,6 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="assets/css/main.css" />
+    <div id="myGraph3"></div>
 </head>
 
 <body class="is-preload">
@@ -14,11 +15,9 @@
     <div id="header">
         <span class="logo icon fa-paper-plane"></span>
         <h1>各式圖表</h1>
-
     </div>
 
     <div id="main">
-
         <div class="box container">
             <header>
                 <h2>圓餅圖</h2>
@@ -27,14 +26,12 @@
                 <header>
                     <p>我們會用圓餅圖進行比較。</p>
                 </header>
-<<<<<<< HEAD
                 <section>
                     <header>
                         <p>我們會用圓餅圖進行比較，之所以使用圓餅圖是因為它可以觀察比例分布。</p>
                     </header>
-                    
+                    <div id="myGraph3"></div>
                 </section>
-
                 <div class="box container">
                     <header>
                         <h2>折線圖</h2>
@@ -43,7 +40,6 @@
                         <header>
                             <p>我們會用折線圖進行比較，之所以使用折線圖是因為它可以觀察隨時間趨勢變化的數據。</p>
                         </header>
-                        
                     </section>
                     <div class="box container">
                         <header>
@@ -53,35 +49,8 @@
                             <header>
                                 <p>我們會用長條圖進行比較，之所以選用長條圖是因為其特點為強調比較這一觀念。</p>
                             </header>
-                            
                         </section>
                 
-=======
-
-            </section>
-        </div>
-
-        <div class="box container">
-            <header>
-                <h2>折線圖</h2>
-            </header>
-            <section>
-                <header>
-                    <p>我們會用圓餅圖進行比較。</p>
-                </header>
-            </section>
-        </div>
-
-
-        <div class="box container">
-            <header>
-                <h2>長條圖</h2>
-            </header>
-            <section>
-                <header>
-                    <p>我們會用圓餅圖進行比較。</p>
-                </header>
-
             </section>
         </div>
 
@@ -89,7 +58,7 @@
             <li><a href="index.html" class="button">返回</a></li>
         </ul>
     </div>
->>>>>>> a001983566773011ee25317523f85dd7f22bfe02
+ 
 
     <!-- Scripts -->
     <script src="assets/js/jquery.min.js"></script>
@@ -97,6 +66,8 @@
     <script src="assets/js/breakpoints.min.js"></script>
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
+    <script src="data3.js"></script> <!-- 確保首先加載 data.js -->
+    <script src="main3.js"></script> <!-- 然後加載 main.js -->
 
 </body>
 
