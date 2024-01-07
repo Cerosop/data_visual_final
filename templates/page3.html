@@ -97,21 +97,22 @@
                     var formData = {"cate": selectedX + ", " + selectedY + ", " + selectedYear_3_1};
                     formData = JSON.stringify(formData);
 
-                    fetch('/graph', {
+                    fetch('/page3', {
                         method: 'POST',
+						headers: {
+							'Content-Type': 'application/json',
+						},
                         body: formData
                     })
-                        .then(response => response.text())
-                        .then(data => {
-                            var responseData = JSON.parse(data);
-                            if (responseData.res == "-1") {
-                                console.log(responseData.data)
-                                alert("看console");
-                            }
-                        })
-                        .catch(error => {
-                            console.error('Error:', error);
-                        });
+                    .then(response => response.text())
+                    .then(data => {
+                        var responseData = JSON.parse(data);
+                        console.log(responseData.data)
+                        alert("看console");
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
                 }
 
                 document.getElementById("year_3_1").addEventListener("change", handleSelectionChange2);

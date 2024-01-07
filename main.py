@@ -149,7 +149,17 @@ def page3():
             data = {'data': res}
             return jsonify(data)
     else:    
-        return render_template('page3.html')
+        with con:
+            cur=con.cursor()
+            cur.execute(f"select age, count(*) as count from data where year = 2022 group by age")
+            con.commit()
+            people = cur.fetchall()
+            people = sorted(people, key=lambda x: x[0], reverse=False)
+            people = preuse('age', people)
+            
+            res = people
+            print(res)  
+            return render_template('page3.html', res = json.dumps(res))
 
 
 def preuse(cate, data_list):
