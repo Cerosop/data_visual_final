@@ -30,43 +30,49 @@
                 </header>
             </section>
             <!-- 選單-->
-			<label for="year1">選擇年分：</label>
-			<select id="year1">
-                <option value="2011">2011</option>
-				<option value="2012">2012</option>
-				<option value="2013">2013</option>
-				<option value="2014">2014</option>
-				<option value="2015">2015</option>
-				<option value="2016">2016</option>
-				<option value="2017">2017</option>
-				<option value="2018">2018</option>
-				<option value="2019">2019</option>
-				<option value="2020">2020</option>
-				<option value="2021">2021</option>
-				<option value="2022">2022</option>
-				<option value="2023" selected>2023</option>
-			</select>
-			<label for="topic">選擇主題：</label>
-			<select id="topic">
-				<option value="age">年紀</option>
-				<option value="money1" selected>資產</option>
-			</select>
-			<script>
-				function handleSelectionChange() {
-					var yearDropdown = document.getElementById("year1");
-					var topicDropdown = document.getElementById("topic");
-			
-					var selectedYear = yearDropdown.options[yearDropdown.selectedIndex].value;
-					var selectedTopic = topicDropdown.options[topicDropdown.selectedIndex].value;
-			
-					console.log("Selected Year: " + selectedYear);
-					console.log("Selected topic Method: " + selectedTopic);
-			
-					// 在這裡可以執行其他相關的操作，或者將值傳遞給其他 JavaScript 檔案
-				}
-				document.getElementById("year1").addEventListener("change", handleSelectionChange);
-				document.getElementById("topic").addEventListener("change", handleSelectionChange);
-			</script>
+            <div class="row">
+                <div class="col-12">
+                    <label for="year1">選擇年分：</label>
+                    <select id="year1">
+                        <option value="2011">2011</option>
+                        <option value="2012">2012</option>
+                        <option value="2013">2013</option>
+                        <option value="2014">2014</option>
+                        <option value="2015">2015</option>
+                        <option value="2016">2016</option>
+                        <option value="2017">2017</option>
+                        <option value="2018">2018</option>
+                        <option value="2019">2019</option>
+                        <option value="2020">2020</option>
+                        <option value="2021">2021</option>
+                        <option value="2022">2022</option>
+                        <option value="2023" selected>2023</option>
+                    </select>
+                </div>
+                <div class="col-12">
+                    <label for="topic">選擇主題：</label>
+                    <select id="topic">
+                        <option value="age">年紀</option>
+                        <option value="money1" selected>資產</option>
+                    </select>
+                </div>
+            </div>
+            <script>
+                function handleSelectionChange() {
+                    var yearDropdown = document.getElementById("year1");
+                    var topicDropdown = document.getElementById("topic");
+
+                    var selectedYear = yearDropdown.options[yearDropdown.selectedIndex].value;
+                    var selectedTopic = topicDropdown.options[topicDropdown.selectedIndex].value;
+
+                    console.log("Selected Year: " + selectedYear);
+                    console.log("Selected topic Method: " + selectedTopic);
+
+                    // 在這裡可以執行其他相關的操作，或者將值傳遞給其他 JavaScript 檔案
+                }
+                document.getElementById("year1").addEventListener("change", handleSelectionChange);
+                document.getElementById("topic").addEventListener("change", handleSelectionChange);
+            </script>
 
         </div>
 
@@ -76,48 +82,73 @@
             </header>
             <section>
                 <header>
-                    <p>我們會用圓餅圖進行比較。</p>
+                    <p>我們會用折線圖進行比較。</p>
                 </header>
             </section>
             <!-- 選單-->
-			<label for="year1">選擇年分：</label>
-			<select id="year1">
-                <option value="2011">2011</option>
-				<option value="2012">2012</option>
-				<option value="2013">2013</option>
-				<option value="2014">2014</option>
-				<option value="2015">2015</option>
-				<option value="2016">2016</option>
-				<option value="2017">2017</option>
-				<option value="2018">2018</option>
-				<option value="2019">2019</option>
-				<option value="2020">2020</option>
-				<option value="2021">2021</option>
-				<option value="2022">2022</option>
-				<option value="2023" selected>2023</option>
-                <option value="all year" selected>全</option>
-			</select>
-			<label for="topic">選擇主題：</label>
-			<select id="topic">
-				<option value="age">年紀</option>
-				<option value="money1" selected>資產</option>
-			</select>
-			<script>
-				function handleSelectionChange() {
-					var yearDropdown = document.getElementById("year1");
-					var topicDropdown = document.getElementById("topic");
-			
-					var selectedYear = yearDropdown.options[yearDropdown.selectedIndex].value;
-					var selectedtopic = topicDropdown.options[topicDropdown.selectedIndex].value;
-			
-					console.log("Selected Year: " + selectedYear);
-					console.log("Selected topic Method: " + selectedtopic);
-			
-					// 在這裡可以執行其他相關的操作，或者將值傳遞給其他 JavaScript 檔案
-				}
-				document.getElementById("year1").addEventListener("change", handleSelectionChange);
-				document.getElementById("topic").addEventListener("change", handleSelectionChange);
-			</script>
+            <div class="row">
+                <div class="col-6 col-12-mobilep">
+                    <label for="startYear">起始年份：</label>
+                    <select id="startYear">
+                        <option value="2011">2011</option>
+                        <option value="2012">2012</option>
+                        <option value="2013">2013</option>
+                        <option value="2014">2014</option>
+                        <option value="2015">2015</option>
+                        <option value="2016">2016</option>
+                        <option value="2017">2017</option>
+                        <option value="2018">2018</option>
+                        <option value="2019">2019</option>
+                        <option value="2020">2020</option>
+                        <option value="2021">2021</option>
+                        <option value="2022">2022</option>
+                        <option value="2023" selected>2023</option>
+                    </select>
+                </div>
+                <div class="col-6 col-12-mobilep">
+                    <label for="endYear">結束年份：</label>
+                    <select id="endYear">
+                        <option value="2011">2011</option>
+                        <option value="2012">2012</option>
+                        <option value="2013">2013</option>
+                        <option value="2014">2014</option>
+                        <option value="2015">2015</option>
+                        <option value="2016">2016</option>
+                        <option value="2017">2017</option>
+                        <option value="2018">2018</option>
+                        <option value="2019">2019</option>
+                        <option value="2020">2020</option>
+                        <option value="2021">2021</option>
+                        <option value="2022">2022</option>
+                        <option value="2023" selected>2023</option>
+                    </select>
+                </div>
+                <div class="col-12">
+                    <label for="topic">選擇主題：</label>
+                    <select id="topic">
+                        <option value="age">年紀</option>
+                        <option value="money1" selected>資產</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <script>
+                function handleSelectionChange() {
+                    var yearDropdown = document.getElementById("year1");
+                    var topicDropdown = document.getElementById("topic");
+
+                    var selectedYear = yearDropdown.options[yearDropdown.selectedIndex].value;
+                    var selectedTopic = topicDropdown.options[topicDropdown.selectedIndex].value;
+
+                    console.log("Selected Year: " + selectedYear);
+                    console.log("Selected topic Method: " + selectedTopic);
+
+                    // 在這裡可以執行其他相關的操作，或者將值傳遞給其他 JavaScript 檔案
+                }
+                document.getElementById("year1").addEventListener("change", handleSelectionChange);
+                document.getElementById("topic").addEventListener("change", handleSelectionChange);
+            </script>
         </div>
 
 
@@ -127,7 +158,7 @@
             </header>
             <section>
                 <header>
-                    <p>我們會用圓餅圖進行比較。</p>
+                    <p>我們會用長條圖進行比較。</p>
                 </header>
 
             </section>
