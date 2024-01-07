@@ -51,7 +51,7 @@
                         <option value="2022" selected>2022</option>
                     </select>
                 </div>
-                <div class="col-12">
+                <div class="col-6 col-12-mobilep">
                     <label for="topic1">選擇主題：</label>
                     <select id="topic1">
                         <option value="age">年紀</option>
@@ -59,7 +59,7 @@
                         <option value="continent" selected>洲</option>
                     </select>
                 </div>
-                <div class="col-12">
+                <div class="col-6 col-12-mobilep">
                     <label for="topic2">選擇比較項目：</label>
                     <select id="topic2">
                         <option value="money">總資產</option>
@@ -109,7 +109,16 @@
                     trace1.hole = 0.5;
 
                     for (let i = 0; i < continent_people_2011.length; i++) {
-                        trace1.labels[i] = continent_people_2011[i]['name'];
+                        if(selectedTopic1 == "age"){
+                            var number = parseInt(continent_people_2011[i]['name']);
+                            if(number == -1){
+                                trace1.labels[i] = "nan";
+                            }else{
+                                trace1.labels[i] = 5*number +"~"+ (5*number+4);
+                            }
+                        }else{
+                            trace1.labels[i] = continent_people_2011[i]['name'];
+                        }
                         trace1.values[i] = continent_people_2011[i]['count'];
                     }
 
@@ -130,7 +139,7 @@
             <style>
                 #myGraph {
                     width: 100%;
-                    height: 100%;
+                    height: 500px;
                 }
             </style>
 
