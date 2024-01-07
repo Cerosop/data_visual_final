@@ -111,7 +111,7 @@ def page2():
     return render_template('page2.html', res = json.dumps(res))
 
 
-@app.route('/graph', methods=['GET', 'POST'])
+@app.route('/page3', methods=['GET', 'POST'])
 def page3():
     con = lite.connect('mydb.db')
     if request.method == 'POST':
@@ -149,7 +149,7 @@ def page3():
             data = {'data': res}
             return jsonify(data)
     else:    
-        return render_template('pytest/graph.html')
+        return render_template('page3.html')
 
 
 def preuse(cate, data_list):

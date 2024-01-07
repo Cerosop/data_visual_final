@@ -5,7 +5,9 @@
     <title>長條圖</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" />
+    <link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}" />
+    <script src="https://cdn.plot.ly/plotly-2.24.1.min.js"></script>
 </head>
 
 <body class="is-preload">
@@ -29,7 +31,7 @@
             </section>
             <!-- 選單-->
             <div class="row">
-                <div class="col-6 col-12-mobilep">
+                <div class="col-12">
                     <label for="year_3_1">選擇年份：</label>
                     <select id="year_3_1">
                         <option value="2011">2011</option>
@@ -47,43 +49,78 @@
                     </select>
                 </div>
                 <div class="col-12">
-                    <label for="topic1">選擇主題：</label>
-                    <select id="topic1">
-                        <option value="age">年紀</option>
-                        <option value="money1" selected>資產</option>
+                    <label for="x">選擇主題：</label>
+                    <select id="x">
+                        <option value="age" selected>年紀</option>
+                        <option value="continent">洲</option>
+                        <option value="country">國家</option>
+                        <option value="work">工作</option>
+                        <option value="money">資產</option>
                     </select>
                 </div>
                 <div class="col-12">
-                    <label for="topic2">選擇主題：</label>
-                    <select id="topic2">
-                        <option value="age">年紀</option>
-                        <option value="money1" selected>資產</option>
+                    <label for="y">選擇主題：</label>
+                    <select id="y">
+                        <option value="people" selected>富豪人數</option>
+                        <option value="money">總資產</option>
+                        <option value="money ave">平均資產</option>
                     </select>
                 </div>
             </div>
             <script>
                 var year_3_1Dropdown = document.getElementById("year_3_1");
-                var topic1Dropdown = document.getElementById("topic1");
-                var topic2Dropdown = document.getElementById("topic2");
+                var xDropdown = document.getElementById("x");
+                var yDropdown = document.getElementById("y");
 
                 function handleSelectionChange2() {
                     var selectedYear_3_1 = year_3_1Dropdown.options[year_3_1Dropdown.selectedIndex].value;
-                    var selectedTopic1 = topic1Dropdown.options[topic1Dropdown.selectedIndex].value;
-                    var selectedTopic2 = topic2Dropdown.options[topic2Dropdown.selectedIndex].value;
+                    var selectedX = xDropdown.options[xDropdown.selectedIndex].value;
+                    var selectedY = yDropdown.options[yDropdown.selectedIndex].value;
+
+                    if (selectedX === "money") {
+                        var moneyAveOption = document.querySelector('#y option[value="money ave"]');
+                        moneyAveOption.disabled = true;
+                        var moneyOption = document.querySelector('#y option[value="money"]');
+                        moneyOption.disabled = true;
+                        yDropdown.value = "people";
+                        selectedY = "people";
+                    } else {
+                        var moneyAveOption = document.querySelector('#y option[value="money ave"]');
+                        moneyAveOption.disabled = false;
+                        var moneyOption = document.querySelector('#y option[value="money"]');
+                        moneyOption.disabled = false;
+                    }
 
                     console.log("Selected End Year: " + selectedYear_3_1);
-                    console.log("Selected Topic 1: " + selectedTopic1);
-                    console.log("Selected Topic 2: " + selectedTopic2);
+                    console.log("Selected Topic 1: " + selectedX);
+                    console.log("Selected Topic 2: " + selectedY);
+                    var formData = new FormData(this);
+                    formData.append("cate", selectedX + ", " + selectedY + ", " + selectedYear_3_1);
 
-                    // 在這裡可以執行其他相關的操作，或者將值傳遞給其他 JavaScript 檔案
+                    fetch('/graph', {
+                        method: 'POST',
+                        body: formData
+                    })
+                        .then(response => response.text())
+                        .then(data => {
+                            var responseData = JSON.parse(data);
+                            if (responseData.res == "-1") {
+                                console.log(responseData.data)
+                                alert("看console");
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                        });
                 }
 
                 document.getElementById("year_3_1").addEventListener("change", handleSelectionChange2);
-                document.getElementById("topic1").addEventListener("change", handleSelectionChange2);
-                document.getElementById("topic2").addEventListener("change", handleSelectionChange2);
+                document.getElementById("x").addEventListener("change", handleSelectionChange2);
+                document.getElementById("y").addEventListener("change", handleSelectionChange2);
             </script>
         </div>
-        <div class="box container">
+
+        <!-- <div class="box container">
             <header>
                 <h2>長條圖</h2>
             </header>
@@ -92,7 +129,6 @@
                     <p>長條圖會被我們用來進行最多比較，因為比起圓餅圖，它更適合用來比較各種數據，比如平均金錢、產業與資產等等...。</p>
                 </header>
             </section>
-            <!-- 選單-->
             <div class="row">
                 <div class="col-6 col-12-mobilep">
                     <label for="startYear">起始年份：</label>
@@ -173,7 +209,7 @@
                 document.getElementById("topic1").addEventListener("change", handleSelectionChange2);
                 document.getElementById("topic2").addEventListener("change", handleSelectionChange2);
             </script>
-        </div>
+        </div> -->
     </div>
 
     <ul class="actions special">
@@ -182,11 +218,11 @@
     </div>
 
     <!-- Scripts -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script>
+    <link rel="stylesheet" href="{{url_for('static', filename='js/jquery.min.js')}}" />
+    <link rel="stylesheet" href="{{url_for('static', filename='js/browser.min.js')}}" />
+    <link rel="stylesheet" href="{{url_for('static', filename='js/breakpoints.min.js')}}" />
+    <link rel="stylesheet" href="{{url_for('static', filename='js/util.js')}}" />
+    <link rel="stylesheet" href="{{url_for('static', filename='js/main.js')}}" />
 
 </body>
 
