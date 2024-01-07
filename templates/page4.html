@@ -73,7 +73,7 @@
 						<option value="South America">南美洲</option>
 						<option value="North America">北美洲</option>
 						<option value="all">全</option>
-						<option value="no" selected>全</option>
+						<option value="no" id="disabledOption" selected>全</option>
 					</select>
 				</div>
 				<div class="col-12">
@@ -117,22 +117,26 @@
 					var elementDropdown = document.getElementById("element");
 					var areaDropdown = document.getElementById("area");
 					var sortDropdown = document.getElementById("sort2");
+                    var disabledOption = document.getElementById('disabledOption');
 
 					// 處理排序項目的變化
 					var selectedElementValue = elementDropdown.options[elementDropdown.selectedIndex].value;
 
 					if (selectedElementValue == "name") {
+                        disabledOption.style.display = "block";
 						sortDropdown.disabled = true;
 						areaDropdown.disabled = true;
 						sortDropdown.value = "_m";
 						areaDropdown.value = "no";
 					} 
 					else if (selectedElementValue == "continent") {
+                        disabledOption.style.display = "none";
 						sortDropdown.disabled = false;
 						areaDropdown.disabled = false;
 						areaDropdown.value = "all";
 					}
 					else if (selectedElementValue == "work") {
+                        disabledOption.style.display = "block";
 						sortDropdown.disabled = false;
 						areaDropdown.disabled = true;
 						areaDropdown.value = "no";
