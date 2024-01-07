@@ -5,10 +5,9 @@ function _1(md) {
   )
 }
 
-var file1 = "./files/work_c.csv";
 function _data(FileAttachment) {
   return (
-    FileAttachment(file1).csv({ typed: true })
+    FileAttachment('attach_file').csv({ typed: true })
   )
 }
 
@@ -326,10 +325,12 @@ function _marginLeft() {
 }
 
 export default function define(runtime, observer) {
+  var race_tojs = window.race_tojs;
+  var file1 = "./files/" + race_tojs + ".csv";
   const main = runtime.module();
   function toString() { return this.url; }
   const fileAttachments = new Map([
-    [file1, { url: new URL(file1, import.meta.url), mimeType: "text/csv", toString }]
+    ['attach_file', { url: new URL(file1, import.meta.url), mimeType: "text/csv", toString }]
   ]);
   main.builtin("FileAttachment", runtime.fileAttachments(name => fileAttachments.get(name)));
   //main.variable(observer()).define(["md"], _1);

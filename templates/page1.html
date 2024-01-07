@@ -142,12 +142,11 @@
 							<td>单元格6</td>
 							<td>单元格7</td>
 						</tr>
-						
+
 						<script>
 							// 獲取表格元素
 							var table = document.getElementById("Table1");
 							var res = JSON.parse(document.getElementById("res").innerHTML);
-							// console.log(res);
 							// 資料示例（可以從後端或其他地方獲取）
 							var data = res;
 							
@@ -194,14 +193,14 @@
 					<label for="element">選擇排序項目：</label>
 					<select id="element">
 						<!-- selected 預選 disabled 不可選 -->
-						<option value="people" selected>富豪</option>
-						<option value="country">國家</option>
+						<option value="name" selected>富豪</option>
+						<option value="continent">地區</option>
 						<option value="work">工作</option>
 					</select>
 				</div>
 				<div class="col-12">
 					<label for="area">選擇地區：</label>
-					<select id="area">
+					<select id="area" disabled>
 						<!-- selected 預選 disabled 不可選 -->
 						<option value="Oceania">大洋洲</option>
 						<option value="Africa">非洲</option>
@@ -209,85 +208,125 @@
 						<option value="Europe">歐洲</option>
 						<option value="South America">南美洲</option>
 						<option value="North America">北美洲</option>
-						<option value="all" selected>全</option>
+						<option value="all">全</option>
+						<option value="no" selected>全</option>
 					</select>
 				</div>
 				<div class="col-12">
 					<label for="sort2">選擇比較項目：</label>
-					<select id="sort2">
+					<select id="sort2" disabled>
 						<!-- selected 預選 disabled 不可選 -->
-						<option value="num" disabled>國家富豪人數</option>
-						<option value="money2" selected>資產</option>
+						<option value="_c">國家富豪人數</option>
+						<option value="_m" selected>資產</option>
 					</select>
 				</div>
 			</div>
+			
 			<script>
 				function handleDropdownChange() {
+					var elementDropdown = document.getElementById("element");
+					var areaDropdown = document.getElementById("area");
+					var sortDropdown = document.getElementById("sort2");
+					var race_tojs = document.getElementById("race_tojs");
+
+					var selectedElementValue = elementDropdown.value;
+					console.log("Selected Element: " + selectedElementValue);
+
+					var selectedAreaValue = areaDropdown.value;
+					console.log("Selected Area: " + selectedAreaValue);
+
+					var selectedSortValue = sortDropdown.value;
+					console.log("Selected Sort: " + selectedSortValue);
+
+					if (selectedAreaValue == "no" || selectedAreaValue == "all"){
+						window.race_tojs = "" + selectedElementValue + selectedSortValue;
+					}
+					else{
+						window.race_tojs = "" + selectedAreaValue + selectedSortValue;
+					}
+					console.log(window.race_tojs);
+
+					restartScript();
+				}
+
+				function elementChange(){
 					var elementDropdown = document.getElementById("element");
 					var areaDropdown = document.getElementById("area");
 					var sortDropdown = document.getElementById("sort2");
 
 					// 處理排序項目的變化
 					var selectedElementValue = elementDropdown.options[elementDropdown.selectedIndex].value;
-					console.log("Selected Element: " + selectedElementValue);
 
-					// 處理選擇地區的變化
-					var selectedAreaValue = areaDropdown.options[areaDropdown.selectedIndex].value;
-					console.log("Selected Area: " + selectedAreaValue);
-
-					if (selectedElementValue === "people" && selectedAreaValue === "all") {
-						sortDropdown.querySelector('option[value="num"]').disabled = true;
-						sortDropdown.value = "money2";
-					} else {
-						sortDropdown.querySelector('option[value="num"]').disabled = false;
+					if (selectedElementValue == "name") {
+						sortDropdown.disabled = true;
+						areaDropdown.disabled = true;
+						sortDropdown.value = "_m";
+						areaDropdown,value = "no";
+					} 
+					else if (selectedElementValue == "continent") {
+						sortDropdown.disabled = false;
+						areaDropdown.disabled = false;
+					}
+					else if (selectedElementValue == "work") {
+						sortDropdown.disabled = false;
+						areaDropdown.disabled = true;
+						areaDropdown,value = "no";
 					}
 
-					if (selectedElementValue === "country" || selectedElementValue === "work") {
-						areaDropdown.querySelector('option[value="Oceania"]').disabled = true;
-						areaDropdown.querySelector('option[value="Africa"]').disabled = true;
-						areaDropdown.querySelector('option[value="Asia"]').disabled = true;
-						areaDropdown.querySelector('option[value="Europe"]').disabled = true;
-						areaDropdown.querySelector('option[value="South America"]').disabled = true;
-						areaDropdown.querySelector('option[value="North America"]').disabled = true;
-						areaDropdown.value = "all";
-					} else {
-						areaDropdown.querySelector('option[value="Oceania"]').disabled = false;
-						areaDropdown.querySelector('option[value="Africa"]').disabled = false;
-						areaDropdown.querySelector('option[value="Asia"]').disabled = false;
-						areaDropdown.querySelector('option[value="Europe"]').disabled = false;
-						areaDropdown.querySelector('option[value="South America"]').disabled = false;
-						areaDropdown.querySelector('option[value="North America"]').disabled = false;
-					}
-
-					// 處理排序項目的變化
-					var selectedSortValue = sortDropdown.options[sortDropdown.selectedIndex].value;
-					console.log("Selected Sort: " + selectedSortValue);
-
-					// 在這裡可以執行其他相關的操作或返回
-					if(elementDropdown.value == "people" && areaDropdown.value == "all" && sortDropdown.value == "money2"){
-
-					}
+					handleDropdownChange();
 				}
+
 
 				// 在三個下拉式選單的 "change" 事件上調用函數
 				document.getElementById("area").addEventListener("change", handleDropdownChange);
 				document.getElementById("sort2").addEventListener("change", handleDropdownChange);
-				document.getElementById("element").addEventListener("change", handleDropdownChange);
+				document.getElementById("element").addEventListener("change", elementChange);
 
 
 			</script>
 
 			&nbsp
 			
+			<script>
+				window.race_tojs = "name_m";
+			</script>
 			<div id="bar-chart-race">
-				<script type="module">
-					import define from "{{url_for('static', filename='js/index.js')}}";
+				<script type="module" id = "module_js">
+					import define from "{{url_for('static', filename='js/bar_chart_race.js')}}";
 					import { Runtime, Library, Inspector } from "{{url_for('static', filename='js/runtime.js')}}";
-					const runtime = new Runtime();
-					const main = runtime.module(define, Inspector.into(document.getElementById('bar-chart-race')));
+					var runtime = new Runtime();
+					var main = runtime.module(define, Inspector.into(document.getElementById('bar-chart-race')));
+				
+					// 定义重新开始函数
+					window.restartScript = function() {
+						var barinner2 = document.getElementById("bar-chart-race");
+
+						// 创建一个新的容器
+						var newContainer = document.createElement("div");
+						newContainer.style.display = 'none';
+
+						// 设置新容器的 innerHTML 为新的脚本
+						newContainer.innerHTML = bar_inner.value;
+
+						// 清空之前的内容
+						barinner2.innerHTML = "";
+
+						// 将新容器添加到 bar-chart-race 中
+						barinner2.appendChild(newContainer);
+						runtime = new Runtime();
+
+						// 重新加载 bar_chart_race.js
+						main = runtime.module(define, Inspector.into(document.getElementById('bar-chart-race')));
+					};
 				</script>
 			</div>
 		</div>
+		<div id="innercache"></div>
+		<script>
+			var innercache = document.getElementById("innercache");
+			var bar_inner = document.getElementById("bar-chart-race");
+			innercache.value = bar_inner.innerHTML;
+		</script>
 
 		<ul class="actions special">
 			<li><a href="index.html" class="button">返回</a></li>
