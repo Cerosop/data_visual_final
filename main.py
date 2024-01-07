@@ -119,7 +119,7 @@ def page3():
         return render_template('pytest/graph.html')
     
     
-@app.route('/circle', methods=['GET', 'POST'])
+@app.route('/page2', methods=['GET', 'POST'])
 def page4():
     con = lite.connect('mydb.db')
     limit = 20
