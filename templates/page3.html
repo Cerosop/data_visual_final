@@ -122,37 +122,22 @@
             <div id="myGraph"></div>
             <script>
 
-                let res = JSON.parse(document.getElementById('res3').innerHTML);
-                let page3data = [];
-                for (var k1 in res) {
-                    for (var k2 in res[k1]) {
-                        for (var y in res[k1][k2]) {
-                            for (var i = 0; i < res[k1][k2][y].length; i++) {
-                                if (k1 == "continent" && k2 == "people" && y == 2022) {
-                                    let newEvaluation = {
-                                        "name": res[k1][k2][y][i][0],
-                                        "count": res[k1][k2][y][i][1]
-                                    };
-                                    page3data.push(newEvaluation);
-                                }
-                            }
-                        }
-                    }
-                }
-                console.log(page3data)
+                let res2 = document.getElementById('res').innerHTML;
+                console.log(res2);
+
+                let res3 = JSON.parse(document.getElementById('res').innerHTML);
 
                 let myGraph = document.getElementById('myGraph');
 
                 let trace1 = {};
-                trace1.type = "pie";
+                trace1.type = "bar";
                 trace1.title = "2022年各州富豪人數";  // 待改
                 trace1.x = [];
                 trace1.y = [];
-                trace1.hole = 0.5;
 
-                for (let i = 0; i < page3data.length; i++) {
-                    trace1.labels[i] = page3data[i]['name'];
-                    trace1.values[i] = page3data[i]['count'];
+                for (let i = 0; i < res3.length; i++) {
+                    trace1.x[i] = res3[0];
+                    trace1.y[i] = res3[1];
                 }
 
                 let data = [];
