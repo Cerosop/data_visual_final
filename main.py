@@ -176,14 +176,16 @@ def preuse(cate, data_list):
         data_list = []
         for k in d:
             data_list.append((k, d[k]))
-    else: # age, money要用range 前者表示range a * b ~ (a + 1) * b - 1
+    elif cate == 'age' or cate == 'money': # age, money要用range 前者表示range a * b ~ (a + 1) * b - 1
         b = 0
         if cate == 'age':
             b = 5
+            res1 = [0 for i in range(int(150/b))]
         if cate == 'money':
             b = 5 
+            res1 = [0 for i in range(int(250/b))]
             
-        res1 = [0 for i in range(int(150/b))]
+        
         i = 0
         for a in data_list:
             while i * b <= a[0]:
@@ -191,9 +193,18 @@ def preuse(cate, data_list):
             res1[i] += a[1]
             
         data_list = []
+        x = False
         for i, a in enumerate(res1):
-            if a:
+            if not i:
                 data_list.append((i - 1, a))
+            if a and i:
+                x = True
+            if x:
+                data_list.append((i - 1, a))
+        for i in range(len(data_list) - 1, -1, -1):
+            if data_list[i][1]:
+                break
+            data_list.pop(i)
                 
     return data_list
     
