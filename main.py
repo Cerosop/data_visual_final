@@ -36,8 +36,8 @@ def page1():
             return render_template('page1.html', res = json.dumps(res))
     
     
-@app.route('/run', methods=['GET', 'POST'])
-def page2():
+@app.route('/page4', methods=['GET', 'POST'])
+def page4():
     # return render_template('pytest/run.html')
     return render_template('page4.html')
 
@@ -120,7 +120,7 @@ def page3():
     
     
 @app.route('/page2', methods=['GET', 'POST'])
-def page4():
+def page2():
     con = lite.connect('mydb.db')
     limit = 20
     res = {}
