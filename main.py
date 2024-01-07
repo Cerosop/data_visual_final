@@ -7,11 +7,11 @@ def redir():
     return redirect('/circle')
 
 
-@app.route('/main', methods=['GET', 'POST'])
+@app.route('/page1', methods=['GET', 'POST'])
 def page1():
     con = lite.connect('mydb.db')
     if request.method == 'POST':
-        cate = request.values['cate'].split(", ")
+        cate = request.get_json()['cate'].split(", ")
         print(cate)
         with con:
             cur=con.cursor()
@@ -21,10 +21,10 @@ def page1():
             res = [(i + 1, d[1], d[3], d[4], d[5], d[6], d[7]) for i, d in enumerate(res)]
             
             print(res)  
-            data = {'res': '-1', 'data': res}
+            data = {'data': res}
             return jsonify(data)
     else:    
-        return render_template('pytest/main.html')
+        return render_template('page1.html')
     
     
 @app.route('/run', methods=['GET', 'POST'])
@@ -73,7 +73,7 @@ def preuse(cate, data_list):
 def page3():
     con = lite.connect('mydb.db')
     if request.method == 'POST':
-        cate = request.values['cate'].split(", ")
+        cate = request.get_json()['cate'].split(", ")
         print(cate)
         with con:
             cur=con.cursor()
@@ -104,7 +104,7 @@ def page3():
                     res.append((a[0], a[1] / people[i][1]))
             
             print(res)  
-            data = {'res': '-1', 'data': res}
+            data = {'data': res}
             return jsonify(data)
     else:    
         return render_template('pytest/graph.html')
