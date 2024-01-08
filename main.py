@@ -19,7 +19,12 @@ def page1():
             cur.execute(f"select * from data where year = \'{cate[1]}\' order by {cate[0]} {cate[2]}")
             con.commit()
             res = cur.fetchall()
-            res = [(i + 1, d[1], d[3], d[4], d[5], d[6], d[7]) for i, d in enumerate(res)]
+            res = [[i + 1, d[1], d[3], d[4], d[5], d[6], d[7]] for i, d in enumerate(res)]
+            
+            
+            for i in range(1, len(res)):
+                if cate[0] == 'money' and res[i][6] == res[i - 1][6] or (cate[0] == 'age' and res[i][2] == res[i - 1][2]):
+                    res[i][0] == res[i - 1]
             
             print(res)  
             data = {'data': res}
@@ -164,6 +169,7 @@ def page3():
 
 def preuse(cate, data_list):
     if cate == 'work': # work要拆開
+        limit = 20
         d = {}
         for a in data_list:
             l = a[0].split(", ")
@@ -172,10 +178,19 @@ def preuse(cate, data_list):
                     d[s] += a[1]
                 else:
                     d[s] = a[1]
-        
+
+        d = dict(sorted(d.items(), key=lambda item: item[1], reverse=True))
         data_list = []
+        i = 0
+        c = 0
         for k in d:
-            data_list.append((k, d[k]))
+            i += 1
+            if i < limit:
+                data_list.append((k, d[k]))
+            else:
+                c += d[k]
+        data_list = (sorted(data_list, key=lambda x: x[0], reverse=False))
+        data_list.append(('other', c))
     elif cate == 'age' or cate == 'money': # age, money要用range 前者表示range a * b ~ (a + 1) * b - 1
         b = 0
         if cate == 'age':
