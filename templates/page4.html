@@ -2,7 +2,7 @@
 <html>
 
 <head>
-	<title>表格與動態柱狀圖</title>
+	<title>動態柱狀圖</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	
@@ -16,7 +16,7 @@
 	<!-- Header -->
 	<div id="header">
 		<span class="logo icon solid fa-dollar-sign"></span>
-		<h1>表格與動態柱狀圖</h1>
+		<h1>動態柱狀圖</h1>
 
 	</div>
 
@@ -39,7 +39,6 @@
 				<div class="col-12">
 					<label for="element">選擇排序項目：</label>
 					<select id="element">
-						<!-- selected 預選 disabled 不可選 -->
 						<option value="name" selected>富豪</option>
 						<option value="continent">地區</option>
 						<option value="work">工作</option>
@@ -48,7 +47,6 @@
 				<div class="col-12">
 					<label for="area">選擇地區：</label>
 					<select id="area" disabled>
-						<!-- selected 預選 disabled 不可選 -->
 						<option value="Oceania">大洋洲</option>
 						<option value="Africa">非洲</option>
 						<option value="Asia">亞洲</option>
@@ -62,7 +60,6 @@
 				<div class="col-12">
 					<label for="sort2">選擇比較項目：</label>
 					<select id="sort2" disabled>
-						<!-- selected 預選 disabled 不可選 -->
 						<option value="_c">國家富豪人數</option>
 						<option value="_m" selected>資產</option>
 					</select>
@@ -128,12 +125,9 @@
 					handleDropdownChange();
 				}
 
-
-				// 在三個下拉式選單的 "change" 事件上調用函數
 				document.getElementById("area").addEventListener("change", handleDropdownChange);
 				document.getElementById("sort2").addEventListener("change", handleDropdownChange);
 				document.getElementById("element").addEventListener("change", elementChange);
-
 
 			</script>
 
@@ -149,25 +143,19 @@
 					var runtime = new Runtime();
 					var main = runtime.module(define, Inspector.into(document.getElementById('bar-chart-race')));
 				
-					// 定义重新开始函数
 					window.restartScript = function() {
 						var barinner2 = document.getElementById("bar-chart-race");
 
-						// 创建一个新的容器
 						var newContainer = document.createElement("div");
 						newContainer.style.display = 'none';
 
-						// 设置新容器的 innerHTML 为新的脚本
 						newContainer.innerHTML = bar_inner.value;
 
-						// 清空之前的内容
 						barinner2.innerHTML = "";
 
-						// 将新容器添加到 bar-chart-race 中
 						barinner2.appendChild(newContainer);
 						runtime = new Runtime();
 
-						// 重新加载 bar_chart_race.js
 						main = runtime.module(define, Inspector.into(document.getElementById('bar-chart-race')));
 					};
 				</script>
