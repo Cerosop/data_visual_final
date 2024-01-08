@@ -111,7 +111,13 @@
 
                     let trace1 = {};
                     trace1.type = "pie";
-                    trace1.title = selectedYear + "年各" + topic1Dropdown.options[topic1Dropdown.selectedIndex].text + topic2Dropdown.options[topic2Dropdown.selectedIndex].text;
+                    trace1.title = {
+                        text: selectedYear + "年<br>各" + topic1Dropdown.options[topic1Dropdown.selectedIndex].text + topic2Dropdown.options[topic2Dropdown.selectedIndex].text,
+                        font:{
+                            size:15
+                        }
+                        
+                    }
                     trace1.labels = [];
                     trace1.values = [];
                     trace1.hole = 0.5;

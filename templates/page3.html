@@ -139,7 +139,6 @@
                         if (res3[i][0] != "nan" && res3[i][0] != -1) {
                             let trace1 = {};
                             trace1.type = "bar";
-                            trace1.name = res3[i][0];
                             trace1.x = [];
                             trace1.y = [];
                             if (x_axis == "age") {
@@ -157,6 +156,7 @@
                                 trace1.x[0] = res3[i][0];
                                 layout.title = year + "年各洲" + y_axis;
                             }
+                            trace1.name = trace1.x[0];
                             trace1.y[0] = res3[i][1];
                             trace1.marker = {
                                 color: colors[i % colors.length]
