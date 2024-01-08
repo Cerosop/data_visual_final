@@ -28,154 +28,97 @@
                     <p>長條圖會被我們用來進行最多比較，因為比起圓餅圖，它更適合用來比較各種數據，比如平均金錢、產業與資產等等...。</p>
                 </header>
             </section>
+            <!-- 選單-->
+            <div class="row">
+                <div class="col-12">
+                    <label for="graph">選擇圖表：</label>
+                    <select id="graph">
+                        <option value="0" selected>資產-年紀-富豪人數</option>
+                        <option value="1">年-資產-富豪人數</option>
+                        <option value="2">年-年紀-富豪人數</option>
+                    </select>
+                </div>
+            </div>
             <style>
-                #myGraph5 {
-                    width: 100%;
-                    height: 1000px;
-                }
-
                 #myGraph6 {
                     width: 100%;
-                    height: 1000px;
-                }
-
-                #myGraph7 {
-                    width: 100%;
-                    height: 1000px;
-                }
-
-                #myGraph8 {
-                    width: 100%;
-                    height: 1000px;
+                    height: 800px;
                 }
             </style>
+            &nbsp
             <div id="res5" style="display: none;">{{res}}</div>
-            <!-- <div id="myGraph5"></div> -->
             <div id="myGraph6"></div>
-            <div id="myGraph7"></div>
-            <div id="myGraph8"></div>
             <script>
                 let res5 = JSON.parse(document.getElementById('res5').innerHTML);
                 console.log(res5)
-                let myGraph5 = document.getElementById('myGraph5');
-                let layout = {
-                    margin: {
-                        t: 80,
-                        l: 15,
-                        r: 15,
-                        b: 30
-                    },
-                    showlegend: false
-                };
-                var trace1 = {};
-                trace1.x = [];
-                trace1.y = [];
-                trace1.mode = 'markers';
-                trace1.marker = {
-                    size: []
-                };
 
-                for (let i = 0; i < res5[1].length; i++) {
-                    trace1.x[i] = res5[1][i][0];
-                    trace1.y[i] = res5[1][i][1];
-                    trace1.marker.size[i] = res5[1][i][2] * 5;
-                }
-
-                var data = [trace1];
-                //Plotly.newPlot(myGraph5, data, layout);
-
-                let myGraph6 = document.getElementById('myGraph6');
-                data2 = []
-                let layout2 = {
-                    margin: {
-                        t: 50,
-                        l: 0,
-                        r: 0,
-                        b: 0
-                    },
-                    showlegend: false,
-                    xaxis: {
-                        title: "資產",
-                    },
-                    yaxis: {
-                        title: "年紀"
-                    },
-                    zaxis: {
-                        title: "富豪人數"
-                    },
-                    title: {
-                        text:"3D散點圖-資產-年紀-富豪人數",
-                        font:{
-                            size:24
+                function callgraph() {
+                    let myGraph6 = document.getElementById('myGraph6');
+                    var selectedGraph = parseInt(graphSelect.options[graphSelect.selectedIndex].value);
+                    data2 = []
+                    let layout2 = {
+                        margin: {
+                            t: 50,
+                            l: 0,
+                            r: 0,
+                            b: 0
+                        },
+                        showlegend: false,
+                        xaxis: {
+                            title: "資產",
+                        },
+                        yaxis: {
+                            title: "年紀"
+                        },
+                        zaxis: {
+                            title: "富豪人數"
+                        },
+                        title: {
+                            text: "3D散點圖-資產-年紀-富豪人數",
+                            font: {
+                                size: 24
+                            }
                         }
+                    };
+                    if (selectedGraph == 1) {
+                        layout2.xaxis.title = "年";
+                        layout2.yaxis.title = "資產";
+                        layout2.title.text = "3D散點圖-年-資產-富豪人數"
+                    } else if (selectedGraph == 2) {
+                        layout2.yaxis.title = "年紀";
+                        layout2.title.text = "3D散點圖-年-年紀-富豪人數"
                     }
-                };
-                for (let i = 0; i < res5[0].length; i++) {
-                    var trace1 = {};
-                    trace1.mode = 'markers';
-                    trace1.type = 'scatter3d';
-                    trace1.marker = {
-                        color: 'rgb(127, 127, 127)',
-                        size: 11,
-                        line: {
-                            color: 'rgba(217, 217, 217, 0.14)',
-                            width: 0.5
-                        },
-                        opacity: 0.8
-                    };
-                    trace1.x = [res5[0][i][0]];
-                    trace1.y = [res5[0][i][1]];
-                    trace1.z = [res5[0][i][2]];
-                    data2.push(trace1)
+                    for (let i = 0; i < res5[selectedGraph].length; i++) {
+                        var trace1 = {};
+                        trace1.mode = 'markers';
+                        trace1.type = 'scatter3d';
+                        trace1.marker = {
+                            color: 'rgb(127, 127, 127)',
+                            size: 11,
+                            line: {
+                                color: 'rgba(217, 217, 217, 0.14)',
+                                width: 0.5
+                            },
+                            opacity: 0.8
+                        };
+                        trace1.colorscale = 'YlGnBu';
+                        trace1.x = [res5[selectedGraph][i][0]];
+                        trace1.y = [res5[selectedGraph][i][1]];
+                        trace1.z = [res5[selectedGraph][i][2]];
+                        data2.push(trace1)
+                    }
+                    Plotly.newPlot(myGraph6, data2, layout2);
                 }
-                Plotly.newPlot(myGraph6, data2, layout2);
-                let myGraph7 = document.getElementById('myGraph7');
-                data2 = []
-                layout2.xaxis.title = "年";
-                layout2.yaxis.title = "資產";
-                layout2.title = "3D散點圖-年-資產-富豪人數"
-                for (let i = 0; i < res5[1].length; i++) {
-                    var trace1 = {};
-                    trace1.mode = 'markers';
-                    trace1.type = 'scatter3d';
-                    trace1.marker = {
-                        color: 'rgb(127, 127, 127)',
-                        size: 11,
-                        line: {
-                            color: 'rgba(217, 217, 217, 0.14)',
-                            width: 0.5
-                        },
-                        opacity: 0.8
-                    };
-                    trace1.x = [res5[1][i][0]];
-                    trace1.y = [res5[1][i][1]];
-                    trace1.z = [res5[1][i][2]];
-                    data2.push(trace1)
-                }
-                Plotly.newPlot(myGraph7, data2, layout2);
-                let myGraph8 = document.getElementById('myGraph8');
-                data2 = []
-                layout2.yaxis.title = "年紀";
-                layout2.title = "3D散點圖-年-年紀-富豪人數"
-                for (let i = 0; i < res5[2].length; i++) {
-                    var trace1 = {};
-                    trace1.mode = 'markers';
-                    trace1.type = 'scatter3d';
-                    trace1.marker = {
-                        color: 'rgb(127, 127, 127)',
-                        size: 11,
-                        line: {
-                            color: 'rgba(217, 217, 217, 0.14)',
-                            width: 0.5
-                        },
-                        opacity: 0.8
-                    };
-                    trace1.x = [res5[2][i][0]];
-                    trace1.y = [res5[2][i][1]];
-                    trace1.z = [res5[2][i][2]];
-                    data2.push(trace1)
-                }
-                Plotly.newPlot(myGraph8, data2, layout2);
+                var graphSelect = document.getElementById("graph");
+                graphSelect.addEventListener("change", function () {
+                    callgraph();
+                });
+                window.addEventListener('load', function () {
+                    callgraph();
+                });
+                window.addEventListener('resize', function () {
+                    callgraph();
+                });
 
             </script>
 
