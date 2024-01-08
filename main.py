@@ -203,12 +203,13 @@ def preuse(cate, data_list):
         c = 0
         for k in d:
             i += 1
-            if i < limit:
+            if i <= limit:
                 data_list.append((k, d[k]))
             else:
-                c += d[k]
+                break
+                # c += d[k]
         data_list = (sorted(data_list, key=lambda x: x[0], reverse=False))
-        data_list.append(('other', c))
+        # data_list.append(('other', c))
     elif cate == 'age' or cate == 'money': # age, money要用range 前者表示range a * b ~ (a + 1) * b - 1
         b = 0
         if cate == 'age':
@@ -280,7 +281,7 @@ def page5():
                 cur.execute(f"select work, money from data where year = 2022 and continent = \'{continent}\'")
                 con.commit()
                 con_work = cur.fetchall()
-                con_work = sorted(preuse('work', con_work), key=lambda x: x[1], reverse=True)[1]
+                con_work = max(preuse('work', con_work), key=lambda x: x[1])
             else:
                 con_max = ("no one", 0)
                 con_work = con_max
