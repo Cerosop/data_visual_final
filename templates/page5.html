@@ -31,11 +31,11 @@
                 <div class="row">
                     <div class="col-12">
                         <label for="yourMoney">輸入你的金錢:</label>
-                        <input class="text" type="text" id="yourM" value="" placeholder="1000" />
+                        <input class="text" type="text" id="yourMoney" value="" placeholder="1000" />
                     </div>
                     <div class="col-6 col-12-mobilep">
                         <label for="yourAge">輸入你的年齡：</label>
-                        <input class="text" type="text" id="yourA" value="" placeholder="20" />                </div>
+                        <input class="text" type="text" id="yourAge" value="" placeholder="20" />                </div>
                     <div class="col-6 col-12-mobilep">
                         <label for="yourContinent">選擇你所在的洲：</label>
                         <select id="yourContinent">
@@ -56,8 +56,8 @@
                     <script>
                         function handleSubmit(){
                             var yourContinent = document.getElementById("yourContinent").value;
-                            var yourAge = document.getElementById("yourA").value;
-                            var yourMoney = document.getElementById("yourM").value;
+                            var yourAge = document.getElementById("yourAge").value;
+                            var yourMoney = document.getElementById("yourMoney").value;
                             if (/^\d+$/.test(yourAge)){
                                 if (/^-?\d+$/.test(yourMoney)){
                                     yourMoney = parseInt(yourMoney, 10);
@@ -78,6 +78,25 @@
                                         .then(data => {
                                             var responseData = JSON.parse(data);
                                             console.log(responseData.data)
+                                            var a = responseData.data
+
+                                            // 創一個新的text，寫一整串文字
+                                            if(a[0]){
+                                                var text1 = document.getElementById("text1");
+                                                text1.textContent = "你和" + a[1][0] + "差了多少" + a[1][1];
+
+                                                var text2 = document.getElementById("text2");
+                                                text2.textContent = "你和居然輸給了" + a[0] + "人";
+                                            }else{
+                                                var text1 = document.getElementById("text1");
+                                                text1.textContent = "助你成為該年齡的必一位億萬富豪";
+                                            }
+                                            var text3 = document.getElementById("text3");
+                                            text3.textContent = "你和" + a[1][0] + "差了多少" + a[1][0] + a[0];
+
+                                            //
+                                            var textElement = document.getElementById("myText");
+                                            textElement.style.display = "block";
                                         })
                                         .catch(error => {
                                             console.error('Error:', error);
@@ -97,11 +116,24 @@
                                 alert("年齡請輸入正整數");
                                 document.getElementById("yourA").value = "";
                             }
+                            
                         }
                         document.getElementById("send").addEventListener("click", handleSubmit);
                     </script>
                 </div>
             </div>
+            <style>
+                .hidden-text {
+                    display: none;
+                }
+            </style>
+            <section>
+                <header id="myText" class="hidden-text">
+                    <p id="text1"></p>   <!-- 設一個text，不同id -->
+                    <p id="text2"></p>
+                    <p>透過輸入自身自產，看看還要多少錢便可躍入富豪榜100名吧。</p>
+                </header>
+            </section>
         </div>
 
 
