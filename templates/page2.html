@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" />
     <link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}" />
     <script src="https://cdn.plot.ly/plotly-2.24.1.min.js"></script>
+    <script src="//unpkg.com/d3"></script>
 </head>
 
 <body class="is-preload">
@@ -109,6 +110,8 @@
                     }
                     console.log(data2);
                     const colors = ['#8B008B', '#9932CC', '#9400D3', '#8A2BE2', '#800080', '#9370DB', '#AB83A1', '#BF94E4', '#8E388E', '#A74AC7'];
+                    var myColor = d3.scaleSequential(d3.interpolateCool).domain([1, data2.length]);
+                    // https://d3js.org/d3-scale-chromatic 顏色可選
 
                     let trace1 = {};
                     trace1.type = "pie";
@@ -124,6 +127,7 @@
                         colors : []
                     }
                     trace1.hole = 0.5;
+                    
 
                     for (let i = 0; i < data2.length; i++) {
                         if (selectedTopic1 == "age") {
@@ -139,7 +143,8 @@
                             trace1.labels[i] = data2[i]['name'];
                         }
                         trace1.values[i] = data2[i]['count'];
-                        trace1.marker.colors[i] = colors[i % colors.length];
+                        //trace1.marker.colors[i] = colors[i % colors.length];
+                        trace1.marker.colors[i] = myColor(i+1);
                     }
 
                     let data = [];
