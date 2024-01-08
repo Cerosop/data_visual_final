@@ -19,8 +19,15 @@ def page1():
             cur.execute(f"select * from data where year = \'{cate[1]}\' order by {cate[0]} {cate[2]}")
             con.commit()
             res = cur.fetchall()
-            res = [[i + 1, d[1], d[3], d[4], d[5], d[6], d[7]] for i, d in enumerate(res)]
             
+            if cate[0] == 'age' and cate[2] == 'asc':
+                cur.execute(f"select * from data where year = \'{cate[1]}\' and age = -1 order by name {cate[2]}")
+                con.commit()
+                res2 = cur.fetchall()
+                res = [a for a in res if a[3] != -1]
+                res += res2
+                
+            res = [[i + 1, d[1], d[3], d[4], d[5], d[6], d[7]] for i, d in enumerate(res)]
             
             for i in range(1, len(res)):
                 if (cate[0] == 'money' and res[i][6] == res[i - 1][6]) or (cate[0] == 'age' and res[i][2] == res[i - 1][2]):
@@ -152,7 +159,10 @@ def page3():
                 res = people
             if cate[1] == 'money ave':
                 for i, a in enumerate(money):
-                    res.append((a[0], a[1] / people[i][1]))
+                    if people[i][1]:
+                        res.append((a[0], a[1] / people[i][1]))
+                    else:
+                        res.append((a[0], 0))
             
             print(res)  
             data = {'data': res}
