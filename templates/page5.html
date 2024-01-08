@@ -74,12 +74,17 @@
                             zaxis: {
                                 title: "富豪人數"
                             },
+                            aspectratio: {
+                                x: 1,
+                                y: 1,
+                                z: 1 
+                            }
                         },
                         title: {
                             text: "3D散點圖-資產-年紀-富豪人數",
                             font: {
                                 size: 20,
-                                family:"Arial"
+                                family: "Arial"
                             }
                         },
                     };
@@ -115,8 +120,7 @@
                         trace1.z[i] = res5[selectedGraph][i][2];
                         trace1.marker.color[i] = trace1.z[i];
                     }
-                    data2 = [];
-                    data2.push(trace1)
+                    data2 = [trace1];
                     Plotly.react(myGraph6, data2, layout2);
                 }
                 var graphSelect = document.getElementById("graph");
