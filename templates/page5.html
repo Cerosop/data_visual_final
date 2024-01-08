@@ -49,14 +49,14 @@
                     </div>
                     <div class="col-12">
                         <ul class="actions special">
-                            <li><input type="submit" value="Send"/></li>
+                            <li><input type="submit" value="Send" id="send"/></li>
                         </ul>
                     </div>
 
                     <script>
                         function handleSubmit(){
                             // var formData = { "cate": selectedX + ", " + selectedY + ", " + selectedYear_3_1 };
-                            var formData = { "age": 17, "continent": "Asia" };
+                            var formData = { "age": 62, "continent": "Asia" };
                             formData = JSON.stringify(formData);
 
                             fetch('/page5', {
@@ -75,6 +75,7 @@
                                 console.error('Error:', error);
                             });
                         }
+                        document.getElementById("send").addEventListener("click", handleSubmit);
                     </script>
                 </div>
             </div>
