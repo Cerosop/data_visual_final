@@ -150,7 +150,7 @@
                             t: 50,
                         }
                     };
-                    Plotly.newPlot(myGraph, data, layout);
+                    Plotly.react(myGraph, data, layout, {transition: {duration: 500, easing: 'cubic-in-out'}});
                 }
                 
                 document.getElementById("year1").addEventListener("change", handleSelectionChange);
