@@ -1,0 +1,106 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>泡泡圖</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" />
+    <link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}" />
+    <script src="https://cdn.plot.ly/plotly-2.24.1.min.js"></script>
+</head>
+
+<body class="is-preload">
+
+    <!-- Header -->
+    <div id="header">
+        <span class="logo icon solid fa-dollar-sign"></span>
+        <h1>泡泡圖</h1>
+
+    </div>
+
+    <div id="main">
+        <div class="box container">
+            <header>
+                <h2>泡泡圖</h2>
+            </header>
+            <section>
+                <header>
+                    <p>長條圖會被我們用來進行最多比較，因為比起圓餅圖，它更適合用來比較各種數據，比如平均金錢、產業與資產等等...。</p>
+                </header>
+            </section>
+            
+            <style>
+                #myGraph {
+                    width: 100%;
+                    height: 500px;
+                }
+            </style>
+            <script>
+                    let layout = {
+                        margin: {
+                            t: 80,
+                            l: 35,
+                            r: 30,
+                            b: 40
+                        }
+                    };
+                    for (let i = 0; i < res3.length; i++) {
+                        if (res3[i][0] != "nan" && res3[i][0] != -1) {
+                            let trace1 = {};
+                            trace1.type = "bar";
+                            trace1.x = [];
+                            trace1.y = [];
+                            if (x_axis == "age") {
+                                trace1.x[0] = parseInt(res3[i][0]) * 5 + "~" + (parseInt(res3[i][0]) * 5 + 4);
+                                layout.title = year + "年各年齡分段" + y_axis;
+                            } else if (x_axis == "money") {
+                                trace1.x[0] = parseInt(res3[i][0]) * 5 + "~" + (parseInt(res3[i][0]) * 5 + 4);
+                                layout.margin.b = 100;
+                                layout.title = year + "年各資產分段" + y_axis;
+                            } else if (x_axis == "work") {
+                                trace1.x[0] = res3[i][0];
+                                layout.margin.b = 100;
+                                layout.title = year + "年前二十名工作" + y_axis;
+                            } else {
+                                trace1.x[0] = res3[i][0];
+                                layout.title = year + "年各洲" + y_axis;
+                            }
+                            trace1.name = trace1.x[0];
+                            trace1.y[0] = res3[i][1];
+                            trace1.marker = {
+                                color: colors[i % colors.length]
+                            };
+                            trace1.showlegend = false;
+                            trace1.hoverinfo= 'x+y';
+                            data.push(trace1);
+                        }
+                    }
+                    Plotly.newPlot(myGraph, data, layout);
+                
+
+                
+            </script>
+            <div id="res5" style="display: none;">{{res}}</div>
+            <div id="myGraph"></div>
+            <script>
+                let res3 = JSON.parse(document.getElementById('res5').innerHTML);
+                let myGraph = document.getElementById('myGraph');
+            </script>
+        </div>
+        <ul class="actions special">
+            <li><a href="/home" class="button">返回</a></li>
+        </ul>
+    </div>
+</div>
+
+    <!-- Scripts -->
+    <link rel="stylesheet" href="{{url_for('static', filename='js/jquery.min.js')}}" />
+    <link rel="stylesheet" href="{{url_for('static', filename='js/browser.min.js')}}" />
+    <link rel="stylesheet" href="{{url_for('static', filename='js/breakpoints.min.js')}}" />
+    <link rel="stylesheet" href="{{url_for('static', filename='js/util.js')}}" />
+    <link rel="stylesheet" href="{{url_for('static', filename='js/main.js')}}" />
+
+</body>
+
+</html>
