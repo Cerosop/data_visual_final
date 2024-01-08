@@ -263,32 +263,32 @@ def page5():
         cur.execute(f"select year, money, count(*) from data group by year, money ")
         con.commit()
         y_m = cur.fetchall()
-        value_y_m = [a[2] for a in y_m]
+        # value_y_m = [a[2] for a in y_m]
         
-        mean_value = sum(value_y_m) / len(value_y_m)
-        std_dev = math.sqrt(sum((x - mean_value) ** 2 for x in value_y_m) / len(value_y_m))
+        # mean_value = sum(value_y_m) / len(value_y_m)
+        # std_dev = math.sqrt(sum((x - mean_value) ** 2 for x in value_y_m) / len(value_y_m))
 
-        # 对列表进行标准化
-        value_y_m = [(x - mean_value) / std_dev for x in value_y_m]
-        lowest = min(value_y_m)
-        y_m = [[y_m[i][0], y_m[i][1], value_y_m[i] - lowest] for i in range(len(y_m))]
-        print(y_m)
-        print()
+        # # 对列表进行标准化
+        # value_y_m = [(x - mean_value) / std_dev for x in value_y_m]
+        # lowest = min(value_y_m)
+        # y_m = [[y_m[i][0], y_m[i][1], value_y_m[i] - lowest] for i in range(len(y_m))]
+        # print(y_m)
+        # print()
         
         cur.execute(f"select year, age, count(*) from data group by year, age ")
         con.commit()
         y_a = cur.fetchall()
         y_a = [a for a in y_a if a[1] != -1]
-        value_y_a = [a[2] for a in y_a]
+        # value_y_a = [a[2] for a in y_a]
         
-        mean_value = sum(value_y_a) / len(value_y_a)
-        std_dev = math.sqrt(sum((x - mean_value) ** 2 for x in value_y_a) / len(value_y_a))
+        # mean_value = sum(value_y_a) / len(value_y_a)
+        # std_dev = math.sqrt(sum((x - mean_value) ** 2 for x in value_y_a) / len(value_y_a))
 
-        # 对列表进行标准化
-        value_y_a = [(x - mean_value) / std_dev for x in value_y_a]
-        lowest = min(value_y_a)
-        y_a = [[y_a[i][0], y_a[i][1], value_y_a[i] - lowest] for i in range(len(y_a))]
-        print(y_a)
+        # # 对列表进行标准化
+        # value_y_a = [(x - mean_value) / std_dev for x in value_y_a]
+        # lowest = min(value_y_a)
+        # y_a = [[y_a[i][0], y_a[i][1], value_y_a[i] - lowest] for i in range(len(y_a))]
+        # print(y_a)
         
         cur.execute(f"select money, age, year, count(*) from data group by money, age, year ")
         con.commit()
