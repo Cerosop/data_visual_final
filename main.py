@@ -5,8 +5,12 @@ app = Flask(__name__)
 
 @app.route('/')
 def redir():
-    return redirect('/page4')
+    return redirect('/home')
 
+@app.route('/home', methods=['GET', 'POST'])
+def home():
+    return render_template('index.html')
+    
 
 @app.route('/page1', methods=['GET', 'POST'])
 def page1():
