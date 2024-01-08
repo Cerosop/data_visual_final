@@ -84,18 +84,31 @@
                                             // 創一個新的text，寫一整串文字
                                             if(a[0]){
                                                 var text1 = document.getElementById("text1");
-                                                text1.textContent = "你和" + a[1][0] + "差了多少" + a[1][1];
+                                                text1.textContent = "你和該年齡層最有錢的" + a[1][0] + "差了" + (a[1][1]*1000000000 - yourMoney) + "美元啦";
 
                                                 var text2 = document.getElementById("text2");
-                                                text2.textContent = "你和居然輸給了" + a[0] + "人";
+                                                text2.textContent = "該年齡層有" + a[0] + "人已經是富翁了，請再加油";
                                             }else{
                                                 var text1 = document.getElementById("text1");
-                                                text1.textContent = "助你成為該年齡的必一位億萬富豪";
+                                                text1.textContent = "該年齡層沒有富翁，祝你成為該年齡層的必一位億萬富豪";
                                             }
 
                                             var text3 = document.getElementById("text3");
-                                            text3.textContent = "你和" + a[1][0] + "差了多少" + a[1][0] + a[0];
+                                            text3.textContent = "再活" + Math.round(1000000000/(yourMoney/yourAge)) + "年你才有辦法成為富翁喔!";
 
+                                            if(a[2]){
+                                                var text4 = document.getElementById("text4");
+                                                text4.textContent = "你和你所在的洲中最有錢的" + a[3][0] + "差了" + (a[3][1]*1000000000 - yourMoney) + "應該是美元吧";
+
+                                                var text5 = document.getElementById("text5");
+                                                text5.textContent = "該年齡層有" + a[2] + "人已經是富翁了，請再加油";
+
+                                                var text6 = document.getElementById("text6");
+                                                text6.textContent = "進入" + a[4][0] + "相關產業你就有機會賺取" + a[4][1] + ",000,000,000美元喔";
+                                            }else{
+                                                var text4 = document.getElementById("text4");
+                                                text4.textContent = "助你成為該年齡層的必一位億萬富豪";
+                                            }
                                             //
                                             var textElement = document.getElementById("myText");
                                             textElement.style.display = "block";
@@ -137,7 +150,7 @@
                     <p id="text4"></p>
                     <p id="text5"></p>   
                     <p id="text6"></p>
-                    <p>透過輸入自身自產，看看還要多少錢便可躍入富豪榜100名吧。</p>
+                    
                 </header>
             </section>
         </div>
