@@ -114,14 +114,14 @@
                             var responseData = JSON.parse(data);
                             console.log(responseData.data)
                             res3 = responseData.data;
-                            updateGraph();
+                            updateGraph2();
                         })
                         .catch(error => {
                             console.error('Error:', error);
                         });
                 }
 
-                function updateGraph() {
+                function updateGraph2() {
                     let data = [];
                     const colors = ['#8B008B', '#9932CC', '#9400D3', '#8A2BE2', '#800080', '#9370DB', '#AB83A1', '#BF94E4', '#8E388E', '#A74AC7'];
                     for (let i = 0; i < res3.length; i++) {
@@ -142,6 +142,9 @@
                     let layout = {
                         margin: {
                             t: 50,
+                            l:30,
+                            r:10,
+                            b:30
                         }
                     };
                     Plotly.newPlot(myGraph, data, layout);
@@ -151,7 +154,7 @@
                 document.getElementById("x").addEventListener("change", handleSelectionChange2);
                 document.getElementById("y").addEventListener("change", handleSelectionChange2);
                 window.addEventListener('load', function () {
-                    updateGraph();
+                    updateGraph2();
                 });
             </script>
             <div id="res3" style="display: none;">{{res}}</div>
