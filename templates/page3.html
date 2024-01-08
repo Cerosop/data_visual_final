@@ -162,10 +162,9 @@
                                 color: colors[i % colors.length]
                             };
                             trace1.showlegend = false;
+                            trace1.hoverinfo= 'x+y';
                             data.push(trace1);
-
                         }
-
                     }
                     Plotly.newPlot(myGraph, data, layout);
                 }

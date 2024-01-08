@@ -91,7 +91,7 @@
                     var selectedTopic1 = topic1Dropdown.options[topic1Dropdown.selectedIndex].value;
                     var selectedTopic2 = topic2Dropdown.options[topic2Dropdown.selectedIndex].value;
                     
-                    let continent_people_2011 = [];
+                    let data2 = [];
                     for (var k1 in res) {
                         for (var k2 in res[k1]) {
                             for (var y in res[k1][k2]) {
@@ -101,13 +101,14 @@
                                             "name": res[k1][k2][y][i][0],
                                             "count": res[k1][k2][y][i][1]
                                         };
-                                        continent_people_2011.push(newEvaluation);
+                                        data2.push(newEvaluation);
                                     }
                                 }
                             }
                         }
                     }
-                    console.log(continent_people_2011);
+                    console.log(data2);
+                    const colors = ['#8B008B', '#9932CC', '#9400D3', '#8A2BE2', '#800080', '#9370DB', '#AB83A1', '#BF94E4', '#8E388E', '#A74AC7'];
 
                     let trace1 = {};
                     trace1.type = "pie";
@@ -116,15 +117,17 @@
                         font:{
                             size:15
                         }
-                        
                     }
                     trace1.labels = [];
                     trace1.values = [];
+                    trace1.marker = {
+                        colors : []
+                    }
                     trace1.hole = 0.5;
 
-                    for (let i = 0; i < continent_people_2011.length; i++) {
+                    for (let i = 0; i < data2.length; i++) {
                         if (selectedTopic1 == "age") {
-                            var number = parseInt(continent_people_2011[i]['name']);
+                            var number = parseInt(data2[i]['name']);
                             if (number == -1) {
                                 trace1.labels[i] = "nan";
                             } else if (number == 20) {
@@ -133,9 +136,10 @@
                                 trace1.labels[i] = 5 * number + "~" + (5 * number + 4);
                             }
                         } else {
-                            trace1.labels[i] = continent_people_2011[i]['name'];
+                            trace1.labels[i] = data2[i]['name'];
                         }
-                        trace1.values[i] = continent_people_2011[i]['count'];
+                        trace1.values[i] = data2[i]['count'];
+                        trace1.marker.colors[i] = colors[i % colors.length];
                     }
 
                     let data = [];
