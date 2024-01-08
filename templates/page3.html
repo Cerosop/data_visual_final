@@ -127,7 +127,7 @@
                     let layout = {
                         margin: {
                             t: 50,
-                            l: 30,
+                            l: 35,
                             r: 10,
                             b: 35
                         }
@@ -135,47 +135,27 @@
                     for (let i = 0; i < res3.length; i++) {
                         if (res3[i][0] != "nan" && res3[i][0] != -1) {
                             var x_axis = xDropdown.options[xDropdown.selectedIndex].value;
-
+                            let trace1 = {};
+                            trace1.type = "bar";
+                            trace1.name = res3[i][0];
+                            trace1.x = [];
+                            trace1.y = [];
                             if (x_axis == "age") {
-                                let trace1 = {};
-                                trace1.type = "bar";
-                                trace1.name = res3[i][0];
-                                trace1.x = [];
-                                trace1.y = [];
                                 trace1.x[0] = parseInt(res3[i][0]) * 5 + "~" + (parseInt(res3[i][0]) * 5 + 4);
-                                trace1.y[0] = res3[i][1];
-                                trace1.marker = {
-                                    color: colors[i % colors.length]
-                                };
-                                trace1.showlegend = false;
-                                data.push(trace1);
                             } else if (x_axis == "money") {
-                                let trace1 = {};
-                                trace1.type = "bar";
-                                trace1.name = res3[i][0];
-                                trace1.x = [];
-                                trace1.y = [];
                                 trace1.x[0] = parseInt(res3[i][0]) * 5 + "~" + (parseInt(res3[i][0]) * 5 + 4);
-                                trace1.y[0] = res3[i][1];
-                                trace1.marker = {
-                                    color: colors[i % colors.length]
-                                };
-                                trace1.showlegend = false;
-                                data.push(trace1);
-                            } else {
-                                let trace1 = {};
-                                trace1.type = "bar";
-                                trace1.name = res3[i][0];
-                                trace1.x = [];
-                                trace1.y = [];
+                            } else if (x_axis == "work") {
                                 trace1.x[0] = res3[i][0];
-                                trace1.y[0] = res3[i][1];
-                                trace1.marker = {
-                                    color: colors[i % colors.length]
-                                };
-                                trace1.showlegend = false;
-                                data.push(trace1);
+                                layout.margin.b = 100;
+                            } else {
+                                trace1.x[0] = res3[i][0];
                             }
+                            trace1.y[0] = res3[i][1];
+                            trace1.marker = {
+                                color: colors[i % colors.length]
+                            };
+                            trace1.showlegend = false;
+                            data.push(trace1);
 
                         }
 
