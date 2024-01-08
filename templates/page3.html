@@ -124,17 +124,31 @@
                 function updateGraph2() {
                     let data = [];
                     const colors = ['#8B008B', '#9932CC', '#9400D3', '#8A2BE2', '#800080', '#9370DB', '#AB83A1', '#BF94E4', '#8E388E', '#A74AC7'];
+                    var year = year_3_1Dropdown.options[year_3_1Dropdown.selectedIndex].value;
+                    var x_axis = xDropdown.options[xDropdown.selectedIndex].value;
+                    var y_axis = yDropdown.options[yDropdown.selectedIndex].text;
+                    if (x_axis == "age") {
+                                var title_text = year + "年各年齡分段" + y_axis
+                            } else if (x_axis == "money") {
+                                trace1.x[0] = parseInt(res3[i][0]) * 5 + "~" + (parseInt(res3[i][0]) * 5 + 4);
+                            } else if (x_axis == "work") {
+                                trace1.x[0] = res3[i][0];
+                                layout.margin.b = 100;
+                            } else {
+                                trace1.x[0] = res3[i][0];
+                            }
                     let layout = {
                         margin: {
-                            t: 50,
+                            t: 80,
                             l: 35,
                             r: 10,
                             b: 35
-                        }
+                        },
+                        title : "a"
                     };
                     for (let i = 0; i < res3.length; i++) {
                         if (res3[i][0] != "nan" && res3[i][0] != -1) {
-                            var x_axis = xDropdown.options[xDropdown.selectedIndex].value;
+                            
                             let trace1 = {};
                             trace1.type = "bar";
                             trace1.name = res3[i][0];
@@ -180,97 +194,6 @@
                 let myGraph = document.getElementById('myGraph');
             </script>
         </div>
-
-        <!-- <div class="box container">
-            <header>
-                <h2>長條圖</h2>
-            </header>
-            <section>
-                <header>
-                    <p>長條圖會被我們用來進行最多比較，因為比起圓餅圖，它更適合用來比較各種數據，比如平均金錢、產業與資產等等...。</p>
-                </header>
-            </section>
-            <div class="row">
-                <div class="col-6 col-12-mobilep">
-                    <label for="startYear">起始年份：</label>
-                    <select id="startYear">
-                        <option value="2011">2011</option>
-                        <option value="2012">2012</option>
-                        <option value="2013">2013</option>
-                        <option value="2014">2014</option>
-                        <option value="2015">2015</option>
-                        <option value="2016">2016</option>
-                        <option value="2017">2017</option>
-                        <option value="2018">2018</option>
-                        <option value="2019">2019</option>
-                        <option value="2020">2020</option>
-                        <option value="2021">2021</option>
-                        <option value="2022" selected>2022</option>
-                    </select>
-                </div>
-                <div class="col-6 col-12-mobilep">
-                    <label for="endYear">結束年份：</label>
-                    <select id="endYear">
-                        <option value="2011">2011</option>
-                        <option value="2012">2012</option>
-                        <option value="2013">2013</option>
-                        <option value="2014">2014</option>
-                        <option value="2015">2015</option>
-                        <option value="2016">2016</option>
-                        <option value="2017">2017</option>
-                        <option value="2018">2018</option>
-                        <option value="2019">2019</option>
-                        <option value="2020">2020</option>
-                        <option value="2021">2021</option>
-                        <option value="2022" selected>2022</option>
-                    </select>
-                </div>
-                <div class="col-12">
-                    <label for="topic1">選擇主題：</label>
-                    <select id="topic1">
-                        <option value="age">年紀</option>
-                        <option value="money1" selected>資產</option>
-                    </select>
-                </div>
-                <div class="col-12">
-                    <label for="topic2">選擇主題：</label>
-                    <select id="topic2">
-                        <option value="age">年紀</option>
-                        <option value="money1" selected>資產</option>
-                    </select>
-                </div>
-            </div>
-            <script>
-                var startYearDropdown = document.getElementById("startYear");
-                var endYearDropdown = document.getElementById("endYear");
-                var topic1Dropdown = document.getElementById("topic1");
-                var topic2Dropdown = document.getElementById("topic2");
-
-                function handleSelectionChange2() {
-                    var selectedStartYear = parseInt(startYearDropdown.options[startYearDropdown.selectedIndex].value);
-                    var selectedEndYear = parseInt(endYearDropdown.options[endYearDropdown.selectedIndex].value);
-                    var selectedTopic1 = topic1Dropdown.options[topic1Dropdown.selectedIndex].value;
-                    var selectedTopic2 = topic2Dropdown.options[topic2Dropdown.selectedIndex].value;
-
-                    if (selectedStartYear > selectedEndYear) {
-                        endYearDropdown.value = selectedStartYear;
-                        selectedEndYear = selectedStartYear;
-                    }
-
-                    console.log("Selected Start Year: " + selectedStartYear);
-                    console.log("Selected End Year: " + selectedEndYear);
-                    console.log("Selected Topic 1: " + selectedTopic1);
-                    console.log("Selected Topic 2: " + selectedTopic2);
-
-                    // 在這裡可以執行其他相關的操作，或者將值傳遞給其他 JavaScript 檔案
-                }
-
-                document.getElementById("startYear").addEventListener("change", handleSelectionChange2);
-                document.getElementById("endYear").addEventListener("change", handleSelectionChange2);
-                document.getElementById("topic1").addEventListener("change", handleSelectionChange2);
-                document.getElementById("topic2").addEventListener("change", handleSelectionChange2);
-            </script>
-        </div> -->
     </div>
 
     <ul class="actions special">
