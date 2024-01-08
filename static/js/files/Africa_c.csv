@@ -6,10 +6,6 @@ date,name,category,value
 2012-01-01,Morocco,Morocco,3
 2012-01-01,Nigeria,Nigeria,2
 2012-01-01,South Africa,South Africa,4
-2013-01-01,Egypt,Egypt,7
-2013-01-01,Morocco,Morocco,3
-2013-01-01,Nigeria,Nigeria,2
-2013-01-01,South Africa,South Africa,4
 2014-01-01,Egypt,Egypt,4
 2014-01-01,Morocco,Morocco,2
 2014-01-01,Nigeria,Nigeria,3
@@ -44,14 +40,6 @@ date,name,category,value
 2018-01-01,South Africa,South Africa,5
 2018-01-01,Tanzania,Tanzania,1
 2018-01-01,Zimbabwe,Zimbabwe,1
-2019-01-01,Algeria,Algeria,1
-2019-01-01,Angola,Angola,1
-2019-01-01,Egypt,Egypt,6
-2019-01-01,Morocco,Morocco,2
-2019-01-01,Nigeria,Nigeria,3
-2019-01-01,South Africa,South Africa,5
-2019-01-01,Tanzania,Tanzania,1
-2019-01-01,Zimbabwe,Zimbabwe,1
 2020-01-01,Algeria,Algeria,1
 2020-01-01,Angola,Angola,1
 2020-01-01,Egypt,Egypt,6

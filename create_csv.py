@@ -27,6 +27,9 @@ with con:
     cur=con.cursor()
     
     for y in range(2011, 2023):
+        if y == 2013 or y == 2019:
+            continue
+        
         cur.execute(f"select name, money, continent from data where year = {y} limit {limit}")
         con.commit()
         data = cur.fetchall()
@@ -199,53 +202,53 @@ with con:
             
 
 df = pd.DataFrame(dict[0])
-with open('templates/bar-chart-race/files/name.csv', 'w', newline='') as file:
+with open('static/js/files/name_m.csv', 'w', newline='') as file:
     df.to_csv(file, index=False)
 df = pd.DataFrame(dict[1])
-with open('templates/bar-chart-race/files/work_c.csv', 'w', newline='', encoding='utf-8') as file:
+with open('static/js/files/work_c.csv', 'w', newline='', encoding='utf-8') as file:
     df.to_csv(file, index=False)
 df = pd.DataFrame(dict[2])
-with open('templates/bar-chart-race/files/work_m.csv', 'w', newline='', encoding='utf-8') as file:
+with open('static/js/files/work_m.csv', 'w', newline='', encoding='utf-8') as file:
     df.to_csv(file, index=False)
 df = pd.DataFrame(dict[3])
-with open('templates/bar-chart-race/files/continent_c.csv', 'w', newline='') as file:
+with open('static/js/files/continent_c.csv', 'w', newline='') as file:
     df.to_csv(file, index=False)
 df = pd.DataFrame(dict[4])
-with open('templates/bar-chart-race/files/continent_m.csv', 'w', newline='') as file:
+with open('static/js/files/continent_m.csv', 'w', newline='') as file:
     df.to_csv(file, index=False)
 df = pd.DataFrame(dict[5])
-with open('templates/bar-chart-race/files/Asia_c.csv', 'w', newline='') as file:
+with open('static/js/files/Asia_c.csv', 'w', newline='') as file:
     df.to_csv(file, index=False)
 df = pd.DataFrame(dict[6])
-with open('templates/bar-chart-race/files/Asia_m.csv', 'w', newline='') as file:
+with open('static/js/files/Asia_m.csv', 'w', newline='') as file:
     df.to_csv(file, index=False)
 df = pd.DataFrame(dict[7])
-with open('templates/bar-chart-race/files/North America_c.csv', 'w', newline='') as file:
+with open('static/js/files/North America_c.csv', 'w', newline='') as file:
     df.to_csv(file, index=False)
 df = pd.DataFrame(dict[8])
-with open('templates/bar-chart-race/files/North America_m.csv', 'w', newline='') as file:
+with open('static/js/files/North America_m.csv', 'w', newline='') as file:
     df.to_csv(file, index=False)
 df = pd.DataFrame(dict[9])
-with open('templates/bar-chart-race/files/South America_c.csv', 'w', newline='') as file:
+with open('static/js/files/South America_c.csv', 'w', newline='') as file:
     df.to_csv(file, index=False)
 df = pd.DataFrame(dict[10])
-with open('templates/bar-chart-race/files/South America_m.csv', 'w', newline='') as file:
+with open('static/js/files/South America_m.csv', 'w', newline='') as file:
     df.to_csv(file, index=False)
 df = pd.DataFrame(dict[11])
-with open('templates/bar-chart-race/files/Europe_c.csv', 'w', newline='') as file:
+with open('static/js/files/Europe_c.csv', 'w', newline='') as file:
     df.to_csv(file, index=False)
 df = pd.DataFrame(dict[12])
-with open('templates/bar-chart-race/files/Europe_m.csv', 'w', newline='') as file:
+with open('static/js/files/Europe_m.csv', 'w', newline='') as file:
     df.to_csv(file, index=False)
 df = pd.DataFrame(dict[13])
-with open('templates/bar-chart-race/files/Oceania_c.csv', 'w', newline='') as file:
+with open('static/js/files/Oceania_c.csv', 'w', newline='') as file:
     df.to_csv(file, index=False)
 df = pd.DataFrame(dict[14])
-with open('templates/bar-chart-race/files/Oceania_m.csv', 'w', newline='') as file:
+with open('static/js/files/Oceania_m.csv', 'w', newline='') as file:
     df.to_csv(file, index=False)
 df = pd.DataFrame(dict[15])
-with open('templates/bar-chart-race/files/Africa_c.csv', 'w', newline='') as file:
+with open('static/js/files/Africa_c.csv', 'w', newline='') as file:
     df.to_csv(file, index=False)
 df = pd.DataFrame(dict[16])
-with open('templates/bar-chart-race/files/Africa_m.csv', 'w', newline='') as file:
+with open('static/js/files/Africa_m.csv', 'w', newline='') as file:
     df.to_csv(file, index=False)

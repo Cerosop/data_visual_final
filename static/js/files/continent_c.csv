@@ -12,12 +12,6 @@ date,name,category,value
 2012-01-01,North America,North America,463
 2012-01-01,Oceania,Oceania,21
 2012-01-01,South America,South America,53
-2013-01-01,Africa,Africa,16
-2013-01-01,Asia,Asia,460
-2013-01-01,Europe,Europe,213
-2013-01-01,North America,North America,463
-2013-01-01,Oceania,Oceania,21
-2013-01-01,South America,South America,53
 2014-01-01,Africa,Africa,14
 2014-01-01,Asia,Asia,255
 2014-01-01,Europe,Europe,161
@@ -53,13 +47,6 @@ date,name,category,value
 2018-01-01,Oceania,Oceania,45
 2018-01-01,South America,South America,73
 2018-01-01,nan,nan,1
-2019-01-01,Africa,Africa,20
-2019-01-01,Asia,Asia,961
-2019-01-01,Europe,Europe,458
-2019-01-01,North America,North America,650
-2019-01-01,Oceania,Oceania,45
-2019-01-01,South America,South America,73
-2019-01-01,nan,nan,1
 2020-01-01,Africa,Africa,19
 2020-01-01,Asia,Asia,946
 2020-01-01,Europe,Europe,442

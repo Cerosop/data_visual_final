@@ -10,12 +10,6 @@ date,name,category,value
 2012-01-01,Colombia,Colombia,22
 2012-01-01,Peru,Peru,4
 2012-01-01,Venezuela,Venezuela,7
-2013-01-01,Argentina,Argentina,8
-2013-01-01,Brazil,Brazil,137
-2013-01-01,Chile,Chile,39
-2013-01-01,Colombia,Colombia,22
-2013-01-01,Peru,Peru,4
-2013-01-01,Venezuela,Venezuela,7
 2014-01-01,Argentina,Argentina,3
 2014-01-01,Brazil,Brazil,63
 2014-01-01,Chile,Chile,26
@@ -46,12 +40,6 @@ date,name,category,value
 2018-01-01,Colombia,Colombia,17
 2018-01-01,Peru,Peru,8
 2018-01-01,Venezuela,Venezuela,5
-2019-01-01,Argentina,Argentina,12
-2019-01-01,Brazil,Brazil,163
-2019-01-01,Chile,Chile,37
-2019-01-01,Colombia,Colombia,17
-2019-01-01,Peru,Peru,8
-2019-01-01,Venezuela,Venezuela,5
 2020-01-01,Argentina,Argentina,8
 2020-01-01,Brazil,Brazil,133
 2020-01-01,Chile,Chile,23

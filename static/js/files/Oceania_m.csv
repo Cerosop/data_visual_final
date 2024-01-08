@@ -3,8 +3,6 @@ date,name,category,value
 2011-01-01,New Zealand,New Zealand,9
 2012-01-01,Australia,Australia,60
 2012-01-01,New Zealand,New Zealand,10
-2013-01-01,Australia,Australia,60
-2013-01-01,New Zealand,New Zealand,10
 2014-01-01,Australia,Australia,19
 2014-01-01,New Zealand,New Zealand,9
 2015-01-01,Australia,Australia,60
@@ -15,8 +13,6 @@ date,name,category,value
 2017-01-01,New Zealand,New Zealand,10
 2018-01-01,Australia,Australia,103
 2018-01-01,New Zealand,New Zealand,12
-2019-01-01,Australia,Australia,103
-2019-01-01,New Zealand,New Zealand,12
 2020-01-01,Australia,Australia,120
 2020-01-01,New Zealand,New Zealand,14
 2021-01-01,Australia,Australia,164
