@@ -257,22 +257,28 @@ def page5():
         cur.execute(f"select money, age, count(*) from data where year = 2022 group by money, age ")
         con.commit()
         m_a = cur.fetchall()
+        m_a = [a for a in m_a if a[1] != -1]
         
         cur.execute(f"select year, money, count(*) from data group by year, money ")
         con.commit()
         y_m = cur.fetchall()
         
-        cur.execute(f"select year, age, count(*) from data where group by year, age ")
+        cur.execute(f"select year, age, count(*) from data group by year, age ")
         con.commit()
         y_a = cur.fetchall()
+        y_a = [a for a in y_a if a[1] != -1]
         
-        cur.execute(f"select money, age, year, count(*) from data where group by money, age, year ")
+        cur.execute(f"select money, age, year, count(*) from data group by money, age, year ")
         con.commit()
         m_a_y = cur.fetchall()
+        m_a_y = [a for a in m_a_y if a[1] != -1]
         
         res = [m_a, y_m, y_a, m_a_y]
         
-        print(res)  
+        for a in res:
+            print(a)
+            print()
+        # print(res)  
         return render_template('page5.html', res = json.dumps(res))
 
 
