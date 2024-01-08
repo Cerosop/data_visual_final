@@ -83,6 +83,14 @@
                     console.log("Selected topic Method: " + selectedTopic2);
 
                     // 在這裡可以執行其他相關的操作，或者將值傳遞給其他 JavaScript 檔案
+                    updateGraph();
+                }
+
+                function updateGraph(){
+                    var selectedYear = yearDropdown.options[yearDropdown.selectedIndex].value;
+                    var selectedTopic1 = topic1Dropdown.options[topic1Dropdown.selectedIndex].value;
+                    var selectedTopic2 = topic2Dropdown.options[topic2Dropdown.selectedIndex].value;
+                    
                     let continent_people_2011 = [];
                     for (var k1 in res) {
                         for (var k2 in res[k1]) {
@@ -134,9 +142,13 @@
                     };
                     Plotly.newPlot(myGraph, data, layout);
                 }
+                
                 document.getElementById("year1").addEventListener("change", handleSelectionChange);
                 document.getElementById("topic1").addEventListener("change", handleSelectionChange);
                 document.getElementById("topic2").addEventListener("change", handleSelectionChange);
+                window.addEventListener('load', function () {
+                    updateGraph();
+                });
             </script>
             <style>
                 #myGraph {
@@ -148,49 +160,8 @@
             <div id="res2" style="display: none;">{{res}}</div>
             <div id="myGraph"></div>
             <script>
-
                 let res = JSON.parse(document.getElementById('res2').innerHTML);
-                let continent_people_2011 = [];
-                for (var k1 in res) {
-                    for (var k2 in res[k1]) {
-                        for (var y in res[k1][k2]) {
-                            for (var i = 0; i < res[k1][k2][y].length; i++) {
-                                if (k1 == "continent" && k2 == "people" && y == 2022) {
-                                    let newEvaluation = {
-                                        "name": res[k1][k2][y][i][0],
-                                        "count": res[k1][k2][y][i][1]
-                                    };
-                                    continent_people_2011.push(newEvaluation);
-                                }
-                            }
-                        }
-                    }
-                }
-                console.log(continent_people_2011)
-
                 let myGraph = document.getElementById('myGraph');
-
-                let trace1 = {};
-                trace1.type = "pie";
-                trace1.title = "2022年各州富豪人數";
-                trace1.labels = [];
-                trace1.values = [];
-                trace1.hole = 0.5;
-
-                for (let i = 0; i < continent_people_2011.length; i++) {
-                    trace1.labels[i] = continent_people_2011[i]['name'];
-                    trace1.values[i] = continent_people_2011[i]['count'];
-                }
-
-                let data = [];
-                data.push(trace1);
-
-                let layout = {
-                    margin: {
-                        t: 50,
-                    }
-                };
-                Plotly.newPlot(myGraph, data, layout);
             </script>
 
         </div>
