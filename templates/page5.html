@@ -35,6 +35,9 @@
                     height: 500px;
                 }
             </style>
+            
+            <div id="res5" style="display: none;">{{res}}</div>
+            <div id="myGraph5"></div>
             <script>
                 //let res5 = JSON.parse(document.getElementById('res5').innerHTML);
                 let myGraph5 = document.getElementById('myGraph5');
@@ -61,8 +64,7 @@
                 Plotly.newPlot(myGraph5, data, layout);
 
             </script>
-            <div id="res5" style="display: none;">{{res}}</div>
-            <div id="myGraph5"></div>
+            
         </div>
         <ul class="actions special">
             <li><a href="/home" class="button">返回</a></li>
