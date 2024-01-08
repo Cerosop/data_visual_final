@@ -149,14 +149,6 @@
                                 };
                                 trace1.showlegend = false;
                                 data.push(trace1);
-                                layout = {
-                                    margin: {
-                                        t: 50,
-                                        l: 30,
-                                        r: 10,
-                                        b: 60
-                                    }
-                                };
                             } else if (x_axis == "money") {
                                 let trace1 = {};
                                 trace1.type = "bar";
@@ -170,24 +162,6 @@
                                 };
                                 trace1.showlegend = false;
                                 data.push(trace1);
-                                layout = {
-                                    margin: {
-                                        t: 50,
-                                        l: 30,
-                                        r: 10,
-                                        b: 100
-                                    },
-
-                                    yaxis: {
-                                        rangebreaks: [
-                                            {
-                                                bounds: [200, 2000], 
-                                                pattern: 'values',
-                                            },
-                                        ],
-                                    },
-
-                                };
                             } else {
                                 let trace1 = {};
                                 trace1.type = "bar";
@@ -213,6 +187,9 @@
                 document.getElementById("x").addEventListener("change", handleSelectionChange2);
                 document.getElementById("y").addEventListener("change", handleSelectionChange2);
                 window.addEventListener('load', function () {
+                    updateGraph2();
+                });
+                window.addEventListener('resize', function () {
                     updateGraph2();
                 });
             </script>
