@@ -63,11 +63,10 @@
                             b: 0,
                         },
                         showlegend: false,
+                        automargin: true,
                         scene: {
                             xaxis: {
-                                title: {
-                                    text: "資產",
-                                }
+                                title: "資產",
                             },
                             yaxis: {
                                 title: "年紀",
@@ -76,21 +75,21 @@
                                 title: "富豪人數"
                             },
                         },
-
                         title: {
                             text: "3D散點圖-資產-年紀-富豪人數",
                             font: {
-                                size: 20
+                                size: 20,
+                                family:"Arial"
                             }
                         },
                     };
                     if (selectedGraph == 1) {
-                        layout2.xaxis.title.text = "年";
-                        layout2.yaxis.title = "資產";
+                        layout2.scene.xaxis.title = "年";
+                        layout2.scene.yaxis.title = "資產";
                         layout2.title.text = "3D散點圖-年-資產-富豪人數"
                     } else if (selectedGraph == 2) {
-                        layout2.xaxis.title = "年";
-                        layout2.yaxis.title = "年紀";
+                        layout2.scene.xaxis.title = "年";
+                        layout2.scene.yaxis.title = "年紀";
                         layout2.title.text = "3D散點圖-年-年紀-富豪人數"
                     }
                     var trace1 = {};
