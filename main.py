@@ -252,49 +252,28 @@ def page4():
 @app.route('/page5', methods=['GET', 'POST'])
 def page5():
     con = lite.connect('mydb.db')
-    if request.method == 'POST':
-        age = request.get_json()['age']
-        continent = request.get_json()['continent']
-        print(age, continent)
-        with con:
-            cur=con.cursor()
-            cur.execute(f"select count(*) from data where year = 2022 and age < {(age // 5 + 1) * 5} and age >= {age // 5 * 5}")
-            con.commit()
-            age_count = cur.fetchall()[0][0]
-            
-            if age_count:
-                cur.execute(f"select name, money from data where year = 2022 and age < {(age // 5 + 1) * 5} and age >= {age // 5 * 5} limit 1")
-                con.commit()
-                age_max = cur.fetchall()[0]
-            else:
-                age_max = ("no one", 0)
-            
-            cur.execute(f"select count(*) from data where year = 2022 and continent = \'{continent}\'")
-            con.commit()
-            con_count = cur.fetchall()[0][0]
-            
-            if con_count:
-                cur.execute(f"select name, money from data where year = 2022 and continent = \'{continent}\' limit 1")
-                con.commit()
-                con_max = cur.fetchall()[0]
-                
-                cur.execute(f"select work, money from data where year = 2022 and continent = \'{continent}\'")
-                con.commit()
-                con_work = cur.fetchall()
-                con_work = max(preuse('work', con_work), key=lambda x: x[1])
-            else:
-                con_max = ("no one", 0)
-                con_work = con_max
-            
-            
-            
-            res = [age_count, age_max, con_count, con_max, con_work]
-            
-            print(res)  
-            data = {'data': res}
-            return jsonify(data)
-    else:     
-        return render_template('page5.html')
+    with con:
+        cur=con.cursor()
+        cur.execute(f"select money, age, count(*) from data where year = 2022 group by money, age ")
+        con.commit()
+        m_a = cur.fetchall()
+        
+        cur.execute(f"select year, money, count(*) from data group by year, money ")
+        con.commit()
+        y_m = cur.fetchall()
+        
+        cur.execute(f"select year, age, count(*) from data where group by year, age ")
+        con.commit()
+        y_a = cur.fetchall()
+        
+        cur.execute(f"select money, age, year, count(*) from data where group by money, age, year ")
+        con.commit()
+        m_a_y = cur.fetchall()
+        
+        res = [m_a, y_m, y_a, m_a_y]
+        
+        print(res)  
+        return render_template('page5.html', res = json.dumps(res))
 
 
 @app.route('/page6', methods=['GET', 'POST'])
