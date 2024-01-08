@@ -33,10 +33,24 @@
                     width: 100%;
                     height: 100%;
                 }
+                #myGraph6 {
+                    width: 100%;
+                    height: 100%;
+                }
+                #myGraph7 {
+                    width: 100%;
+                    height: 100%;
+                }
+                #myGraph8 {
+                    width: 100%;
+                    height: 100%;
+                }
             </style>
             <div id="res5" style="display: none;">{{res}}</div>
-            <div id="myGraph5"></div>
+            <!-- <div id="myGraph5"></div> -->
             <div id="myGraph6"></div>
+            <div id="myGraph7"></div>
+            <div id="myGraph8"></div>
             <script>
                 let res5 = JSON.parse(document.getElementById('res5').innerHTML);
                 console.log(res5)
@@ -65,8 +79,7 @@
                 }
 
                 var data = [trace1];
-                console.log(data);
-                Plotly.newPlot(myGraph5, data, layout);
+                //Plotly.newPlot(myGraph5, data, layout);
 
                 let myGraph6 = document.getElementById('myGraph6');
                 data2 = []
@@ -79,11 +92,12 @@
                     },
                     showlegend: false
                 };
-                for (let i = 0; i < res5[2].length; i++) {
+                for (let i = 0; i < res5[0].length; i++) {
                     var trace1 = {};
                     trace1.mode = 'markers';
                     trace1.type = 'scatter3d';
                     trace1.marker = {
+                        color: 'rgb(127, 127, 127)',
                         size: 11,
                         line: {
                             color: 'rgba(217, 217, 217, 0.14)',
@@ -91,13 +105,54 @@
                         },
                         opacity: 0.8
                     };
-                    trace1.x = res5[2][i][0];
-                    trace1.y = res5[2][i][1];
-                    trace1.z = res5[2][i][2];
+                    trace1.x = [res5[0][i][0]];
+                    trace1.y = [res5[0][i][1]];
+                    trace1.z = [res5[0][i][2]];
                     data2.push(trace1)
                 }
-                console.log(data2);
                 Plotly.newPlot(myGraph6, data2, layout2);
+                let myGraph7 = document.getElementById('myGraph7');
+                data2 = []
+                for (let i = 0; i < res5[1].length; i++) {
+                    var trace1 = {};
+                    trace1.mode = 'markers';
+                    trace1.type = 'scatter3d';
+                    trace1.marker = {
+                        color: 'rgb(127, 127, 127)',
+                        size: 11,
+                        line: {
+                            color: 'rgba(217, 217, 217, 0.14)',
+                            width: 0.5
+                        },
+                        opacity: 0.8
+                    };
+                    trace1.x = [res5[1][i][0]];
+                    trace1.y = [res5[1][i][1]];
+                    trace1.z = [res5[1][i][2]];
+                    data2.push(trace1)
+                }
+                Plotly.newPlot(myGraph7, data2, layout2);
+                let myGraph8 = document.getElementById('myGraph8');
+                data2 = []
+                for (let i = 0; i < res5[2].length; i++) {
+                    var trace1 = {};
+                    trace1.mode = 'markers';
+                    trace1.type = 'scatter3d';
+                    trace1.marker = {
+                        color: 'rgb(127, 127, 127)',
+                        size: 11,
+                        line: {
+                            color: 'rgba(217, 217, 217, 0.14)',
+                            width: 0.5
+                        },
+                        opacity: 0.8
+                    };
+                    trace1.x = [res5[2][i][0]];
+                    trace1.y = [res5[2][i][1]];
+                    trace1.z = [res5[2][i][2]];
+                    data2.push(trace1)
+                }
+                Plotly.newPlot(myGraph8, data2, layout2);
 
             </script>
 
