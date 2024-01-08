@@ -248,19 +248,36 @@ def page4():
     return render_template('page4.html')
 
 
-@app.route('/map', methods=['GET', 'POST'])
+@app.route('/page5', methods=['GET', 'POST'])
 def page5():
     con = lite.connect('mydb.db')
-    limit = 100
-    with con:
-        cur=con.cursor()
-        y = 2022
-        cur.execute(f"select name, country from data where year = {y} limit {limit}")
-        con.commit()
-        data = cur.fetchall()
-    
-    print(data)
-    return render_template('pytest/map.html', res = data)
+    if request.method == 'POST':
+        cate = request.get_json()['cate'].split(", ")
+        print(cate)
+        with con:
+            cur=con.cursor()
+            cur.execute(f"select * from data where year = \'{cate[1]}\' order by {cate[0]} {cate[2]}")
+            con.commit()
+            res = cur.fetchall()
+            
+            if cate[0] == 'age' and cate[2] == 'asc':
+                cur.execute(f"select * from data where year = \'{cate[1]}\' and age = -1 order by name {cate[2]}")
+                con.commit()
+                res2 = cur.fetchall()
+                res = [a for a in res if a[3] != -1]
+                res += res2
+                
+            res = [[i + 1, d[1], d[3], d[4], d[5], d[6], d[7]] for i, d in enumerate(res)]
+            
+            for i in range(1, len(res)):
+                if (cate[0] == 'money' and res[i][6] == res[i - 1][6]) or (cate[0] == 'age' and res[i][2] == res[i - 1][2]):
+                    res[i][0] = res[i - 1][0]
+            
+            print(res)  
+            data = {'data': res}
+            return jsonify(data)
+    else:     
+        return render_template('page5.html')
     
     
 if __name__ == '__main__':

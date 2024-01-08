@@ -52,6 +52,30 @@
                             <li><input type="submit" value="Send"/></li>
                         </ul>
                     </div>
+
+                    <script>
+                        function handleSubmit(){
+                            // var formData = { "cate": selectedX + ", " + selectedY + ", " + selectedYear_3_1 };
+                            var formData = { "age": 17, "continent": "Asia" };
+                            formData = JSON.stringify(formData);
+
+                            fetch('/page5', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                },
+                                body: formData
+                            })
+                            .then(response => response.text())
+                            .then(data => {
+                                var responseData = JSON.parse(data);
+                                console.log(responseData.data)
+                            })
+                            .catch(error => {
+                                console.error('Error:', error);
+                            });
+                        }
+                    </script>
                 </div>
             </div>
         </div>
