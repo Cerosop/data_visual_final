@@ -109,16 +109,16 @@
                         },
                         body: formData
                     })
-                        .then(response => response.text())
-                        .then(data => {
-                            var responseData = JSON.parse(data);
-                            console.log(responseData.data)
-                            res3 = responseData.data;
-                            updateGraph2();
-                        })
-                        .catch(error => {
-                            console.error('Error:', error);
-                        });
+                    .then(response => response.text())
+                    .then(data => {
+                        var responseData = JSON.parse(data);
+                        console.log(responseData.data)
+                        res3 = responseData.data;
+                        updateGraph2();
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
                 }
 
                 function updateGraph2() {
