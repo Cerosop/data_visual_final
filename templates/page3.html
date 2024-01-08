@@ -84,16 +84,16 @@
 
                     if (selectedX === "money") {
                         var moneyAveOption = document.querySelector('#y option[value="money ave"]');
-                        moneyAveOption.disabled = true;
+                        moneyAveOption.style.display = 'none';
                         var moneyOption = document.querySelector('#y option[value="money"]');
-                        moneyOption.disabled = true;
+                        moneyOption.style.display = 'none';
                         yDropdown.value = "people";
                         selectedY = "people";
                     } else {
                         var moneyAveOption = document.querySelector('#y option[value="money ave"]');
-                        moneyAveOption.disabled = false;
+                        moneyAveOption.style.display = 'block';
                         var moneyOption = document.querySelector('#y option[value="money"]');
-                        moneyOption.disabled = false;
+                        moneyOption.style.display = 'block';
                     }
 
                     console.log("Selected End Year: " + selectedYear_3_1);
