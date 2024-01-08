@@ -31,10 +31,10 @@
                 <div class="row">
                     <div class="col-12">
                         <label for="yourMoney">輸入你的金錢:</label>
-                        <input class="text" type="text" id="yourMoney" value="" placeholder="$1000" />
+                        <input class="text" type="text" id="yourM" value="" placeholder="1000" />
                     </div>
                     <div class="col-6 col-12-mobilep">
-                        <label for="yourAge">選擇你的年齡：</label>
+                        <label for="yourAge">輸入你的年齡：</label>
                         <input class="text" type="text" id="yourA" value="" placeholder="20" />                </div>
                     <div class="col-6 col-12-mobilep">
                         <label for="yourContinent">選擇你所在的洲：</label>
@@ -55,25 +55,48 @@
 
                     <script>
                         function handleSubmit(){
-                            // var formData = { "cate": selectedX + ", " + selectedY + ", " + selectedYear_3_1 };
-                            var formData = { "age": 62, "continent": "Asia" };
-                            formData = JSON.stringify(formData);
+                            var yourContinent = document.getElementById("yourContinent").value;
+                            var yourAge = document.getElementById("yourA").value;
+                            var yourMoney = document.getElementById("yourM").value;
+                            if (/^\d+$/.test(yourAge)){
+                                if (/^-?\d+$/.test(yourMoney)){
+                                    yourMoney = parseInt(yourMoney, 10);
+                                    if (yourMoney < 1000000000){
+                                        yourAge = parseInt(yourAge, 10);
 
-                            fetch('/page5', {
-                                method: 'POST',
-                                headers: {
-                                    'Content-Type': 'application/json',
-                                },
-                                body: formData
-                            })
-                            .then(response => response.text())
-                            .then(data => {
-                                var responseData = JSON.parse(data);
-                                console.log(responseData.data)
-                            })
-                            .catch(error => {
-                                console.error('Error:', error);
-                            });
+                                        var formData = { "age": yourAge, "continent": yourContinent };
+                                        formData = JSON.stringify(formData);
+
+                                        fetch('/page5', {
+                                            method: 'POST',
+                                            headers: {
+                                                'Content-Type': 'application/json',
+                                            },
+                                            body: formData
+                                        })
+                                        .then(response => response.text())
+                                        .then(data => {
+                                            var responseData = JSON.parse(data);
+                                            console.log(responseData.data)
+                                        })
+                                        .catch(error => {
+                                            console.error('Error:', error);
+                                        });
+                                    }
+                                    else{
+                                        alert("白日夢還是免了吧");
+                                        document.getElementById("yourM").value = "";
+                                    }
+                                }
+                                else{
+                                    alert("金錢請輸入整數");
+                                    document.getElementById("yourM").value = "";
+                                }
+                            }
+                            else{
+                                alert("年齡請輸入正整數");
+                                document.getElementById("yourA").value = "";
+                            }
                         }
                         document.getElementById("send").addEventListener("click", handleSubmit);
                     </script>
