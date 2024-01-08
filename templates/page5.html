@@ -55,7 +55,6 @@
                 function callgraph() {
                     let myGraph6 = document.getElementById('myGraph6');
                     var selectedGraph = parseInt(graphSelect.options[graphSelect.selectedIndex].value);
-                    data2 = []
                     let layout2 = {
                         margin: {
                             t: 50,
@@ -76,38 +75,48 @@
                         title: {
                             text: "3D散點圖-資產-年紀-富豪人數",
                             font: {
-                                size: 24
+                                size: 20
                             }
-                        }
+                        },
                     };
                     if (selectedGraph == 1) {
                         layout2.xaxis.title = "年";
                         layout2.yaxis.title = "資產";
                         layout2.title.text = "3D散點圖-年-資產-富豪人數"
                     } else if (selectedGraph == 2) {
+                        layout2.xaxis.title = "年";
                         layout2.yaxis.title = "年紀";
                         layout2.title.text = "3D散點圖-年-年紀-富豪人數"
                     }
+                    var trace1 = {};
+                    trace1.mode = 'markers';
+                    trace1.type = 'scatter3d';
+                    trace1.marker = {
+                        size: 10,
+                        line: {
+                            color: 'rgba(217, 217, 217, 0.14)',
+                            width: 0.1
+                        },
+                        opacity: 0.8,
+                        colorscale: 'YlGnBu',
+                        colorbar:{
+                            x:0,
+                        },
+                        color:[],
+                        showscale :false
+                    };
+                    trace1.x = [];
+                    trace1.y = [];
+                    trace1.z = [];
                     for (let i = 0; i < res5[selectedGraph].length; i++) {
-                        var trace1 = {};
-                        trace1.mode = 'markers';
-                        trace1.type = 'scatter3d';
-                        trace1.marker = {
-                            color: 'rgb(127, 127, 127)',
-                            size: 11,
-                            line: {
-                                color: 'rgba(217, 217, 217, 0.14)',
-                                width: 0.5
-                            },
-                            opacity: 0.8
-                        };
-                        trace1.colorscale = 'YlGnBu';
-                        trace1.x = [res5[selectedGraph][i][0]];
-                        trace1.y = [res5[selectedGraph][i][1]];
-                        trace1.z = [res5[selectedGraph][i][2]];
-                        data2.push(trace1)
+                        trace1.x[i] = res5[selectedGraph][i][0];
+                        trace1.y[i] = res5[selectedGraph][i][1];
+                        trace1.z[i] = res5[selectedGraph][i][2];
+                        trace1.marker.color[i] = trace1.z[i];
                     }
-                    Plotly.newPlot(myGraph6, data2, layout2);
+                    data2 = [];
+                    data2.push(trace1)
+                    Plotly.react(myGraph6, data2, layout2);
                 }
                 var graphSelect = document.getElementById("graph");
                 graphSelect.addEventListener("change", function () {
