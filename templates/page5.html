@@ -60,18 +60,23 @@
                             t: 50,
                             l: 0,
                             r: 0,
-                            b: 0
+                            b: 0,
                         },
                         showlegend: false,
-                        xaxis: {
-                            title: "資產",
+                        scene: {
+                            xaxis: {
+                                title: {
+                                    text: "資產",
+                                }
+                            },
+                            yaxis: {
+                                title: "年紀",
+                            },
+                            zaxis: {
+                                title: "富豪人數"
+                            },
                         },
-                        yaxis: {
-                            title: "年紀"
-                        },
-                        zaxis: {
-                            title: "富豪人數"
-                        },
+
                         title: {
                             text: "3D散點圖-資產-年紀-富豪人數",
                             font: {
@@ -80,7 +85,7 @@
                         },
                     };
                     if (selectedGraph == 1) {
-                        layout2.xaxis.title = "年";
+                        layout2.xaxis.title.text = "年";
                         layout2.yaxis.title = "資產";
                         layout2.title.text = "3D散點圖-年-資產-富豪人數"
                     } else if (selectedGraph == 2) {
@@ -99,8 +104,8 @@
                         },
                         opacity: 0.8,
                         colorscale: 'YlGnBu',
-                        color:[],
-                        showscale :false
+                        color: [],
+                        showscale: false
                     };
                     trace1.x = [];
                     trace1.y = [];
@@ -125,6 +130,7 @@
                 window.addEventListener('resize', function () {
                     callgraph();
                 });
+                //window.onresize = function() { Plotly.Plots.resize( 'myGraph6' ); };
 
             </script>
 
