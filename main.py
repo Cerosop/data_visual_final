@@ -23,8 +23,8 @@ def page1():
             
             
             for i in range(1, len(res)):
-                if cate[0] == 'money' and res[i][6] == res[i - 1][6] or (cate[0] == 'age' and res[i][2] == res[i - 1][2]):
-                    res[i][0] == res[i - 1]
+                if (cate[0] == 'money' and res[i][6] == res[i - 1][6]) or (cate[0] == 'age' and res[i][2] == res[i - 1][2]):
+                    res[i][0] = res[i - 1][0]
             
             print(res)  
             data = {'data': res}
@@ -35,7 +35,11 @@ def page1():
             cur.execute(f"select * from data where year = 2022 order by money desc")
             con.commit()
             res = cur.fetchall()
-            res = [(i + 1, d[1], d[3], d[4], d[5], d[6], d[7]) for i, d in enumerate(res)]
+            res = [[i + 1, d[1], d[3], d[4], d[5], d[6], d[7]] for i, d in enumerate(res)]
+            
+            for i in range(1, len(res)):
+                if res[i][6] == res[i - 1][6]:
+                    res[i][0] = res[i - 1][0]
             
             print(json.dumps(res))  
             return render_template('page1.html', res = json.dumps(res))
