@@ -114,11 +114,14 @@
                             var responseData = JSON.parse(data);
                             console.log(responseData.data)
                             res3 = responseData.data;
+                            updateGraph();
                         })
                         .catch(error => {
                             console.error('Error:', error);
                         });
+                }
 
+                function updateGraph() {
                     let data = [];
                     for (let i = 0; i < res3.length; i++) {
                         let trace1 = {};
@@ -128,6 +131,10 @@
                         trace1.y = [];
                         trace1.x[0] = res3[i][0];
                         trace1.y[0] = res3[i][1];
+                        trace1.marker = {
+                            color: 'rgba(255, 200, 210, 1)'
+                        };
+                        trace1.showlegend = false;
                         data.push(trace1);
                     }
 
@@ -142,31 +149,16 @@
                 document.getElementById("year_3_1").addEventListener("change", handleSelectionChange2);
                 document.getElementById("x").addEventListener("change", handleSelectionChange2);
                 document.getElementById("y").addEventListener("change", handleSelectionChange2);
+                window.addEventListener('load', function () {
+                    updateGraph();
+                });
             </script>
             <div id="res3" style="display: none;">{{res}}</div>
             <div id="myGraph"></div>
             <script>
                 let res3 = JSON.parse(document.getElementById('res3').innerHTML);
-
                 let myGraph = document.getElementById('myGraph');
-                let data = [];
-                for (let i = 0; i < res3.length; i++) {
-                    let trace1 = {};
-                    trace1.type = "bar";
-                    trace1.name = res3[i][0];
-                    trace1.x = [];
-                    trace1.y = [];
-                    trace1.x[0] = res3[i][0];
-                    trace1.y[0] = res3[i][1];
-                    data.push(trace1);
-                }
-
-                let layout = {
-                    margin: {
-                        t: 50,
-                    }
-                };
-                Plotly.newPlot(myGraph, data, layout);
+                
             </script>
         </div>
 
