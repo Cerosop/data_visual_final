@@ -2763,7 +2763,7 @@ input, select, textarea {
 		}
 
 		#header .logo {
-			background: #4eb980;
+			background: #ebe3bd;
 			border-radius: 100%;
 			color: #ffffff;
 			cursor: default;
@@ -2796,7 +2796,7 @@ input, select, textarea {
 
 	#footer {
 		background-attachment: scroll;
-		background-color: #4eb980;
+		background-color: #f9f2ad;
 		background-image: url("../images/bottom-3200.svg");
 		background-position: top center;
 		background-repeat: repeat-x;
