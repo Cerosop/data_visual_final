@@ -2,21 +2,36 @@ import sqlite3 as lite
 import pandas as pd
 con = lite.connect('mydb.db')
 
-dict = [{'country': [], 'value': []}]
-
+dict = []
+for y in range(2011, 2023):
+    d = {'country': [], 'value': []}
+    dict.append(d)
+    dict.append(d)
+    
 with con:
     cur=con.cursor()
-    y = 2022
+    for y in range(2011, 2023):
+        i = (y - 2011) * 2
+        cur.execute(f"select country, count(*), sum(money) from data where year = {y} group by country")
+        con.commit()
+        data = cur.fetchall()
         
-    cur.execute(f"select country, count(*) from data where year = {y} group by country")
-    con.commit()
-    data = cur.fetchall()
-    
-    for d in data:
-        dict[0]['country'].append(d[0])
-        dict[0]['value'].append(d[1])
+        for d in data:
+            dict[i]['country'].append(d[0])
+            dict[i]['value'].append(d[1])
+        
+        i += 1
+        for d in data:
+            dict[i]['country'].append(d[0])
+            dict[i]['value'].append(d[2])
             
 
-df = pd.DataFrame(dict[0])
-with open('static/js/files/country_c.csv', 'w', newline='') as file:
-    df.to_csv(file, index=False)
+for i in range(2011, 2023):
+    x = (i - 2011) * 2
+    df = pd.DataFrame(dict[x])
+    with open('static/js/files/country_c_' + str(i) + '.csv', 'w', newline='') as file:
+        df.to_csv(file, index=False)
+        
+    df = pd.DataFrame(dict[x + 1])
+    with open('static/js/files/country_m_' + str(i) + '.csv', 'w', newline='') as file:
+        df.to_csv(file, index=False)
