@@ -2,12 +2,44 @@ import sqlite3 as lite
 import pandas as pd
 con = lite.connect('mydb.db')
 
-dict = [{'country': [], 'value': []} for y in range(24)]
+# dict = [{'country': [], 'value': []} for y in range(24)]
+  
+# with con:
+#     cur=con.cursor()
+#     for y in range(2011, 2023):
+#         i = (y - 2011) * 2
+#         cur.execute(f"select country, count(*), sum(money) from data where year = {y} group by country")
+#         con.commit()
+#         data = cur.fetchall()
+#         print(data)
+        
+#         for d in data:
+#             if d[0] == ' N/A':
+#                 continue
+#             dict[i]['country'].append(d[0])
+#             dict[i]['value'].append(d[1])
+#             dict[i + 1]['country'].append(d[0])
+#             dict[i + 1]['value'].append(d[2])
+            
+# print(dict)
+            
+
+# for i in range(2011, 2023):
+#     x = (i - 2011) * 2
+#     df = pd.DataFrame(dict[x])
+#     with open('static/js/files/country_c_' + str(i) + '.csv', 'w', newline='') as file:
+#         df.to_csv(file, index=False)
+        
+#     df = pd.DataFrame(dict[x + 1])
+#     with open('static/js/files/country_m_' + str(i) + '.csv', 'w', newline='') as file:
+#         df.to_csv(file, index=False)
+        
+
+dict = [{'country': [], 'value': [], 'year': []}, {'country': [], 'value': [], 'year': []}]
   
 with con:
     cur=con.cursor()
     for y in range(2011, 2023):
-        i = (y - 2011) * 2
         cur.execute(f"select country, count(*), sum(money) from data where year = {y} group by country")
         con.commit()
         data = cur.fetchall()
@@ -16,20 +48,21 @@ with con:
         for d in data:
             if d[0] == ' N/A':
                 continue
-            dict[i]['country'].append(d[0])
-            dict[i]['value'].append(d[1])
-            dict[i + 1]['country'].append(d[0])
-            dict[i + 1]['value'].append(d[2])
+            dict[0]['country'].append(d[0])
+            dict[0]['value'].append(d[1])
+            dict[0]['year'].append(y)
+            
+            dict[1]['country'].append(d[0])
+            dict[1]['value'].append(d[2])
+            dict[1]['year'].append(y)
             
 print(dict)
             
 
-for i in range(2011, 2023):
-    x = (i - 2011) * 2
-    df = pd.DataFrame(dict[x])
-    with open('static/js/files/country_c_' + str(i) + '.csv', 'w', newline='') as file:
-        df.to_csv(file, index=False)
-        
-    df = pd.DataFrame(dict[x + 1])
-    with open('static/js/files/country_m_' + str(i) + '.csv', 'w', newline='') as file:
-        df.to_csv(file, index=False)
+df = pd.DataFrame(dict[0])
+with open('static/js/files/country_c.csv', 'w', newline='') as file:
+    df.to_csv(file, index=False)
+    
+df = pd.DataFrame(dict[1])
+with open('static/js/files/country_m.csv', 'w', newline='') as file:
+    df.to_csv(file, index=False)
