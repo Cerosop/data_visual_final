@@ -326,6 +326,11 @@ def page6():
         return render_template('page6.html')
     
     
+@app.route('/page7', methods=['GET', 'POST'])
+def page7():
+    return render_template('page7.html')
+    
+    
 if __name__ == '__main__':
     app.debug = True
     app.run()

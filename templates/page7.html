@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<title>地圖</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	
+	<link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" />
+	<link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}" />
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/inspector.css')}}">
+    <script src="https://cdn.plot.ly/plotly-2.24.1.min.js"></script>
+    
+    <script src="//unpkg.com/d3"></script>
+</head>
+
+<body class="is-preload">
+
+	<!-- Header -->
+	<div id="header">
+		<span class="logo icon solid fa-dollar-sign"></span>
+		<h1>地圖</h1>
+	</div>
+
+	<!-- Main -->
+	<div id="main">
+		<div id="res" style="display: none;">{{res}}</div>
+		<div class="box container">
+			<div id="myGraph10"></div>
+            <script>
+                function unpack(rows, key){
+                    return rows.map(function(row){
+                        return row[key];
+                    });
+                }
+
+                function getCSV_Data(rows){
+                    let trace1 = {};
+                    trace1.type = "choropleth";
+                    trace1.locationmode = "country names";
+                    trace1.locations = unpack(rows, 'country');
+                    trace1.z = unpack(rows, 'value');
+                    trace1.text = unpack(rows, 'country');
+                    trace1.autocolorscale = true;
+                    let data = [];
+                    data.push(trace1);
+                    let layout = {
+                        title:'country vs people in 2022',
+                        margin: {
+                            t: 50,
+                            l: 0
+                        },
+                        geo: { 
+                            projection: {
+                                type: 'robinson' //變圓
+                            }
+                        }
+                    };
+                    Plotly.newPlot(myGraph10, data, layout);
+                }
+
+                let myGraph10=document.getElementById('myGraph10');
+                dataURL = "{{url_for('static', filename='js/files/country_c.csv')}}"
+                d3.csv(dataURL).then(getCSV_Data);
+            </script>
+		</div>
+
+		<ul class="actions special">
+			<li><a href="/home" class="button">返回</a></li>
+		</ul>
+
+	</div>
+
+	<!-- Scripts -->
+	<link rel="stylesheet" href="{{url_for('static', filename='js/jquery.min.js')}}" />
+	<link rel="stylesheet" href="{{url_for('static', filename='js/browser.min.js')}}" />
+	<link rel="stylesheet" href="{{url_for('static', filename='js/breakpoints.min.js')}}" />
+	<link rel="stylesheet" href="{{url_for('static', filename='js/util.js')}}" />
+	<link rel="stylesheet" href="{{url_for('static', filename='js/main.js')}}" />
+    
+
+
+</body>
+
+</html>
