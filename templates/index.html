@@ -7,12 +7,17 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}" />
 	<link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" />
+	<link href="{{url_for('static', filename='css/aos.css')}}" rel="stylesheet">
+  <link href="{{url_for('static', filename='css/boxicons.min.css')}}" rel="stylesheet">
 </head>
 
 <body class="is-preload">
 
 	<!-- Header -->
 	<div id="header">
+		<div class="col-md-6 icon-box" data-aos-delay="400">
+			<i class='bx bx-money-withdraw bx-tada bx-lg'></i>
+		</div>
 		<span class="logo icon solid fa-dollar-sign"></span>
 		<h1>資料視覺化 第十組</h1>
 		<p>金錢的世界-世界富豪的排名
@@ -125,6 +130,7 @@
 	<script src="{{url_for('static', filename='js/breakpoints.min.js')}}"></script>
 	<script src="{{url_for('static', filename='js/util.js')}}"></script>
 	<script src="{{url_for('static', filename='js/main.js')}}"></script>
+	<script src="{{url_for('static', filename='js/aos.js')}}"></script>
 
 </body>
 
