@@ -200,6 +200,7 @@ with con:
             dict[16]['category'].append(d[0])
             dict[16]['value'].append(d[1])
             
+            
 
 df = pd.DataFrame(dict[0])
 with open('static/js/files/name_m.csv', 'w', newline='') as file:
