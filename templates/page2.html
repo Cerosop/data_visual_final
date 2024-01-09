@@ -68,10 +68,24 @@
                     </select>
                 </div>
             </div>
+            <div id="res2" style="display: none;">{{res}}</div>
+            <div id="myGraph"></div>
             <script>
+                let res = JSON.parse(document.getElementById('res2').innerHTML);
+                let myGraph = document.getElementById('myGraph');
                 var yearDropdown = document.getElementById("year1");
                 var topic1Dropdown = document.getElementById("topic1");
                 var topic2Dropdown = document.getElementById("topic2");
+                
+                document.getElementById("year1").addEventListener("change", handleSelectionChange);
+                document.getElementById("topic1").addEventListener("change", handleSelectionChange);
+                document.getElementById("topic2").addEventListener("change", handleSelectionChange);
+                window.addEventListener('load', function () {
+                    updateGraph();
+                });
+                window.addEventListener('resize', function () {
+                    updateGraph();
+                });
 
                 function handleSelectionChange() {
                     var selectedYear = yearDropdown.options[yearDropdown.selectedIndex].value;
@@ -127,7 +141,7 @@
                         colors: []
                     }
                     trace1.hole = 0.5;
-
+                    trace1.pull = [];
 
                     for (let i = 0; i < data2.length; i++) {
                         if (selectedTopic1 == "age") {
@@ -144,6 +158,7 @@
                         }
                         trace1.values[i] = data2[i]['count'];
                         trace1.marker.colors[i] = myColor(i + 1);
+                        trace1.pull[i] = 0;
                     }
 
                     let data = [];
@@ -152,37 +167,20 @@
                     let layout = {
                         margin: {
                             t: 50,
-                        }
+                        },
+                        hovermode:'closest',
                     };
                     Plotly.react(myGraph, data, layout, { transition: { duration: 500, easing: 'cubic-in-out' } });
                 }
-
-                document.getElementById("year1").addEventListener("change", handleSelectionChange);
-                document.getElementById("topic1").addEventListener("change", handleSelectionChange);
-                document.getElementById("topic2").addEventListener("change", handleSelectionChange);
-                window.addEventListener('load', function () {
-                    updateGraph();
-                });
-                window.addEventListener('resize', function () {
-                    updateGraph();
+                myGraph.on('plotly_hover', function (data) {
+                    var update = { 'pull': Array(data.points.length).fill(0) }; // 將所有扇區收回
+                    data.points.forEach(point => {
+                        update.pull[point.pointNumber] = 0.1;  // 將懸停的扇區拉出
+                    });
+                    Plotly.update(myGraph, update);
                 });
             </script>
-            <style>
-                #myGraph {
-                    width: 100%;
-                    height: 520px;
-                }
-            </style>
-
-            <div id="res2" style="display: none;">{{res}}</div>
-            <div id="myGraph"></div>
-            <script>
-                let res = JSON.parse(document.getElementById('res2').innerHTML);
-                let myGraph = document.getElementById('myGraph');
-            </script>
-
         </div>
-
         <ul class="actions special">
             <li><a href="/home" class="button">返回</a></li>
         </ul>

@@ -66,12 +66,6 @@
                     </select>
                 </div>
             </div>
-            <style>
-                #myGraph {
-                    width: 100%;
-                    height: 500px;
-                }
-            </style>
             <script>
                 var year_3_1Dropdown = document.getElementById("year_3_1");
                 var xDropdown = document.getElementById("x");
@@ -117,7 +111,6 @@
 
                 function updateGraph2() {
                     let data = [];
-                    const colors = ['#8B008B', '#9932CC', '#9400D3', '#8A2BE2', '#800080', '#9370DB', '#AB83A1', '#BF94E4', '#8E388E', '#A74AC7'];
                     var year = year_3_1Dropdown.options[year_3_1Dropdown.selectedIndex].value;
                     var x_axis = xDropdown.options[xDropdown.selectedIndex].value;
                     var y_axis = yDropdown.options[yDropdown.selectedIndex].text;
@@ -135,7 +128,6 @@
                     trace1.y = [];
                     trace1.name = []
                     trace1.marker = {
-                        //color: colors[i % colors.length],
                         colorscale: 'YlGnBu',  // https://plotly.com/python/builtin-colorscales/ 顏色可選
                         color: [],
                         showscale: false
@@ -166,7 +158,7 @@
                         }
                     }
                     data.push(trace1);
-                    Plotly.newPlot(myGraph, data, layout);
+                    Plotly.newPlot(myGraph3, data, layout);
                 }
 
                 document.getElementById("year_3_1").addEventListener("change", handleSelectionChange2);
@@ -180,10 +172,10 @@
                 });
             </script>
             <div id="res3" style="display: none;">{{res}}</div>
-            <div id="myGraph"></div>
+            <div id="myGraph3"></div>
             <script>
                 let res3 = JSON.parse(document.getElementById('res3').innerHTML);
-                let myGraph = document.getElementById('myGraph');
+                let myGraph3 = document.getElementById('myGraph3');
             </script>
         </div>
         <ul class="actions special">
