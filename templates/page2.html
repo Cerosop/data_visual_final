@@ -171,14 +171,9 @@
                         hovermode:'closest',
                     };
                     Plotly.react(myGraph, data, layout, { transition: { duration: 500, easing: 'cubic-in-out' } });
+                    
                 }
-                myGraph.on('plotly_hover', function (data) {
-                    var update = { 'pull': Array(data.points.length).fill(0) }; // 將所有扇區收回
-                    data.points.forEach(point => {
-                        update.pull[point.pointNumber] = 0.1;  // 將懸停的扇區拉出
-                    });
-                    Plotly.update(myGraph, update);
-                });
+                
             </script>
         </div>
         <ul class="actions special">
