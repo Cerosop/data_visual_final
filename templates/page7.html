@@ -55,18 +55,29 @@
             <div id="myGraph10"></div>
             <script>
                 let myGraph10 = document.getElementById('myGraph10');
-                let year = document.getElementById("year").value;
-                let num = document.getElementById("data3").value;
-                var file1 = 'static/js/files/' + num + year + '.csv';
-                console.log(file1)
-                // var dataURL = "{{ url_for('static', filename=file1) }}";
-                dataURL = file1;
-                d3.csv(dataURL).then(getCSV_Data);
+
+                document.getElementById("year").addEventListener("change", updateGraph);
+                document.getElementById("data3").addEventListener("change", updateGraph);
+
+                window.addEventListener('load', function () {
+                    updateGraph();
+                });
+                window.addEventListener('resize', function () {
+                    updateGraph();
+                });
 
                 function unpack(rows, key) {
                     return rows.map(function (row) {
                         return row[key];
                     });
+                }
+
+                function updateGraph() {
+                    let year = document.getElementById("year").value;
+                    let num = document.getElementById("data3").value;
+                    let file1 = 'static/js/files/' + num + year + '.csv';
+
+                    d3.csv(file1).then(getCSV_Data);
                 }
 
                 function getCSV_Data(rows) {
@@ -77,10 +88,11 @@
                     trace1.z = unpack(rows, 'value');
                     trace1.text = unpack(rows, 'country');
                     trace1.autocolorscale = true;
-                    let data = [];
-                    data.push(trace1);
+
+                    let data = [trace1];
+
                     let layout = {
-                        title: 'country vs people in 2022',
+                        title: 'Country vs People in 2022',
                         margin: {
                             t: 50,
                             l: 0,
@@ -89,10 +101,11 @@
                         },
                         geo: {
                             projection: {
-                                type: 'robinson' //變圓
+                                type: 'robinson'
                             }
                         }
                     };
+
                     Plotly.newPlot(myGraph10, data, layout);
                 }
 
