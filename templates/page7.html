@@ -57,9 +57,10 @@
                 let myGraph10 = document.getElementById('myGraph10');
                 let year = document.getElementById("year").value;
                 let num = document.getElementById("data3").value;
-                var file = 'js/files/' + num + year + '.csv';
-                console.log(file)
-                var dataURL = "{{ url_for('static', filename='', path = file) }}";
+                var file1 = 'static/js/files/' + num + year + '.csv';
+                console.log(file1)
+                // var dataURL = "{{ url_for('static', filename=file1) }}";
+                dataURL = file1;
                 d3.csv(dataURL).then(getCSV_Data);
 
                 function unpack(rows, key) {
