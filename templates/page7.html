@@ -2,15 +2,12 @@
 <html>
 
 <head>
-    <title>地圖</title>
+    <title>互動式介面</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-
-    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" />
     <link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}" />
-    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/inspector.css')}}">
-    <script src="https://cdn.plot.ly/plotly-2.24.1.min.js"></script>
-    <script src="//unpkg.com/d3"></script>
+    <link href="{{url_for('static', filename='css/aos.css')}}" rel="stylesheet">
+    <link href="{{url_for('static', filename='css/boxicons.min.css')}}" rel="stylesheet">
 </head>
 
 <body class="is-preload">
@@ -18,114 +15,181 @@
     <!-- Header -->
     <div id="header">
         <span class="logo icon solid fa-dollar-sign"></span>
-        <h1>地圖</h1>
+        <h1>互動式介面</h1>
+
     </div>
 
-    <!-- Main -->
     <div id="main">
-        <div id="res" style="display: none;">{{res}}</div>
         <div class="box container">
-            <!-- 選單-->
-            <div class="row">
-                <div class="col-12">
-                    <label for="year">選擇年分：</label>
-                    <select id="year">
-                        <option value="2011">2011</option>
-                        <option value="2012">2012</option>
-                        <option value="2013">2013</option>
-                        <option value="2014">2014</option>
-                        <option value="2015">2015</option>
-                        <option value="2016">2016</option>
-                        <option value="2017">2017</option>
-                        <option value="2018">2018</option>
-                        <option value="2019">2019</option>
-                        <option value="2020">2020</option>
-                        <option value="2021">2021</option>
-                        <option value="2022" selected>2022</option>
-                    </select>
-                </div>
-                <div class="col-12">
-                    <label for="data3">選擇資料：</label>
-                    <select id="data3">
-                        <option value="country_c_">富豪人數</option>
-                        <option value="country_m_" selected>資產</option>
-                    </select>
+            <header>
+                <h2>比較自己與富豪的距離吧!</h2>
+            </header>
+            <section>
+                <header>
+                    <p>透過輸入自身自產，看看還要多少錢便可躍入富豪榜100名吧。</p>
+                </header>
+            </section>
+            <div class="box container">
+                <div class="row">
+                    <div class="col-12">
+                        <label for="yourMoney">輸入你的金錢:</label>
+                        <input class="text" type="text" id="yourMoney" value="" placeholder="1000" />
+                    </div>
+                    <div class="col-6 col-12-mobilep">
+                        <label for="yourAge">輸入你的年齡：</label>
+                        <input class="text" type="text" id="yourAge" value="" placeholder="20" />
+                    </div>
+                    <div class="col-6 col-12-mobilep">
+                        <label for="yourContinent">選擇你所在的洲：</label>
+                        <select id="yourContinent">
+                            <option value="Oceania">大洋洲</option>
+                            <option value="Africa">非洲</option>
+                            <option value="Asia">亞洲</option>
+                            <option value="Europe">歐洲</option>
+                            <option value="South America">南美洲</option>
+                            <option value="North America">北美洲</option>
+                        </select>
+                    </div>
+                    <div class="col-12">
+                        <ul class="actions special">
+                            <li><input type="submit" value="Send" id="send" /></li>
+                        </ul>
+                    </div>
+
+                    <script>
+                        function handleSubmit() {
+                            var yourContinent = document.getElementById("yourContinent").value;
+                            var yourAge = document.getElementById("yourAge").value;
+                            var yourMoney = document.getElementById("yourMoney").value;
+                            if (/^\d+$/.test(yourAge)) {
+                                if (/^-?\d+$/.test(yourMoney)) {
+                                    yourMoney = parseInt(yourMoney, 10);
+                                    if (yourMoney < 1000000000) {
+                                        yourAge = parseInt(yourAge, 10);
+
+                                        var formData = { "age": yourAge, "continent": yourContinent };
+                                        formData = JSON.stringify(formData);
+
+                                        fetch('/page6', {
+                                            method: 'POST',
+                                            headers: {
+                                                'Content-Type': 'application/json',
+                                            },
+                                            body: formData
+                                        })
+                                            .then(response => response.text())
+                                            .then(data => {
+                                                var responseData = JSON.parse(data);
+                                                console.log(responseData.data)
+                                                var a = responseData.data
+
+                                                // 創一個新的text，寫一整串文字
+
+                                                var selectContinent = document.getElementById("yourContinent");
+                                                var Continent = selectContinent.options[selectContinent.selectedIndex].text;
+
+                                                var Age = Math.round(yourAge / 5) * 5 + "~" + (Math.round(yourAge / 5) * 5 + 4) + "歲";
+
+                                                if (a[0]) {
+                                                    var text1 = document.getElementById("text1");
+                                                    text1.innerHTML = "你和" + Age + "中最有錢的<b>" + a[1][0] + "</b>差了<b>" + (a[1][1] * 1000000000 - yourMoney).toLocaleString() + "</b>美元啦";
+
+                                                    var text2 = document.getElementById("text2");
+                                                    text2.innerHTML = Age + "中有<b>" + a[0] + "</b>人已經是億萬富豪了，請再加油";
+                                                } else {
+                                                    var text1 = document.getElementById("text1");
+                                                    text1.innerHTML = Age + "中沒有人是億萬富翁，祝你成為該年齡層的第一位億萬富豪";
+                                                }
+
+                                                var text3 = document.getElementById("text3");
+                                                text3.innerHTML = "再活<b>" + Math.round((1000000000 - yourMoney) / (yourMoney / yourAge)).toLocaleString() + "</b>年你才有辦法成為億萬富豪喔!";
+
+                                                if (a[2]) {
+                                                    var text4 = document.getElementById("text4");
+                                                    text4.innerHTML = "你和" + Continent + "最有錢的<b>" + a[3][0] + "</b>差了<b>" + (a[3][1] * 1000000000 - yourMoney).toLocaleString() + "</b>應該是美元吧";
+
+                                                    var text5 = document.getElementById("text5");
+                                                    text5.innerHTML = Continent + "有<b>" + a[2] + "</b>人已經是億萬富豪了，請再加油";
+
+                                                    var text6 = document.getElementById("text6");
+                                                    text6.innerHTML = "進入" + Continent + "<b>" + a[4][0] + "</b>相關產業你就有機會賺取<b>" + a[4][1] + ",000,000,000</b>美元喔";
+                                                } else {
+                                                    var text4 = document.getElementById("text4");
+                                                    text4.innerHTML = "你成為" + Continent + "的第一位億萬富豪";
+                                                }
+                                                //
+                                                var textElement = document.getElementById("myText");
+                                                textElement.style.display = "block";
+                                            })
+                                            .catch(error => {
+                                                console.error('Error:', error);
+                                            });
+                                    }
+                                    else {
+                                        alert("白日夢還是免了吧");
+                                        document.getElementById("yourMoney").value = "";
+                                    }
+                                }
+                                else {
+                                    alert("金錢請輸入整數");
+                                    document.getElementById("yourMoney").value = "";
+                                }
+                            }
+                            else {
+                                alert("年齡請輸入正整數");
+                                document.getElementById("yourAge").value = "";
+                            }
+
+                        }
+                        document.getElementById("send").addEventListener("click", handleSubmit);
+                    </script>
                 </div>
             </div>
-            <div id="myGraph10"></div>
-            <script>
-                let myGraph10 = document.getElementById('myGraph10');
+            <section>
+                <header id="myText" style="display: none;">
 
-                document.getElementById("year").addEventListener("change", updateGraph);
-                document.getElementById("data3").addEventListener("change", updateGraph);
-
-                window.addEventListener('load', function () {
-                    updateGraph();
-                });
-                window.addEventListener('resize', function () {
-                    updateGraph();
-                });
-
-                function unpack(rows, key) {
-                    return rows.map(function (row) {
-                        return row[key];
-                    });
-                }
-
-                function updateGraph() {
-                    let year = document.getElementById("year").value;
-                    let num = document.getElementById("data3").value;
-                    let file1 = 'static/js/files/' + num + year + '.csv';
-
-                    d3.csv(file1).then(getCSV_Data);
-                }
-
-                function getCSV_Data(rows) {
-                    let trace1 = {};
-                    trace1.type = "choropleth";
-                    trace1.locationmode = "country names";
-                    trace1.locations = unpack(rows, 'country');
-                    trace1.z = unpack(rows, 'value');
-                    trace1.text = unpack(rows, 'country');
-                    trace1.autocolorscale = true;
-
-                    let data = [trace1];
-
-                    let layout = {
-                        title: 'Country vs People in 2022',
-                        margin: {
-                            t: 50,
-                            l: 0,
-                            r: 0,
-                            b: 0,
-                        },
-                        geo: {
-                            projection: {
-                                type: 'robinson'
-                            }
-                        }
-                    };
-
-                    Plotly.newPlot(myGraph10, data, layout);
-                }
-
-            </script>
+                    <i class='bx bx-wink-tongue bx-tada bx-lg'></i>
+                    <i class='bx bx-wink-smile bx-tada bx-lg'></i>
+                    <i class='bx bx-tired bx-tada bx-lg'></i>
+                    <i class='bx bx-sad bx-tada bx-lg'></i>
+                    <i class='bx bx-shocked bx-tada bx-lg'></i>
+                    <i class='bx bx-meh-blank bx-tada bx-lg'></i>
+                    <i class='bx bx-meh-alt bx-tada bx-lg'></i>
+                    <i class='bx bx-meh bx-tada bx-lg'></i>
+                    <i class='bx bx-laugh bx-tada bx-lg'></i>
+                    <i class='bx bx-happy-heart-eyes-tada bx-lg'></i>
+                    <i class='bx bx-happy-beaming bx-tada bx-lg'></i>
+                    <i class='bx bx-happy-alt bx-tada bx-lg'></i>
+                    <i class='bx bx-dizzy bx-tada bx-lg'></i>
+                    <i class='bx bx-cool bx-tada bx-lg'></i>
+                    <i class='bx bx-confused bx-tada bx-lg'></i>
+                    <i class='bx bx-angry bx-tada bx-lg'></i>
+                    <br><br>
+                    <p id="text1"></p> <!-- 設一個text，不同id -->
+                    <p id="text2"></p>
+                    <p id="text3"></p>
+                    <hr /><br>
+                    <p id="text4"></p>
+                    <p id="text5"></p>
+                    <p id="text6"></p>
+                </header>
+            </section>
         </div>
 
         <ul class="actions special">
             <li><a href="/home" class="button">返回</a></li>
         </ul>
-
     </div>
 
     <!-- Scripts -->
-    <link rel="stylesheet" href="{{url_for('static', filename='js/jquery.min.js')}}" />
-    <link rel="stylesheet" href="{{url_for('static', filename='js/browser.min.js')}}" />
-    <link rel="stylesheet" href="{{url_for('static', filename='js/breakpoints.min.js')}}" />
-    <link rel="stylesheet" href="{{url_for('static', filename='js/util.js')}}" />
-    <link rel="stylesheet" href="{{url_for('static', filename='js/main.js')}}" />
-
-
+    <script src="{{url_for('static', filename='js/jquery.min.js')}}"></script>
+    <script src="{{url_for('static', filename='js/browser.min.js')}}"></script>
+    <script src="{{url_for('static', filename='js/breakpoints.min.js')}}"></script>
+    <script src="{{url_for('static', filename='js/util.js')}}"></script>
+    <script src="{{url_for('static', filename='js/main.js')}}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
 
 </body>
 
