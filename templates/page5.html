@@ -53,8 +53,10 @@
                 </div>
             </div>
             <div id="myGraph10"></div>
+            <div id="myGraph11"></div>
             <script>
                 let myGraph10 = document.getElementById('myGraph10');
+                let myGraph11 = document.getElementById('myGraph11');
 
                 document.getElementById("year").addEventListener("change", updateGraph);
                 document.getElementById("data3").addEventListener("change", updateGraph);
@@ -107,6 +109,127 @@
                     };
                     Plotly.newPlot(myGraph10, data, layout);
                 }
+
+                d3.csv("static/js/files/country_c.csv", function (err, rows) {
+
+                    function filter_and_unpack(rows, key, year) {
+                        console.log(typeof(year));
+                        console.log(typeof(row['year']));
+                        return rows.filter(row => row['year'] == year).map(row => row[key])
+                    }
+
+                    var frames = []
+                    var slider_steps = []
+
+                    var num = 2011;
+                    for (var i = 0; i < 12; i++) {
+                        var z = filter_and_unpack(rows, 'value', num)
+                        var locations = filter_and_unpack(rows, 'country', num)
+                        frames[i] = { data: [{ z: z, locations: locations, text: locations }], name: num }
+                        slider_steps.push({
+                            label: num.toString(),
+                            method: "animate",
+                            args: [[num], {
+                                mode: "immediate",
+                                transition: { duration: 300 },
+                                frame: { duration: 300 }
+                            }
+                            ]
+                        })
+                        num += 1;
+                    }
+
+                    var data = [{
+                        type: 'choropleth',
+                        locationmode: 'world',
+                        locations: frames[0].data[0].locations,
+                        z: frames[0].data[0].z,
+                        text: frames[0].data[0].locations,
+                        zauto: false,
+                        zmin: 30,
+                        zmax: 90
+
+                    }];
+                    var layout = {
+                        title: '世界富豪分布2011~2022',
+                        geo: {
+                            scope: 'world',
+                            countrycolor: 'rgb(255, 255, 255)',
+                            showland: true,
+                            landcolor: 'rgb(217, 217, 217)',
+                            showlakes: true,
+                            lakecolor: 'rgb(255, 255, 255)',
+                            subunitcolor: 'rgb(255, 255, 255)',
+                            lonaxis: {},
+                            lataxis: {}
+                        },
+                        updatemenus: [{
+                            x: 0.1,
+                            y: 0,
+                            yanchor: "top",
+                            xanchor: "right",
+                            showactive: false,
+                            direction: "left",
+                            type: "buttons",
+                            pad: { "t": 87, "r": 10 },
+                            buttons: [{
+                                method: "animate",
+                                args: [null, {
+                                    fromcurrent: true,
+                                    transition: {
+                                        duration: 200,
+                                    },
+                                    frame: {
+                                        duration: 500
+                                    }
+                                }],
+                                label: "Play"
+                            }, {
+                                method: "animate",
+                                args: [
+                                    [null],
+                                    {
+                                        mode: "immediate",
+                                        transition: {
+                                            duration: 0
+                                        },
+                                        frame: {
+                                            duration: 0
+                                        }
+                                    }
+                                ],
+                                label: "Pause"
+                            }]
+                        }],
+                        sliders: [{
+                            active: 0,
+                            steps: slider_steps,
+                            x: 0.1,
+                            len: 0.9,
+                            xanchor: "left",
+                            y: 0,
+                            yanchor: "top",
+                            pad: { t: 50, b: 10 },
+                            currentvalue: {
+                                visible: true,
+                                prefix: "Year:",
+                                xanchor: "right",
+                                font: {
+                                    size: 20,
+                                    color: "#666"
+                                }
+                            },
+                            transition: {
+                                duration: 300,
+                                easing: "cubic-in-out"
+                            }
+                        }]
+                    };
+
+                    Plotly.newPlot(myGraph11, data, layout).then(function () {
+                        Plotly.addFrames(myGraph11, frames);
+                    });
+                })
             </script>
         </div>
 
