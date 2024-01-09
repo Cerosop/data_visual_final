@@ -82,3 +82,7 @@ table.default2 thead {
 #Table2 td:nth-child(2) {
   width: 100px; /* 你可以根據需要調整固定的寬度 */
 }
+
+.hidden-text {
+	display: none;
+}
