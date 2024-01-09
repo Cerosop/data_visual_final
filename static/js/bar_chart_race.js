@@ -12,9 +12,33 @@ function _data(FileAttachment) {
 }
 
 function _replay(html) {
-  return (
-    html`<button>Replay`
-  )
+  return html`
+    <button style="background-color: rgba(232, 159, 123, 1);
+    -moz-appearance: none;
+		-webkit-appearance: none;
+		-ms-appearance: none;
+		appearance: none;
+		-moz-transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+		-webkit-transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+		-ms-transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+		transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+		border-radius: 2px;
+		border: 0;
+		color: #ffffff;
+		cursor: pointer;
+		display: inline-block;
+		font-size: 0.9em;
+		font-weight: 700;
+		letter-spacing: 0.125em;
+		line-height: 2.5em;
+		min-width: 8em;
+		padding: 0 1.5em;
+		text-align: center;
+		text-decoration: none;
+		text-transform: uppercase;">
+      Replay
+    </button>
+  `;
 }
 
 async function* _chart(replay, d3, width, height, bars, axis, labels, ticker, keyframes, duration, x, invalidation) {
