@@ -66,10 +66,26 @@
                     </select>
                 </div>
             </div>
+            <div id="res3" style="display: none;">{{res}}</div>
+            <div id="myGraph3"></div>
             <script>
+                let res3 = JSON.parse(document.getElementById('res3').innerHTML);
+                let myGraph3 = document.getElementById('myGraph3');
+                
                 var year_3_1Dropdown = document.getElementById("year_3_1");
                 var xDropdown = document.getElementById("x");
                 var yDropdown = document.getElementById("y");
+
+                document.getElementById("year_3_1").addEventListener("change", handleSelectionChange2);
+                document.getElementById("x").addEventListener("change", handleSelectionChange2);
+                document.getElementById("y").addEventListener("change", handleSelectionChange2);
+
+                window.addEventListener('load', function () {
+                    updateGraph2();
+                });
+                window.addEventListener('resize', function () {
+                    updateGraph2();
+                });
 
                 function handleSelectionChange2() {
                     var selectedYear_3_1 = year_3_1Dropdown.options[year_3_1Dropdown.selectedIndex].value;
@@ -166,22 +182,6 @@
                     data.push(trace1);
                     Plotly.newPlot(myGraph3, data, layout);
                 }
-
-                document.getElementById("year_3_1").addEventListener("change", handleSelectionChange2);
-                document.getElementById("x").addEventListener("change", handleSelectionChange2);
-                document.getElementById("y").addEventListener("change", handleSelectionChange2);
-                window.addEventListener('load', function () {
-                    updateGraph2();
-                });
-                window.addEventListener('resize', function () {
-                    updateGraph2();
-                });
-            </script>
-            <div id="res3" style="display: none;">{{res}}</div>
-            <div id="myGraph3"></div>
-            <script>
-                let res3 = JSON.parse(document.getElementById('res3').innerHTML);
-                let myGraph3 = document.getElementById('myGraph3');
             </script>
         </div>
         <ul class="actions special">
