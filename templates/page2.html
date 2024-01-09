@@ -123,7 +123,7 @@
                         }
                     }
                     console.log(data2);
-                    var myColor = d3.scaleSequential(d3.interpolateCool).domain([1, data2.length]);
+                    var myColor = d3.scaleSequential(d3.interpolateOrRd).domain([1, data2.length]);
                     // https://d3js.org/d3-scale-chromatic  https://observablehq.com/@d3/color-schemes 顏色可選
 
                     let trace1 = {};
