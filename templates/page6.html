@@ -90,7 +90,7 @@
 
                                                 if (a[0]) {
                                                     var text1 = document.getElementById("text1");
-                                                    text1.innerHTML = "你和" + Age + "中最有錢的<b>" + a[1][0] + "</b>差了<b>" + (a[1][1] * 1000000000 - yourMoney) + "</b>美元啦";
+                                                    text1.innerHTML = "你和" + Age + "中最有錢的<b>" + a[1][0] + "</b>差了<b>" + (a[1][1] * 1000000000 - yourMoney).toLocaleString() + "</b>美元啦";
 
                                                     var text2 = document.getElementById("text2");
                                                     text2.innerHTML = Age + "中有<b>" + a[0] + "</b>人已經是億萬富豪了，請再加油";
@@ -100,11 +100,11 @@
                                                 }
 
                                                 var text3 = document.getElementById("text3");
-                                                text3.innerHTML = "再活<b>" + Math.round((1000000000 - yourMoney) / (yourMoney / yourAge)) + "</b>年你才有辦法成為億萬富豪喔!";
+                                                text3.innerHTML = "再活<b>" + Math.round((1000000000 - yourMoney) / (yourMoney / yourAge)).toLocaleString() + "</b>年你才有辦法成為億萬富豪喔!";
 
                                                 if (a[2]) {
                                                     var text4 = document.getElementById("text4");
-                                                    text4.innerHTML = "你和" + Continent + "最有錢的<b>" + a[3][0] + "</b>差了<b>" + (a[3][1] * 1000000000 - yourMoney) + "</b>應該是美元吧";
+                                                    text4.innerHTML = "你和" + Continent + "最有錢的<b>" + a[3][0] + "</b>差了<b>" + (a[3][1] * 1000000000 - yourMoney).toLocaleString() + "</b>應該是美元吧";
 
                                                     var text5 = document.getElementById("text5");
                                                     text5.innerHTML = Continent + "有<b>" + a[2] + "</b>人已經是億萬富豪了，請再加油";
