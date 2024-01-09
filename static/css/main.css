@@ -2716,7 +2716,7 @@ input, select, textarea {
 		text-align: center;
 	}
 
-		#header:before, #header:after {
+		/*#header:before,*/ #header:after {
 			background: rgba(224, 224, 224, 0.75);
 			content: '';
 			left: 50%;
@@ -2725,11 +2725,11 @@ input, select, textarea {
 			z-index: 0;
 		}
 
-		#header:before {
+		/* #header:before {
 			height: calc(100% - 50px);
 			opacity: 0.15;
 			top: 0;
-		}
+		} */
 
 		#header:after {
 			bottom: 0;
