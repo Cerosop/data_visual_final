@@ -2,12 +2,8 @@ import sqlite3 as lite
 import pandas as pd
 con = lite.connect('mydb.db')
 
-dict = []
-for y in range(2011, 2023):
-    d = {'country': [], 'value': []}
-    dict.append(d)
-    dict.append(d)
-    
+dict = [{'country': [], 'value': []} for y in range(24)]
+  
 with con:
     cur=con.cursor()
     for y in range(2011, 2023):
@@ -15,15 +11,17 @@ with con:
         cur.execute(f"select country, count(*), sum(money) from data where year = {y} group by country")
         con.commit()
         data = cur.fetchall()
+        print(data)
         
         for d in data:
+            if d[0] == ' N/A':
+                continue
             dict[i]['country'].append(d[0])
             dict[i]['value'].append(d[1])
-        
-        i += 1
-        for d in data:
-            dict[i]['country'].append(d[0])
-            dict[i]['value'].append(d[2])
+            dict[i + 1]['country'].append(d[0])
+            dict[i + 1]['value'].append(d[2])
+            
+print(dict)
             
 
 for i in range(2011, 2023):
