@@ -28,37 +28,17 @@
             <!-- 選單-->
             <div class="row">
                 <div class="col-12">
-                    <label for="year">選擇年分：</label>
-                    <select id="year">
-                        <option value="2011">2011</option>
-                        <option value="2012">2012</option>
-                        <option value="2013">2013</option>
-                        <option value="2014">2014</option>
-                        <option value="2015">2015</option>
-                        <option value="2016">2016</option>
-                        <option value="2017">2017</option>
-                        <option value="2018">2018</option>
-                        <option value="2019">2019</option>
-                        <option value="2020">2020</option>
-                        <option value="2021">2021</option>
-                        <option value="2022" selected>2022</option>
-                    </select>
-                </div>
-                <div class="col-12">
                     <label for="data3">選擇資料：</label>
                     <select id="data3">
-                        <option value="country_c_">富豪人數</option>
-                        <option value="country_m_" selected>資產</option>
+                        <option value="country_c">富豪人數</option>
+                        <option value="country_m" selected>資產</option>
                     </select>
                 </div>
             </div>
-            <div id="myGraph10"></div>
+            &nbsp
             <div id="myGraph11"></div>
             <script>
-                // let myGraph10 = document.getElementById('myGraph10');
                 let myGraph11 = document.getElementById('myGraph11');
-
-                document.getElementById("year").addEventListener("change", updateGraph);
                 document.getElementById("data3").addEventListener("change", updateGraph);
 
                 window.addEventListener('load', function () {
@@ -68,50 +48,14 @@
                     updateGraph();
                 });
 
-                // function unpack(rows, key) {
-                //     return rows.map(function (row) {
-                //         return row[key];
-                //     });
-                // }
-
-                // function updateGraph() {
-                //     let year = document.getElementById("year").value;
-                //     let num = document.getElementById("data3").value;
-                //     let file1 = 'static/js/files/' + num + year + '.csv';
-
-                //     d3.csv(file1).then(getCSV_Data);
-                // }
-
-                // function getCSV_Data(rows) {
-                //     let trace1 = {};
-                //     trace1.type = "choropleth";
-                //     trace1.locationmode = "country names";
-                //     trace1.locations = unpack(rows, 'country');
-                //     trace1.z = unpack(rows, 'value');
-                //     trace1.text = unpack(rows, 'country');
-                //     trace1.autocolorscale = true;
-
-                //     let data = [trace1];
-
-                //     let layout = {
-                //         title: 'Country vs People in 2022',
-                //         margin: {
-                //             t: 50,
-                //             l: 0,
-                //             r: 0,
-                //             b: 0,
-                //         },
-                //         geo: {
-                //             projection: {
-                //                 type: 'robinson'
-                //             }
-                //         }
-                //     };
-                //     Plotly.newPlot(myGraph10, data, layout);
-                // }
-
+                function updateGraph() {
+                    let num = document.getElementById("data3").value;
+                    let file1 = 'static/js/files/' + num + '.csv';
+                    d3.csv(file1).then(getCSV_Data2);
+                }
 
                 function getCSV_Data2(rows) {
+                    let choose = document.getElementById("data3").value;
                     function filter_and_unpack(rows, key, year) {
                         return rows.filter(row => row['year'] == year).map(row => row[key])
                     }
@@ -136,11 +80,21 @@
                         })
                         num += 1;
                     }
-                    console.log(frames)
 
-                    
                     var layout = {
-                        title: '世界富豪分布2011~2022',
+                        title: {
+                            text: '世界富豪分布 2011~2022',
+                            font: {
+                                size: 20,
+                                family: "Arial"
+                            }
+                        },
+                        margin:{
+                            t:50,
+                            l:0,
+                            r:0,
+                            b:0
+                        },
                         geo: {
                             scope: 'world',
                             countrycolor: 'rgb(255, 255, 255)',
@@ -217,23 +171,26 @@
                             }
                         }]
                     };
-
                     data = [{
-                            type: 'choropleth',
-                            locationmode: "country names",
-                            autocolorscale: true,
-                            locations: frames[0].data[0].locations,
-                            z: frames[0].data[0].z,
-                            text: frames[0].data[0].locations,
-                            zauto: true,
-                        }]
+                        type: 'choropleth',
+                        locationmode: "country names",
+                        autocolorscale: true,
+                        locations: frames[0].data[0].locations,
+                        z: frames[0].data[0].z,
+                        text: frames[0].data[0].locations,
+                        zauto: false,
+                        zmin: 0,
+                        zmax: 4500
+                    }]
+                    if(choose == "country_c"){
+                        data[0].zmax = 800;
+                    }
 
                     Plotly.newPlot(myGraph11, data, layout).then(function () {
                         Plotly.addFrames(myGraph11, frames);
                     });
                 }
 
-                d3.csv("static/js/files/country_c.csv").then(getCSV_Data2);
             </script>
         </div>
 
