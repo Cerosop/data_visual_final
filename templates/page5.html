@@ -110,11 +110,11 @@
                     Plotly.newPlot(myGraph10, data, layout);
                 }
 
-                d3.csv("static/js/files/country_c.csv", function (err, rows) {
+
+                function getCSV_Data2(rows) {
+                    console.log(rows)
 
                     function filter_and_unpack(rows, key, year) {
-                        console.log(typeof(year));
-                        console.log(typeof(row['year']));
                         return rows.filter(row => row['year'] == year).map(row => row[key])
                     }
 
@@ -138,18 +138,9 @@
                         })
                         num += 1;
                     }
+                    console.log(frames)
 
-                    var data = [{
-                        type: 'choropleth',
-                        locationmode: 'world',
-                        locations: frames[0].data[0].locations,
-                        z: frames[0].data[0].z,
-                        text: frames[0].data[0].locations,
-                        zauto: false,
-                        zmin: 30,
-                        zmax: 90
-
-                    }];
+                    
                     var layout = {
                         title: '世界富豪分布2011~2022',
                         geo: {
@@ -161,7 +152,10 @@
                             lakecolor: 'rgb(255, 255, 255)',
                             subunitcolor: 'rgb(255, 255, 255)',
                             lonaxis: {},
-                            lataxis: {}
+                            lataxis: {},
+                            projection: {
+                                type: 'robinson'
+                            }
                         },
                         updatemenus: [{
                             x: 0.1,
@@ -226,10 +220,22 @@
                         }]
                     };
 
+                    var data = [{
+                        type: 'choropleth',
+                        locationmode: 'world',
+                        locations: frames[0].data[0].locations,
+                        z: frames[0].data[0].z,
+                        text: frames[0].data[0].locations,
+                        zauto: false,
+
+                    }];
+
                     Plotly.newPlot(myGraph11, data, layout).then(function () {
                         Plotly.addFrames(myGraph11, frames);
                     });
-                })
+                }
+
+                d3.csv("static/js/files/country_c.csv").then(getCSV_Data2);
             </script>
         </div>
 
