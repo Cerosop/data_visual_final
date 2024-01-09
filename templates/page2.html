@@ -87,11 +87,11 @@
                     updateGraph();
                 }
 
-                function updateGraph(){
+                function updateGraph() {
                     var selectedYear = yearDropdown.options[yearDropdown.selectedIndex].value;
                     var selectedTopic1 = topic1Dropdown.options[topic1Dropdown.selectedIndex].value;
                     var selectedTopic2 = topic2Dropdown.options[topic2Dropdown.selectedIndex].value;
-                    
+
                     let data2 = [];
                     for (var k1 in res) {
                         for (var k2 in res[k1]) {
@@ -111,23 +111,24 @@
                     console.log(data2);
                     const colors = ['#8B008B', '#9932CC', '#9400D3', '#8A2BE2', '#800080', '#9370DB', '#AB83A1', '#BF94E4', '#8E388E', '#A74AC7'];
                     var myColor = d3.scaleSequential(d3.interpolateCool).domain([1, data2.length]);
-                    // https://d3js.org/d3-scale-chromatic 顏色可選
+                    // https://d3js.org/d3-scale-chromatic  https://observablehq.com/@d3/color-schemes 顏色可選
 
                     let trace1 = {};
                     trace1.type = "pie";
                     trace1.title = {
                         text: selectedYear + "年<br>各" + topic1Dropdown.options[topic1Dropdown.selectedIndex].text + topic2Dropdown.options[topic2Dropdown.selectedIndex].text,
-                        font:{
-                            size:15
+                        font: {
+                            size: 18,
+                            family: "Arial"
                         }
                     }
                     trace1.labels = [];
                     trace1.values = [];
                     trace1.marker = {
-                        colors : []
+                        colors: []
                     }
                     trace1.hole = 0.5;
-                    
+
 
                     for (let i = 0; i < data2.length; i++) {
                         if (selectedTopic1 == "age") {
@@ -144,7 +145,7 @@
                         }
                         trace1.values[i] = data2[i]['count'];
                         //trace1.marker.colors[i] = colors[i % colors.length];
-                        trace1.marker.colors[i] = myColor(i+1);
+                        trace1.marker.colors[i] = myColor(i + 1);
                     }
 
                     let data = [];
@@ -155,9 +156,9 @@
                             t: 50,
                         }
                     };
-                    Plotly.react(myGraph, data, layout, {transition: {duration: 500, easing: 'cubic-in-out'}});
+                    Plotly.react(myGraph, data, layout, { transition: { duration: 500, easing: 'cubic-in-out' } });
                 }
-                
+
                 document.getElementById("year1").addEventListener("change", handleSelectionChange);
                 document.getElementById("topic1").addEventListener("change", handleSelectionChange);
                 document.getElementById("topic2").addEventListener("change", handleSelectionChange);
