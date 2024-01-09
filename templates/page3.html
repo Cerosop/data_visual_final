@@ -83,17 +83,11 @@
                     var selectedY = yDropdown.options[yDropdown.selectedIndex].value;
 
                     if (selectedX === "money") {
-                        var moneyAveOption = document.querySelector('#y option[value="money ave"]');
-                        moneyAveOption.style.display = 'none';
-                        var moneyOption = document.querySelector('#y option[value="money"]');
-                        moneyOption.style.display = 'none';
+                        yDropdown.disabled = true;
                         yDropdown.value = "people";
                         selectedY = "people";
                     } else {
-                        var moneyAveOption = document.querySelector('#y option[value="money ave"]');
-                        moneyAveOption.style.display = 'block';
-                        var moneyOption = document.querySelector('#y option[value="money"]');
-                        moneyOption.style.display = 'block';
+                        yDropdown.disabled = false;
                     }
 
                     console.log("Selected End Year: " + selectedYear_3_1);
