@@ -120,7 +120,13 @@
                             l: 35,
                             r: 30,
                             b: 40
-                        }
+                        },
+                        title: {
+                            font: {
+                                size: 20,
+                                family: "Arial"
+                            }
+                        },
                     };
                     let trace1 = {};
                     trace1.type = "bar";
@@ -139,18 +145,18 @@
 
                             if (x_axis == "age") {
                                 trace1.x[i] = parseInt(res3[i][0]) * 5 + "~" + (parseInt(res3[i][0]) * 5 + 4);
-                                layout.title = year + "年各年齡分段" + y_axis;
+                                layout.title.text = year + "年各年齡分段" + y_axis;
                             } else if (x_axis == "money") {
                                 trace1.x[i] = parseInt(res3[i][0]) * 5 + "~" + (parseInt(res3[i][0]) * 5 + 4);
                                 layout.margin.b = 100;
-                                layout.title = year + "年各資產分段" + y_axis;
+                                layout.title.text = year + "年各資產分段" + y_axis;
                             } else if (x_axis == "work") {
                                 trace1.x[i] = res3[i][0];
                                 layout.margin.b = 100;
-                                layout.title = year + "年前二十名工作" + y_axis;
+                                layout.title.text = year + "年前二十名工作" + y_axis;
                             } else {
                                 trace1.x[i] = res3[i][0];
-                                layout.title = year + "年各洲" + y_axis;
+                                layout.title.text = year + "年各洲" + y_axis;
                             }
                             trace1.name[i] = trace1.x[i];
                             trace1.y[i] = res3[i][1];
