@@ -77,10 +77,13 @@ table.default2 thead {
 }
 
 #Table2 th:first-child,
-#Table2 td:first-child,
+#Table2 td:first-child {
+  width: 100px;/
+}
+
 #Table2 th:nth-child(2),
 #Table2 td:nth-child(2) {
-  width: 100px; /* 你可以根據需要調整固定的寬度 */
+  width: 150px;
 }
 
 .hidden-text {
