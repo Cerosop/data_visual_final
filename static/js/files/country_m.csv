@@ -1,0 +1,800 @@
+country,value,year
+Argentina,6,2011
+Australia,45,2011
+Austria,16,2011
+Belgium,8,2011
+Belize,1,2011
+Brazil,123,2011
+Canada,77,2011
+Chile,43,2011
+China,193,2011
+Colombia,18,2011
+Cyprus,11,2011
+Czech Republic,12,2011
+Denmark,8,2011
+Egypt,16,2011
+Finland,1,2011
+France,111,2011
+Germany,218,2011
+Greece,6,2011
+Hong Kong,143,2011
+India,231,2011
+Indonesia,30,2011
+Ireland,14,2011
+Israel,43,2011
+Italy,56,2011
+Japan,63,2011
+Kazakhstan,10,2011
+Kuwait,12,2011
+Lebanon,10,2011
+Malaysia,40,2011
+Mexico,123,2011
+Monaco,4,2011
+Netherlands,15,2011
+New Zealand,9,2011
+Nigeria,15,2011
+Norway,11,2011
+Philippines,10,2011
+Poland,5,2011
+Portugal,8,2011
+Romania,3,2011
+Russia,388,2011
+Saudi Arabia,51,2011
+Singapore,9,2011
+South Africa,15,2011
+South Korea,38,2011
+Spain,56,2011
+Sweden,70,2011
+Switzerland,37,2011
+Taiwan,52,2011
+Thailand,15,2011
+Turkey,54,2011
+Ukraine,30,2011
+United Arab Emirates,5,2011
+United Kingdom,82,2011
+United States,1368,2011
+Venezuela,7,2011
+Argentina,8,2012
+Australia,60,2012
+Austria,19,2012
+Belgium,5,2012
+Belize,1,2012
+Brazil,137,2012
+Canada,71,2012
+Chile,39,2012
+China,174,2012
+Colombia,22,2012
+Cyprus,12,2012
+Czech Republic,10,2012
+Denmark,10,2012
+Egypt,14,2012
+Finland,2,2012
+France,117,2012
+Georgia,6,2012
+Germany,229,2012
+Greece,6,2012
+Hong Kong,145,2012
+India,176,2012
+Indonesia,36,2012
+Ireland,19,2012
+Israel,34,2012
+Italy,71,2012
+Japan,65,2012
+Kazakhstan,6,2012
+Kuwait,5,2012
+Lebanon,11,2012
+Malaysia,42,2012
+Mexico,127,2012
+Monaco,4,2012
+Morocco,5,2012
+Netherlands,14,2012
+New Zealand,10,2012
+Nigeria,15,2012
+Norway,11,2012
+Peru,4,2012
+Philippines,16,2012
+Poland,6,2012
+Portugal,7,2012
+Romania,1,2012
+Russia,339,2012
+Saudi Arabia,48,2012
+Singapore,9,2012
+South Africa,16,2012
+South Korea,39,2012
+Spain,65,2012
+St. Kitts and Nevis,1,2012
+Sweden,73,2012
+Switzerland,35,2012
+Taiwan,51,2012
+Thailand,19,2012
+Turkey,46,2012
+Ukraine,29,2012
+United Arab Emirates,6,2012
+United Kingdom,87,2012
+United States,1474,2012
+Venezuela,7,2012
+Argentina,8,2013
+Australia,60,2013
+Austria,19,2013
+Belgium,5,2013
+Belize,1,2013
+Brazil,137,2013
+Canada,71,2013
+Chile,39,2013
+China,174,2013
+Colombia,22,2013
+Cyprus,12,2013
+Czech Republic,10,2013
+Denmark,10,2013
+Egypt,14,2013
+Finland,2,2013
+France,117,2013
+Georgia,6,2013
+Germany,229,2013
+Greece,6,2013
+Hong Kong,145,2013
+India,176,2013
+Indonesia,36,2013
+Ireland,19,2013
+Israel,34,2013
+Italy,71,2013
+Japan,65,2013
+Kazakhstan,6,2013
+Kuwait,5,2013
+Lebanon,11,2013
+Malaysia,42,2013
+Mexico,127,2013
+Monaco,4,2013
+Morocco,5,2013
+Netherlands,14,2013
+New Zealand,10,2013
+Nigeria,15,2013
+Norway,11,2013
+Peru,4,2013
+Philippines,16,2013
+Poland,6,2013
+Portugal,7,2013
+Romania,1,2013
+Russia,339,2013
+Saudi Arabia,48,2013
+Singapore,9,2013
+South Africa,16,2013
+South Korea,39,2013
+Spain,65,2013
+St. Kitts and Nevis,1,2013
+Sweden,73,2013
+Switzerland,35,2013
+Taiwan,51,2013
+Thailand,19,2013
+Turkey,46,2013
+Ukraine,29,2013
+United Arab Emirates,6,2013
+United Kingdom,87,2013
+United States,1474,2013
+Venezuela,7,2013
+Argentina,3,2014
+Australia,19,2014
+Austria,5,2014
+Belgium,5,2014
+Brazil,63,2014
+Canada,54,2014
+Chile,26,2014
+China,121,2014
+Colombia,27,2014
+Czech Republic,4,2014
+Denmark,22,2014
+Egypt,12,2014
+Eswatini,3,2014
+Finland,3,2014
+France,114,2014
+Germany,156,2014
+Greece,7,2014
+Guernsey,2,2014
+Hong Kong,59,2014
+India,69,2014
+Indonesia,17,2014
+Ireland,18,2014
+Israel,26,2014
+Italy,65,2014
+Japan,65,2014
+Kazakhstan,4,2014
+Kuwait,2,2014
+Lebanon,8,2014
+Malaysia,19,2014
+Mexico,100,2014
+Monaco,3,2014
+Morocco,3,2014
+Netherlands,17,2014
+New Zealand,9,2014
+Nigeria,31,2014
+Norway,13,2014
+Peru,2,2014
+Philippines,14,2014
+Poland,4,2014
+Russia,204,2014
+Saudi Arabia,27,2014
+Singapore,9,2014
+South Africa,17,2014
+South Korea,30,2014
+Spain,87,2014
+St. Kitts and Nevis,1,2014
+Sweden,63,2014
+Switzerland,40,2014
+Taiwan,38,2014
+Thailand,17,2014
+Turkey,12,2014
+Ukraine,16,2014
+United Arab Emirates,6,2014
+United Kingdom,41,2014
+United States,1066,2014
+Venezuela,1,2014
+Vietnam,1,2014
+Algeria,3,2015
+Angola,3,2015
+Argentina,9,2015
+Australia,60,2015
+Austria,26,2015
+Belgium,7,2015
+Brazil,164,2015
+Canada,116,2015
+Chile,34,2015
+China,484,2015
+Colombia,18,2015
+Cyprus,14,2015
+Czech Republic,13,2015
+Denmark,22,2015
+Egypt,21,2015
+Eswatini,3,2015
+Finland,7,2015
+France,236,2015
+Georgia,5,2015
+Germany,387,2015
+Greece,6,2015
+Guatemala,1,2015
+Guernsey,1,2015
+Hong Kong,222,2015
+Iceland,1,2015
+India,262,2015
+Indonesia,47,2015
+Ireland,27,2015
+Israel,48,2015
+Italy,139,2015
+Japan,88,2015
+Kazakhstan,9,2015
+Kuwait,5,2015
+Lebanon,12,2015
+Lithuania,1,2015
+Malaysia,44,2015
+Mexico,138,2015
+Monaco,3,2015
+Morocco,4,2015
+Nepal,1,2015
+Netherlands,24,2015
+New Zealand,9,2015
+Nigeria,22,2015
+Norway,21,2015
+Oman,2,2015
+Peru,7,2015
+Philippines,46,2015
+Poland,11,2015
+Portugal,7,2015
+Romania,2,2015
+Russia,307,2015
+Saudi Arabia,47,2015
+Singapore,47,2015
+South Africa,26,2015
+South Korea,67,2015
+Spain,108,2015
+St. Kitts and Nevis,1,2015
+Sweden,108,2015
+Switzerland,87,2015
+Taiwan,72,2015
+Tanzania,2,2015
+Thailand,46,2015
+Turkey,43,2015
+Uganda,1,2015
+Ukraine,10,2015
+United Arab Emirates,18,2015
+United Kingdom,147,2015
+United States,2348,2015
+Venezuela,8,2015
+Vietnam,1,2015
+Algeria,3,2016
+Angola,3,2016
+Argentina,8,2016
+Australia,51,2016
+Austria,27,2016
+Belgium,6,2016
+Brazil,120,2016
+Canada,100,2016
+Chile,26,2016
+China,504,2016
+Colombia,12,2016
+Cyprus,12,2016
+Czech Republic,15,2016
+Denmark,27,2016
+Egypt,11,2016
+Eswatini,3,2016
+Finland,9,2016
+France,197,2016
+Georgia,4,2016
+Germany,419,2016
+Greece,4,2016
+Guernsey,1,2016
+Hong Kong,215,2016
+Iceland,1,2016
+India,221,2016
+Indonesia,43,2016
+Ireland,27,2016
+Israel,42,2016
+Italy,136,2016
+Japan,77,2016
+Kazakhstan,8,2016
+Lebanon,10,2016
+Liechtenstein,2,2016
+Malaysia,36,2016
+Mexico,95,2016
+Monaco,5,2016
+Morocco,2,2016
+Nepal,1,2016
+Netherlands,24,2016
+New Zealand,8,2016
+Nigeria,28,2016
+Norway,22,2016
+Oman,1,2016
+Peru,3,2016
+Philippines,38,2016
+Poland,6,2016
+Portugal,7,2016
+Qatar,2,2016
+Romania,1,2016
+Russia,255,2016
+Saudi Arabia,32,2016
+Singapore,39,2016
+South Africa,19,2016
+South Korea,64,2016
+Spain,107,2016
+Sweden,101,2016
+Switzerland,80,2016
+Taiwan,46,2016
+Tanzania,1,2016
+Thailand,38,2016
+Turkey,38,2016
+Ukraine,6,2016
+United Arab Emirates,17,2016
+United Kingdom,140,2016
+United States,2189,2016
+Venezuela,6,2016
+Vietnam,1,2016
+Algeria,3,2017
+Angola,3,2017
+Argentina,11,2017
+Australia,79,2017
+Austria,27,2017
+Belgium,5,2017
+Brazil,153,2017
+Canada,117,2017
+Chile,34,2017
+China,697,2017
+Colombia,16,2017
+Cyprus,14,2017
+Czech Republic,22,2017
+Denmark,36,2017
+Egypt,14,2017
+Eswatini,3,2017
+Finland,10,2017
+France,228,2017
+Georgia,4,2017
+Germany,423,2017
+Greece,5,2017
+Guernsey,1,2017
+Hong Kong,246,2017
+Iceland,1,2017
+India,284,2017
+Indonesia,44,2017
+Ireland,31,2017
+Israel,47,2017
+Italy,134,2017
+Japan,103,2017
+Kazakhstan,9,2017
+Kuwait,4,2017
+Lebanon,7,2017
+Liechtenstein,2,2017
+Macao,1,2017
+Malaysia,41,2017
+Mexico,110,2017
+Monaco,5,2017
+Morocco,3,2017
+Nepal,1,2017
+Netherlands,27,2017
+New Zealand,10,2017
+Nigeria,18,2017
+Norway,27,2017
+Oman,6,2017
+Peru,6,2017
+Philippines,40,2017
+Poland,8,2017
+Portugal,9,2017
+Qatar,3,2017
+Romania,1,2017
+Russia,356,2017
+Saudi Arabia,38,2017
+Singapore,51,2017
+Slovakia,1,2017
+South Africa,24,2017
+South Korea,78,2017
+Spain,115,2017
+St. Kitts and Nevis,4,2017
+Sweden,110,2017
+Switzerland,92,2017
+Taiwan,66,2017
+Tanzania,1,2017
+Thailand,55,2017
+Turkey,39,2017
+Ukraine,9,2017
+United Arab Emirates,25,2017
+United Kingdom,143,2017
+United States,2532,2017
+Venezuela,4,2017
+Vietnam,3,2017
+Algeria,4,2018
+Angola,2,2018
+Argentina,12,2018
+Australia,103,2018
+Austria,41,2018
+Belgium,8,2018
+Brazil,163,2018
+Canada,130,2018
+Chile,37,2018
+China,983,2018
+Colombia,17,2018
+Cyprus,15,2018
+Czech Republic,27,2018
+Denmark,40,2018
+Egypt,15,2018
+Eswatini,4,2018
+Finland,12,2018
+France,306,2018
+Georgia,4,2018
+Germany,525,2018
+Greece,8,2018
+Guernsey,2,2018
+Hong Kong,310,2018
+Hungary,1,2018
+Iceland,2,2018
+India,394,2018
+Indonesia,65,2018
+Ireland,35,2018
+Israel,49,2018
+Italy,151,2018
+Japan,125,2018
+Kazakhstan,13,2018
+Kuwait,4,2018
+Lebanon,10,2018
+Liechtenstein,3,2018
+Macao,1,2018
+Malaysia,56,2018
+Mexico,134,2018
+Monaco,5,2018
+Morocco,3,2018
+Nepal,1,2018
+Netherlands,30,2018
+New Zealand,12,2018
+Nigeria,20,2018
+Norway,32,2018
+Oman,4,2018
+Peru,8,2018
+Philippines,50,2018
+Poland,11,2018
+Portugal,5,2018
+Qatar,2,2018
+Romania,1,2018
+Russia,372,2018
+Singapore,55,2018
+Slovakia,1,2018
+South Africa,19,2018
+South Korea,108,2018
+Spain,125,2018
+St. Kitts and Nevis,3,2018
+Sweden,111,2018
+Switzerland,108,2018
+Taiwan,68,2018
+Tanzania,1,2018
+Thailand,84,2018
+Turkey,50,2018
+Ukraine,11,2018
+United Arab Emirates,20,2018
+United Kingdom,179,2018
+United States,2859,2018
+Venezuela,5,2018
+Vietnam,9,2018
+Zimbabwe,1,2018
+Algeria,4,2019
+Angola,2,2019
+Argentina,12,2019
+Australia,103,2019
+Austria,41,2019
+Belgium,8,2019
+Brazil,163,2019
+Canada,130,2019
+Chile,37,2019
+China,983,2019
+Colombia,17,2019
+Cyprus,15,2019
+Czech Republic,27,2019
+Denmark,40,2019
+Egypt,15,2019
+Eswatini,4,2019
+Finland,12,2019
+France,306,2019
+Georgia,4,2019
+Germany,525,2019
+Greece,8,2019
+Guernsey,2,2019
+Hong Kong,310,2019
+Hungary,1,2019
+Iceland,2,2019
+India,394,2019
+Indonesia,65,2019
+Ireland,35,2019
+Israel,49,2019
+Italy,151,2019
+Japan,125,2019
+Kazakhstan,13,2019
+Kuwait,4,2019
+Lebanon,10,2019
+Liechtenstein,3,2019
+Macao,1,2019
+Malaysia,56,2019
+Mexico,134,2019
+Monaco,5,2019
+Morocco,3,2019
+Nepal,1,2019
+Netherlands,30,2019
+New Zealand,12,2019
+Nigeria,20,2019
+Norway,32,2019
+Oman,4,2019
+Peru,8,2019
+Philippines,50,2019
+Poland,11,2019
+Portugal,5,2019
+Qatar,2,2019
+Romania,1,2019
+Russia,372,2019
+Singapore,55,2019
+Slovakia,1,2019
+South Africa,19,2019
+South Korea,108,2019
+Spain,125,2019
+St. Kitts and Nevis,3,2019
+Sweden,111,2019
+Switzerland,108,2019
+Taiwan,68,2019
+Tanzania,1,2019
+Thailand,84,2019
+Turkey,50,2019
+Ukraine,11,2019
+United Arab Emirates,20,2019
+United Kingdom,179,2019
+United States,2859,2019
+Venezuela,5,2019
+Vietnam,9,2019
+Zimbabwe,1,2019
+Algeria,4,2020
+Angola,1,2020
+Argentina,8,2020
+Australia,120,2020
+Austria,48,2020
+Belgium,9,2020
+Brazil,133,2020
+Canada,150,2020
+Chile,23,2020
+China,1224,2020
+Colombia,13,2020
+Cyprus,15,2020
+Czechia,35,2020
+Denmark,43,2020
+Egypt,16,2020
+Eswatini,4,2020
+Finland,11,2020
+France,402,2020
+Georgia,4,2020
+Germany,489,2020
+Greece,4,2020
+Guernsey,2,2020
+Hong Kong,304,2020
+Hungary,2,2020
+Iceland,2,2020
+India,337,2020
+Indonesia,59,2020
+Ireland,36,2020
+Israel,51,2020
+Italy,140,2020
+Japan,147,2020
+Kazakhstan,10,2020
+Kuwait,1,2020
+Lebanon,9,2020
+Liechtenstein,3,2020
+Macao,2,2020
+Malaysia,50,2020
+Mexico,110,2020
+Monaco,4,2020
+Morocco,2,2020
+Nepal,1,2020
+Netherlands,33,2020
+New Zealand,14,2020
+Nigeria,16,2020
+Norway,25,2020
+Oman,2,2020
+Peru,7,2020
+Philippines,27,2020
+Poland,11,2020
+Portugal,4,2020
+Qatar,1,2020
+Romania,2,2020
+Russia,428,2020
+Singapore,97,2020
+Slovakia,2,2020
+South Africa,15,2020
+South Korea,82,2020
+Spain,107,2020
+St. Kitts and Nevis,2,2020
+Sweden,129,2020
+Switzerland,99,2020
+Taiwan,70,2020
+Tanzania,1,2020
+Thailand,82,2020
+Turkey,32,2020
+Ukraine,9,2020
+United Arab Emirates,9,2020
+United Kingdom,173,2020
+United States,3234,2020
+Venezuela,3,2020
+Vietnam,12,2020
+Zimbabwe,1,2020
+Algeria,4,2021
+Argentina,14,2021
+Australia,164,2021
+Austria,57,2021
+Belgium,12,2021
+Brazil,181,2021
+Canada,203,2021
+Chile,39,2021
+China,2272,2021
+Colombia,24,2021
+Cyprus,17,2021
+Czechia,38,2021
+Denmark,57,2021
+Egypt,16,2021
+Eswatini,4,2021
+Finland,14,2021
+France,494,2021
+Georgia,7,2021
+Germany,568,2021
+Greece,12,2021
+Guernsey,2,2021
+Hong Kong,417,2021
+Hungary,2,2021
+Iceland,3,2021
+India,536,2021
+Indonesia,77,2021
+Ireland,39,2021
+Israel,64,2021
+Italy,184,2021
+Japan,208,2021
+Kazakhstan,14,2021
+Lebanon,9,2021
+Liechtenstein,5,2021
+Macao,3,2021
+Malaysia,60,2021
+Mexico,130,2021
+Monaco,4,2021
+Morocco,2,2021
+Nepal,1,2021
+Netherlands,38,2021
+New Zealand,10,2021
+Nigeria,21,2021
+Norway,33,2021
+Oman,2,2021
+Peru,10,2021
+Philippines,41,2021
+Poland,18,2021
+Portugal,6,2021
+Qatar,2,2021
+Romania,7,2021
+Russia,540,2021
+Singapore,147,2021
+Slovakia,2,2021
+South Africa,21,2021
+South Korea,108,2021
+Spain,125,2021
+St. Kitts and Nevis,1,2021
+Sweden,164,2021
+Switzerland,128,2021
+Taiwan,97,2021
+Tanzania,1,2021
+Thailand,95,2021
+Turkey,45,2021
+Ukraine,15,2021
+United Arab Emirates,9,2021
+United Kingdom,188,2021
+United States,4100,2021
+Venezuela,3,2021
+Vietnam,14,2021
+Zimbabwe,1,2021
+Algeria,5,2022
+Argentina,10,2022
+Australia,192,2022
+Austria,57,2022
+Barbados,1,2022
+Belgium,11,2022
+Belize,3,2022
+Brazil,160,2022
+Bulgaria,4,2022
+Canada,288,2022
+Chile,34,2022
+China,1742,2022
+Colombia,22,2022
+Cyprus,19,2022
+Czechia,44,2022
+Denmark,55,2022
+Egypt,16,2022
+Estonia,1,2022
+Eswatini,5,2022
+Finland,10,2022
+France,531,2022
+Georgia,5,2022
+Germany,551,2022
+Greece,13,2022
+Guernsey,2,2022
+Hong Kong,357,2022
+Hungary,2,2022
+Iceland,3,2022
+India,680,2022
+Indonesia,104,2022
+Ireland,50,2022
+Israel,102,2022
+Italy,172,2022
+Japan,141,2022
+Kazakhstan,15,2022
+Lebanon,11,2022
+Liechtenstein,2,2022
+Macao,1,2022
+Malaysia,55,2022
+Mexico,154,2022
+Monaco,14,2022
+Morocco,3,2022
+Nepal,1,2022
+Netherlands,33,2022
+New Zealand,12,2022
+Nigeria,27,2022
+Norway,36,2022
+Oman,2,2022
+Peru,7,2022
+Philippines,37,2022
+Poland,18,2022
+Portugal,4,2022
+Qatar,3,2022
+Romania,7,2022
+Russia,269,2022
+Singapore,96,2022
+Slovakia,2,2022
+South Africa,22,2022
+South Korea,93,2022
+Spain,105,2022
+St. Kitts and Nevis,1,2022
+Sweden,146,2022
+Switzerland,162,2022
+Taiwan,129,2022
+Tanzania,1,2022
+Thailand,85,2022
+Turkey,31,2022
+Ukraine,10,2022
+United Arab Emirates,21,2022
+United Kingdom,181,2022
+United States,4393,2022
+Uruguay,2,2022
+Venezuela,3,2022
+Vietnam,18,2022
+Zimbabwe,3,2022
