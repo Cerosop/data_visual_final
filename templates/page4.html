@@ -96,10 +96,10 @@
 				document.getElementById("area").addEventListener("change", handleDropdownChange);
 				document.getElementById("sort2").addEventListener("change", handleDropdownChange);
 				document.getElementById("element").addEventListener("change", elementChange);
-				window.race_tojs = "name_m";
                 var innercache = document.getElementById("innercache");
                 var bar_inner = document.getElementById("bar-chart-race");
                 innercache.value = bar_inner.innerHTML;
+				window.race_tojs = "name_m";
 
 				function handleDropdownChange() {
 					var elementDropdown = document.getElementById("element");
