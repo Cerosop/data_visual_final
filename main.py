@@ -246,12 +246,16 @@ def preuse(cate, data_list):
     
 @app.route('/page4', methods=['GET', 'POST'])
 def page4():
-    # return render_template('pytest/run.html')
     return render_template('page4.html')
-
-
+    
+    
 @app.route('/page5', methods=['GET', 'POST'])
 def page5():
+    return render_template('page5.html')
+
+
+@app.route('/page6', methods=['GET', 'POST'])
+def page6():
     con = lite.connect('mydb.db')
     with con:
         cur=con.cursor()
@@ -275,11 +279,11 @@ def page5():
             print(a)
             print()
         # print(res)  
-        return render_template('page5.html', res = json.dumps(res))
+        return render_template('page6.html', res = json.dumps(res))
 
 
-@app.route('/page6', methods=['GET', 'POST'])
-def page6():
+@app.route('/page7', methods=['GET', 'POST'])
+def page7():
     con = lite.connect('mydb.db')
     if request.method == 'POST':
         age = request.get_json()['age']
@@ -323,12 +327,7 @@ def page6():
             data = {'data': res}
             return jsonify(data)
     else:     
-        return render_template('page6.html')
-    
-    
-@app.route('/page7', methods=['GET', 'POST'])
-def page7():
-    return render_template('page7.html')
+        return render_template('page7.html')
     
     
 if __name__ == '__main__':
