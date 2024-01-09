@@ -2,12 +2,15 @@
 <html>
 
 <head>
-    <title>3D散點圖</title>
+    <title>地圖</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+
     <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" />
     <link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}" />
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/inspector.css')}}">
     <script src="https://cdn.plot.ly/plotly-2.24.1.min.js"></script>
+    <script src="//unpkg.com/d3"></script>
 </head>
 
 <body class="is-preload">
@@ -15,122 +18,102 @@
     <!-- Header -->
     <div id="header">
         <span class="logo icon solid fa-dollar-sign"></span>
-        <h1>3D散點圖</h1>
+        <h1>地圖</h1>
     </div>
 
+    <!-- Main -->
     <div id="main">
+        <div id="res" style="display: none;">{{res}}</div>
         <div class="box container">
-            <header>
-                <h2>3D散點圖</h2>
-            </header>
-            <section>
-                <header>
-                    <p>3D散點圖被我們用來進比較資產、年紀與人數，因為是立體的，可以透過滑動來觀察其變化與分布，比其一般的2D的散佈圖他多了一個座標軸更方便比較。</p>
-                </header>
-            </section>
             <!-- 選單-->
             <div class="row">
                 <div class="col-12">
-                    <label for="graph">選擇圖表：</label>
-                    <select id="graph">
-                        <option value="0" selected>資產-年紀-富豪人數</option>
-                        <option value="1">年-資產-富豪人數</option>
-                        <option value="2">年-年紀-富豪人數</option>
+                    <label for="year">選擇年分：</label>
+                    <select id="year">
+                        <option value="2011">2011</option>
+                        <option value="2012">2012</option>
+                        <option value="2013">2013</option>
+                        <option value="2014">2014</option>
+                        <option value="2015">2015</option>
+                        <option value="2016">2016</option>
+                        <option value="2017">2017</option>
+                        <option value="2018">2018</option>
+                        <option value="2019">2019</option>
+                        <option value="2020">2020</option>
+                        <option value="2021">2021</option>
+                        <option value="2022" selected>2022</option>
+                    </select>
+                </div>
+                <div class="col-12">
+                    <label for="data3">選擇資料：</label>
+                    <select id="data3">
+                        <option value="country_c_">富豪人數</option>
+                        <option value="country_m_" selected>資產</option>
                     </select>
                 </div>
             </div>
-            &nbsp
-            <div id="res5" style="display: none;">{{res}}</div>
-            <div id="myGraph6"></div>
+            <div id="myGraph10"></div>
             <script>
-                let res5 = JSON.parse(document.getElementById('res5').innerHTML);
+                let myGraph10 = document.getElementById('myGraph10');
 
-                function callgraph() {
-                    let myGraph6 = document.getElementById('myGraph6');
-                    var selectedGraph = parseInt(graphSelect.options[graphSelect.selectedIndex].value);
-                    let layout2 = {
+                document.getElementById("year").addEventListener("change", updateGraph);
+                document.getElementById("data3").addEventListener("change", updateGraph);
+
+                window.addEventListener('load', function () {
+                    updateGraph();
+                });
+                window.addEventListener('resize', function () {
+                    updateGraph();
+                });
+
+                function unpack(rows, key) {
+                    return rows.map(function (row) {
+                        return row[key];
+                    });
+                }
+
+                function updateGraph() {
+                    let year = document.getElementById("year").value;
+                    let num = document.getElementById("data3").value;
+                    let file1 = 'static/js/files/' + num + year + '.csv';
+
+                    d3.csv(file1).then(getCSV_Data);
+                }
+
+                function getCSV_Data(rows) {
+                    let trace1 = {};
+                    trace1.type = "choropleth";
+                    trace1.locationmode = "country names";
+                    trace1.locations = unpack(rows, 'country');
+                    trace1.z = unpack(rows, 'value');
+                    trace1.text = unpack(rows, 'country');
+                    trace1.autocolorscale = true;
+
+                    let data = [trace1];
+
+                    let layout = {
+                        title: 'Country vs People in 2022',
                         margin: {
                             t: 50,
                             l: 0,
                             r: 0,
                             b: 0,
                         },
-                        showlegend: false,
-                        scene: {
-                            xaxis: {
-                                title: "資產",
-                            },
-                            yaxis: {
-                                title: "年紀",
-                            },
-                            zaxis: {
-                                title: "富豪人數"
-                            },
-                            aspectratio: {
-                                x: 1,
-                                y: 1,
-                                z: 1 
+                        geo: {
+                            projection: {
+                                type: 'robinson'
                             }
-                        },
-                        title: {
-                            text: "3D散點圖-資產-年紀-富豪人數",
-                            font: {
-                                size: 20,
-                                family: "Arial"
-                            }
-                        },
+                        }
                     };
-                    if (selectedGraph == 1) {
-                        layout2.scene.xaxis.title = "年";
-                        layout2.scene.yaxis.title = "資產";
-                        layout2.title.text = "3D散點圖-年-資產-富豪人數"
-                    } else if (selectedGraph == 2) {
-                        layout2.scene.xaxis.title = "年";
-                        layout2.scene.yaxis.title = "年紀";
-                        layout2.title.text = "3D散點圖-年-年紀-富豪人數"
-                    }
-                    var trace1 = {};
-                    trace1.mode = 'markers';
-                    trace1.type = 'scatter3d';
-                    trace1.marker = {
-                        size: 10,
-                        line: {
-                            color: 'rgba(217, 217, 217, 0.14)',
-                            width: 0.1
-                        },
-                        opacity: 0.8,
-                        colorscale: 'YlGnBu',
-                        color: [],
-                        showscale: false
-                    };
-                    trace1.x = [];
-                    trace1.y = [];
-                    trace1.z = [];
-                    for (let i = 0; i < res5[selectedGraph].length; i++) {
-                        trace1.x[i] = res5[selectedGraph][i][0];
-                        trace1.y[i] = res5[selectedGraph][i][1];
-                        trace1.z[i] = res5[selectedGraph][i][2];
-                        trace1.marker.color[i] = trace1.z[i];
-                    }
-                    data2 = [trace1];
-                    Plotly.react(myGraph6, data2, layout2);
+                    Plotly.newPlot(myGraph10, data, layout);
                 }
-                var graphSelect = document.getElementById("graph");
-                graphSelect.addEventListener("change", function () {
-                    callgraph();
-                });
-                window.addEventListener('load', function () {
-                    callgraph();
-                });
-                window.addEventListener('resize', function () {
-                    callgraph();
-                });
             </script>
         </div>
+
         <ul class="actions special">
             <li><a href="/home" class="button">返回</a></li>
         </ul>
-    </div>
+
     </div>
 
     <!-- Scripts -->
@@ -139,6 +122,8 @@
     <link rel="stylesheet" href="{{url_for('static', filename='js/breakpoints.min.js')}}" />
     <link rel="stylesheet" href="{{url_for('static', filename='js/util.js')}}" />
     <link rel="stylesheet" href="{{url_for('static', filename='js/main.js')}}" />
+
+
 
 </body>
 
