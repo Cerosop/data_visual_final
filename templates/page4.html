@@ -66,7 +66,41 @@
 				</div>
 			</div>
 			
-			<script>
+			&nbsp
+			<div id="bar-chart-race">
+				<script type="module" id = "module_js">
+					import define from "{{url_for('static', filename='js/bar_chart_race.js')}}";
+					import { Runtime, Library, Inspector } from "{{url_for('static', filename='js/runtime.js')}}";
+					var runtime = new Runtime();
+					var main = runtime.module(define, Inspector.into(document.getElementById('bar-chart-race')));
+				
+					window.restartScript = function() {
+						var barinner2 = document.getElementById("bar-chart-race");
+
+						var newContainer = document.createElement("div");
+						newContainer.style.display = 'none';
+
+						newContainer.innerHTML = bar_inner.value;
+
+						barinner2.innerHTML = "";
+
+						barinner2.appendChild(newContainer);
+						runtime = new Runtime();
+
+						main = runtime.module(define, Inspector.into(document.getElementById('bar-chart-race')));
+					};
+				</script>
+			</div>
+            <div id="innercache"></div>
+            <script>
+				document.getElementById("area").addEventListener("change", handleDropdownChange);
+				document.getElementById("sort2").addEventListener("change", handleDropdownChange);
+				document.getElementById("element").addEventListener("change", elementChange);
+				window.race_tojs = "name_m";
+                var innercache = document.getElementById("innercache");
+                var bar_inner = document.getElementById("bar-chart-race");
+                innercache.value = bar_inner.innerHTML;
+
 				function handleDropdownChange() {
 					var elementDropdown = document.getElementById("element");
 					var areaDropdown = document.getElementById("area");
@@ -120,50 +154,11 @@
 						areaDropdown.disabled = true;
 						areaDropdown.value = "no";
 					}
-
 					handleDropdownChange();
-				}
-
-				document.getElementById("area").addEventListener("change", handleDropdownChange);
-				document.getElementById("sort2").addEventListener("change", handleDropdownChange);
-				document.getElementById("element").addEventListener("change", elementChange);
-				window.race_tojs = "name_m";
-			</script>
-			&nbsp
-			<div id="bar-chart-race">
-				<script type="module" id = "module_js">
-					import define from "{{url_for('static', filename='js/bar_chart_race.js')}}";
-					import { Runtime, Library, Inspector } from "{{url_for('static', filename='js/runtime.js')}}";
-					var runtime = new Runtime();
-					var main = runtime.module(define, Inspector.into(document.getElementById('bar-chart-race')));
-				
-					window.restartScript = function() {
-						var barinner2 = document.getElementById("bar-chart-race");
-
-						var newContainer = document.createElement("div");
-						newContainer.style.display = 'none';
-
-						newContainer.innerHTML = bar_inner.value;
-
-						barinner2.innerHTML = "";
-
-						barinner2.appendChild(newContainer);
-						runtime = new Runtime();
-
-						main = runtime.module(define, Inspector.into(document.getElementById('bar-chart-race')));
-					};
-				</script>
-			</div>
-
-            <div id="innercache"></div>
-            <script>
-                var innercache = document.getElementById("innercache");
-                var bar_inner = document.getElementById("bar-chart-race");
-                innercache.value = bar_inner.innerHTML;
+				}	
             </script>
 		</div>
 			
-
 		<ul class="actions special">
 			<li><a href="/home" class="button">返回</a></li>
 		</ul>
