@@ -95,7 +95,7 @@
                                                     text1.innerHTML = "你和" + Age + "中最有錢的<b>" + a[1][0] + "</b>差了<b>" + (a[1][1] * 1000000000 - yourMoney).toLocaleString() + "</b>美元啦";
 
                                                     var text2 = document.getElementById("text2");
-                                                    text2.innerHTML = Age + "中有<b>" + a[0] + "</b>人已經是億萬富豪了，請再加油";
+                                                    text2.innerHTML = Age + "中有<b>" + a[0] + "</b>人已經是億萬富豪了，看看別人請再加油啦==";
                                                 } else {
                                                     var text1 = document.getElementById("text1");
                                                     text1.innerHTML = Age + "中沒有人是億萬富翁，祝你成為該年齡層的第一位億萬富豪";
@@ -106,13 +106,13 @@
 
                                                 if (a[2]) {
                                                     var text4 = document.getElementById("text4");
-                                                    text4.innerHTML = "你和" + Continent + "最有錢的<b>" + a[3][0] + "</b>差了<b>" + (a[3][1] * 1000000000 - yourMoney).toLocaleString() + "</b>應該是美元吧";
+                                                    text4.innerHTML = "你和" + Continent + "最有錢的<b>" + a[3][0] + "</b>差了<b>" + (a[3][1] * 1000000000 - yourMoney).toLocaleString() + "</b>甚至還是美元ㄟ，你好好看看別人吧!";
 
                                                     var text5 = document.getElementById("text5");
-                                                    text5.innerHTML = Continent + "有<b>" + a[2] + "</b>人已經是億萬富豪了，請再加油";
+                                                    text5.innerHTML = Continent + "有<b>" + a[2] + "</b>人已經是億萬富豪了，你該怎麼辦啦?好好上班吧!";
 
                                                     var text6 = document.getElementById("text6");
-                                                    text6.innerHTML = "進入" + Continent + "<b>" + a[4][0] + "</b>相關產業你就有機會賺取<b>" + a[4][1] + ",000,000,000</b>美元喔";
+                                                    text6.innerHTML = "進入" + Continent + "<b>" + a[4][0] + "</b>相關產業你就有機會賺取<b>" + a[4][1] + ",000,000,000</b>美元喔，但你還是別孝想啦!畢竟只會做白日夢呀哈哈!";
                                                 } else {
                                                     var text4 = document.getElementById("text4");
                                                     text4.innerHTML = "你成為" + Continent + "的第一位億萬富豪";
@@ -126,17 +126,17 @@
                                             });
                                     }
                                     else {
-                                        alert("白日夢還是免了吧");
+                                        alert("白日夢還是免了吧，你不可能這麼有錢啦，不然才不會留在台灣讀書咧!");
                                         document.getElementById("yourMoney").value = "";
                                     }
                                 }
                                 else {
-                                    alert("金錢請輸入整數");
+                                    alert("金錢請輸入整數，再亂輸就要沒錢了啦!");
                                     document.getElementById("yourMoney").value = "";
                                 }
                             }
                             else {
-                                alert("年齡請輸入正整數");
+                                alert("年齡請輸入正整數，連輸入都輸不好嗎?");
                                 document.getElementById("yourAge").value = "";
                             }
 
