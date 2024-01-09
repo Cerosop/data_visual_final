@@ -7,12 +7,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}" />
 	<link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" />
-	<link href="{{url_for('static', filename='css/aos.css')}}" rel="stylesheet">
-  	<link href="{{url_for('static', filename='css/boxicons.min.css')}}" rel="stylesheet">
+	<link href="{{url_for('static', filename='css/boxicons.min.css')}}" rel="stylesheet">
+	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+	<script src="https://unpkg.com/scrollreveal"></script>
 </head>
 
 <body class="is-preload">
-
 	<!-- Header -->
 	<div id="header">
 		<span class="logo icon solid fa-dollar-sign"></span>
@@ -27,7 +27,6 @@
 
 	<!-- Main -->
 	<div id="main">
-
 		<header class="major container medium">
 			<h2>我們運用圖表的力量
 				<br />
@@ -41,40 +40,46 @@
 
 		<div class="box alt container">
 			<section class="feature left">
-				<a href="/page1" class="image icon solid fa-table"><img src="{{url_for('static', filename='images/pic03.png')}}" alt="" /></a>
+				<a href="/page1" class="image icon solid fa-table"><img
+						src="{{url_for('static', filename='images/pic03.png')}}" alt="" /></a>
 				<div class="content">
 					<h3>表格-簡單地了解富豪們</h3>
 					<p>我們會製作表格簡單比較富豪們的個人資料，除此之外還會附上篩選功能，跑條則會透過動態的表示描述各類資料</p>
 				</div>
 			</section>
 			<section class="feature right">
-				<a href="/page2" class="image icon solid fa-chart-pie"><img src="{{url_for('static', filename='images/pic02.png')}}" alt="" /></a>
+				<a href="/page2" class="image icon solid fa-chart-pie"><img
+						src="{{url_for('static', filename='images/pic02.png')}}" alt="" /></a>
 				<div class="content">
 					<h3>圓餅圖</h3>
 					<p>我們將透過圓餅圖來表示各類項目，包括國家、產業等...。圓餅圖可以簡易地讓我們透過肉眼觀察數據，比例的分布一目了然。</p>
 				</div>
 			</section>
 			<section class="feature left">
-				<a href="/page3" class="image icon solid fa-chart-bar"><img src="{{url_for('static', filename='images/pic03.png')}}" alt="" /></a>
+				<a href="/page3" class="image icon solid fa-chart-bar"><img
+						src="{{url_for('static', filename='images/pic03.png')}}" alt="" /></a>
 				<div class="content">
 					<h3>長條圖</h3>
 					<p>我們將透過長條圖來表示各類項目，包括國家、產業等...。長條圖是很直觀比較項目差別的圖表，很適合比較。</p>
 			</section>
 			<section class="feature right">
-				<a href="/page4" class="image icon solid fa-signal"><img src="{{url_for('static', filename='images/pic02.png')}}" alt="" /></a>
+				<a href="/page4" class="image icon solid fa-signal"><img
+						src="{{url_for('static', filename='images/pic02.png')}}" alt="" /></a>
 				<div class="content">
 					<h3>動態柱狀圖</h3>
 					<p>我們將透過動態柱狀圖來展示資產的分布，動態的展示讓我們更好地觀察變化。</p>
 				</div>
 			</section>
 			<section class="feature left">
-				<a href="/page5" class="image icon solid fa-cloud"><img src="{{url_for('static', filename='images/pic03.png')}}" alt="" /></a>
+				<a href="/page5" class="image icon solid fa-cloud"><img
+						src="{{url_for('static', filename='images/pic03.png')}}" alt="" /></a>
 				<div class="content">
 					<h3>泡泡圖</h3>
 					<p>泡泡糖公主</p>
 			</section>
 			<section class="feature right">
-				<a href="/page6" class="image icon solid fa-list"><img src="{{url_for('static', filename='images/pic02.png')}}" alt="" /></a>
+				<a href="/page6" class="image icon solid fa-list"><img
+						src="{{url_for('static', filename='images/pic02.png')}}" alt="" /></a>
 				<div class="content">
 					<h3>互動式介面-我們與富豪的距離?</h3>
 					<p>我們可以比較自己與富豪的差距，但如何比較?請點擊來深入瞭解吧!</p>
@@ -122,6 +127,34 @@
 	</div>
 
 	<div id="footer"></div>
+	<script>
+		ScrollReveal().reveal('#header', {
+			reset: true,
+			delay: 300,
+			distance: '20px',
+			easing: 'ease-in-out',
+			origin: 'bottom',
+			interval: 200
+		});
+
+		ScrollReveal().reveal('.feature.left', {
+			reset: true,
+			delay: 300,
+			distance: '20px',
+			easing: 'ease-in-out',
+			origin: 'left',
+			interval: 200
+		});
+
+		ScrollReveal().reveal('.feature.right', {
+			reset: true,
+			delay: 300,
+			distance: '20px',
+			easing: 'ease-in-out',
+			origin: 'right',
+			interval: 200
+		});
+	</script>
 
 	<!-- Scripts -->
 	<script src="{{url_for('static', filename='js/jquery.min.js')}}"></script>
@@ -129,7 +162,6 @@
 	<script src="{{url_for('static', filename='js/breakpoints.min.js')}}"></script>
 	<script src="{{url_for('static', filename='js/util.js')}}"></script>
 	<script src="{{url_for('static', filename='js/main.js')}}"></script>
-	<script src="{{url_for('static', filename='js/aos.js')}}"></script>
 
 </body>
 
