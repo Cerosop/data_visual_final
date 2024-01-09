@@ -1,0 +1,22 @@
+import sqlite3 as lite
+import pandas as pd
+con = lite.connect('mydb.db')
+
+dict = [{'country': [], 'value': []}]
+
+with con:
+    cur=con.cursor()
+    y = 2022
+        
+    cur.execute(f"select country, count(*) from data where year = {y} group by country")
+    con.commit()
+    data = cur.fetchall()
+    
+    for d in data:
+        dict[0]['country'].append(d[0])
+        dict[0]['value'].append(d[1])
+            
+
+df = pd.DataFrame(dict[0])
+with open('static/js/files/country_c.csv', 'w', newline='') as file:
+    df.to_csv(file, index=False)
